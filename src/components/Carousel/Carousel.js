@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 
 export default function CarouselShop() {
     return (
-        <Carousel autoPlay={true} infiniteLoop={true} centerMode={true} centerSlidePercentage={70} showThumbs={false} >
+        <Carousel autoPlay={true} infiniteLoop={true} centerMode={true} centerSlidePercentage={65} showThumbs={false} >
             <div>
                 <img src="https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?cs=srgb&dl=pexels-fauxels-3183132.jpg&fm=jpg" alt="Image1" />
             </div>
