@@ -5,13 +5,19 @@ export default function CarouselShop() {
     return (
         <Carousel autoPlay={true} infiniteLoop={true} centerMode={true} centerSlidePercentage={65} showThumbs={false} >
             <div>
-                <img src="https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?cs=srgb&dl=pexels-fauxels-3183132.jpg&fm=jpg" alt="Image1" />
+                <img src="https://images.pexels.com/photos/7691166/pexels-photo-7691166.jpeg?cs=srgb&dl=pexels-roman-odintsov-7691166.jpg&fm=jpg" alt="Image1" />
             </div>
             <div>
-                <img src="https://images.pexels.com/photos/4669986/pexels-photo-4669986.jpeg?cs=srgb&dl=pexels-cats-coming-4669986.jpg&fm=jpg" alt="Image2" />
+                <img src="https://images.pexels.com/photos/208052/pexels-photo-208052.jpeg?cs=srgb&dl=pexels-kinkate-208052.jpg&fm=jpg" alt="Image2" />
             </div>
             <div>
-                <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?cs=srgb&dl=pexels-tracy-le-blanc-607812.jpg&fm=jpg" alt="Image3" />
+                <img src="https://images.pexels.com/photos/1961792/pexels-photo-1961792.jpeg?cs=srgb&dl=pexels-valeria-boltneva-1961792.jpg&fm=jpg" alt="Image3" />
+            </div>
+            <div>
+                <img src="https://images.pexels.com/photos/2720447/pexels-photo-2720447.jpeg?cs=srgb&dl=pexels-ray-piedra-2720447.jpg&fm=jpg" alt="image4" />
+            </div>
+            <div>
+                <img src="https://images.pexels.com/photos/3735627/pexels-photo-3735627.jpeg?cs=srgb&dl=pexels-polina-tankilevitch-3735627.jpg&fm=jpg" alt="image5" />
             </div>
         </Carousel>
 

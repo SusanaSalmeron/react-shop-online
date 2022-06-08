@@ -1,13 +1,16 @@
 import style from "./searchBar.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
+import logo from '../../images/logo.png'
 
 
 export default function SearchBar() {
     return (
         <div className={style.container}>
             <div className={style.logo}>
-                LOGO</div>
+
+                <img src={logo} alt="Logo" />
+            </div>
             <form className={style.search}>
                 <input type="text" className={style.input} />
                 <button className={style.button} type="text">

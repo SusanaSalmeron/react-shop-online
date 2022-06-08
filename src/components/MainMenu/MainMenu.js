@@ -6,29 +6,29 @@ export default function MainMenu() {
         <div className={style.menu}>
             <ul>
                 <Link to={"/"}>
-                    <li>BRANDS</li>
+                    <li>NEW</li>
                 </Link>
                 <Link to={"/"}>
-                    <li>WOMAN</li>
+                    <li>BRANDS</li>
                 </Link>
 
                 <Link to={"/"}>
-                    <li>MEN</li>
+                    <li>SKIN CARE</li>
                 </Link>
                 <Link to={"/"}>
-                    <li>HOME</li>
+                    <li>MAKE UP</li>
                 </Link>
                 <Link to={"/"}>
-                    <li>BEAUTY</li>
+                    <li>HAIR</li>
                 </Link>
                 <Link to={"/"}>
-                    <li>ELECTRONICS</li>
+                    <li>BODY</li>
                 </Link>
                 <Link to={"/"}>
-                    <li>BOOKS</li>
+                    <li>FRAGANCE</li>
                 </Link>
                 <Link to={"/"}>
-                    <li>MOVIES, TV & MUSIC</li>
+                    <li>OFFERS</li>
                 </Link>
             </ul>
 
