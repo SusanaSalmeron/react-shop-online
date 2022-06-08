@@ -2,6 +2,7 @@ import Home from './components/Home/Home';
 import Header from './components/Header/Header'
 import style from './App.module.css';
 import { Route, Routes, Navigate } from 'react-router-dom'
+import Footer from './components/Footer/footer';
 
 function App() {
   return (
@@ -14,7 +15,11 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/*" element={<Navigate to="/home" />} />
       </Routes>
+      <div className={style.footer}>
+        <Footer />
+      </div>
     </div>
+
   );
 }
 

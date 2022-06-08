@@ -1,0 +1,63 @@
+.footer {
+    background-color: black;
+    color: white;
+    padding: 2em 0;
+    margin-top: 3em;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.logo {
+    grid-column: 1 / 1;
+    margin: 0;
+
+}
+
+.logo img {
+    width: 15%;
+}
+
+.links {
+    grid-column: 2 /3;
+}
+
+.links ul li {
+    list-style: none;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+.subscribe {
+    grid-column: 3 / 8;
+}
+
+.subscribe input {
+    margin-top: 2em;
+    height: 2em;
+    width: 30%;
+    border-radius: 5px;
+    outline: none;
+}
+
+.subscribe button {
+    align-items: center;
+    margin-left: 2em;
+    border-style: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 36px;
+    letter-spacing: .0892857em;
+    line-height: normal;
+    min-width: 64px;
+    padding: 0 16px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+}
