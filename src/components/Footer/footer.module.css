@@ -13,7 +13,6 @@
 .logo {
     grid-column: 1 / 1;
     margin: 0;
-
 }
 
 .logo img {
@@ -31,7 +30,7 @@
 }
 
 .subscribe {
-    grid-column: 3 / 8;
+    grid-column: 3 / 7;
 }
 
 .subscribe input {
@@ -60,4 +59,58 @@
     text-align: center;
     text-transform: uppercase;
     background-color: transparent;
+}
+
+@media(max-width:1200px) {
+
+    .links ul li,
+    .logo figcaption {
+        font-size: 0.9em;
+    }
+
+    .subscribe input {
+        margin-top: 1.5em;
+        height: 1.5em;
+    }
+}
+
+@media (max-width:992px) {
+    .logo img {
+        width: 25%;
+    }
+
+    .logo figcaption {
+        font-size: 0.7em;
+    }
+
+    .subscribe h3 {
+        font-size: medium;
+    }
+}
+
+@media(max-width:576px) {
+    .logo img {
+        width: 35%;
+    }
+
+    .links {
+        grid-column: 2 /4;
+    }
+
+    .links ul li {
+        font-size: 1em;
+    }
+
+    .subscribe {
+        grid-column: 4 / 7;
+    }
+
+    .subscribe input {
+        width: 70%;
+    }
+
+    .subscribe button {
+        margin-top: 1em;
+        margin-left: 0;
+    }
 }
