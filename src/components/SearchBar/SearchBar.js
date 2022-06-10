@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../images/logo.png';
 import useMedia from '../../hooks/useMedia'
+import { Link } from "react-router-dom";
 
 
 export default function SearchBar() {
@@ -12,7 +13,10 @@ export default function SearchBar() {
         <>
             {isDesktop ? <div className={style.container} >
                 <div className={style.logo}>
-                    <img src={logo} alt="Logo" />
+                    <Link to={"/home"}>
+                        <img src={logo} alt="Logo" />
+                    </Link>
+
                 </div>
                 <form className={style.search}>
                     <input type="text" className={style.input} />
