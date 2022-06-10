@@ -1,6 +1,8 @@
 import style from './footer.module.css';
 import logo2 from "../../images/logo2.png";
 import useMedia from '../../hooks/useMedia';
+import { Link } from 'react-router-dom';
+
 
 export default function Footer() {
     const isDesktop = useMedia('(min-width: 577px)')
@@ -18,8 +20,16 @@ export default function Footer() {
                         <li>Contact us</li>
                         <li>General Conditions</li>
                         <li>Blog</li>
-                        <li>Legal Notice</li>
-                        <li>Privacy Policy</li>
+                        <li>
+                            <Link to="/legal">
+                                Legal Notice
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/privacy">
+                                Privacy Policy
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className={style.subscribe}>
