@@ -33,6 +33,15 @@
     font-size: 1.2em;
 }
 
+.links ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.links ul li a:hover {
+    color: gray;
+}
+
 .subscribe {
     grid-column: 3 / 7;
 }
