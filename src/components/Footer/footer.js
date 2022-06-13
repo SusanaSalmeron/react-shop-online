@@ -18,7 +18,11 @@ export default function Footer() {
                     <ul>
                         <li>About us</li>
                         <li>Contact us</li>
-                        <li>General Conditions</li>
+                        <li>
+                            <Link to="/terms" >
+                                Terms & Conditions
+                            </Link>
+                        </li>
                         <li>
                             <Link to="/comingSoon">
                                 Blog
