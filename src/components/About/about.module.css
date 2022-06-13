@@ -1,23 +1,8 @@
 .container {
-    width: 70%;
+    width: 99%;
+    height: 47.11vh;
     margin: 0 auto;
-}
-
-.container h3,
-ul {
     text-align: left;
-}
-
-.container p {
-    text-align: justify;
-}
-
-.italic {
-    font-style: italic;
-}
-
-.container span {
-    color: darkgreen;
 }
 
 .button {
@@ -28,4 +13,9 @@ ul {
 
 .button button {
     text-transform: uppercase;
+}
+
+.container p {
+    margin-left: 1em;
+    font-size: 1.2em;
 }

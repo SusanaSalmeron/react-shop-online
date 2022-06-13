@@ -16,7 +16,11 @@ export default function Footer() {
                 </figure>
                 <div className={style.links}>
                     <ul>
-                        <li>About us</li>
+                        <li>
+                            <Link to="/about">
+                                About us
+                            </Link>
+                        </li>
                         <li>Contact us</li>
                         <li>
                             <Link to="/terms" >

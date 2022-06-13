@@ -3,3 +3,18 @@
 .accordion p {
     text-align: left;
 }
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1em 1em 1em 0;
+}
+
+.button button {
+    text-transform: uppercase;
+}
+
+.container {
+    height: 47.11vh;
+    width: 97%;
+}

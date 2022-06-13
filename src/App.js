@@ -8,6 +8,7 @@ import PrivacyPolicy from './components/PrivacyPolicy/privacyPolicy';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import ComingSoon from './components/ComingSoon/comingSoon';
 import Terms from './components/Terms/terms';
+import About from './components/About/about';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/comingSoon" element={<ComingSoon />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <div className={style.footer}>
           <Footer />
