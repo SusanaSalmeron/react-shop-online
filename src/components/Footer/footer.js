@@ -19,7 +19,11 @@ export default function Footer() {
                         <li>About us</li>
                         <li>Contact us</li>
                         <li>General Conditions</li>
-                        <li>Blog</li>
+                        <li>
+                            <Link to="/comingSoon">
+                                Blog
+                            </Link>
+                        </li>
                         <li>
                             <Link to="/legal">
                                 Legal Notice

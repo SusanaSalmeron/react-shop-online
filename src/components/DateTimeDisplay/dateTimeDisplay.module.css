@@ -1,0 +1,24 @@
+.count {
+    color: green;
+    padding: 0 0.75rem 0 0.75rem;
+}
+
+.danger {
+    color: #ff0000;
+}
+
+.count>p {
+    margin: 0;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 0.3em;
+    background-color: rgb(242, 239, 239)
+}
+
+.count>span {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    padding: 0.1em;
+
+}

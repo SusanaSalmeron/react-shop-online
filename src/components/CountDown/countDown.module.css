@@ -1,0 +1,27 @@
+.expired {
+    text-align: center;
+    padding: 2rem;
+    margin: 0.5rem;
+}
+
+.expired>span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: red;
+}
+
+.expired>p {
+    font-size: 1.5rem;
+}
+
+.show {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    font-size: 2em;
+    ;
+}
+
+.show p {
+    margin: 0 0.1em;
+}

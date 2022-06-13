@@ -1,0 +1,17 @@
+.container {
+    height: 47.15vh;
+    width: 100%;
+}
+
+.container h1 {
+    text-transform: uppercase;
+    padding-top: 2em;
+}
+
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1em 1em 0 0;
+
+}
