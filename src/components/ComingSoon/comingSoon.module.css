@@ -1,11 +1,16 @@
 .container {
-    height: 47.15vh;
+    height: calc(71.5vh - 10em);
+}
+
+.count {
     width: 100%;
 }
 
-.container h1 {
+.count h1 {
+    text-align: center;
     text-transform: uppercase;
     padding-top: 2em;
+    margin-top: 3em;
 }
 
 
@@ -17,4 +22,22 @@
 
 .button button {
     text-transform: uppercase;
+}
+
+@media(max-width: 1200px) {
+    .container {
+        height: calc(71.85vh - 10em);
+    }
+}
+
+@media(max-width:992px) {
+    .container {
+        height: calc(72vh - 10em);
+    }
+}
+
+@media(max-width:576px) {
+    .container {
+        height: calc(68.8vh - 10em);
+    }
 }

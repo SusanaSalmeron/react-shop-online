@@ -16,14 +16,14 @@ export default function ComingSoon() {
     }
 
     return (
-        <>
+        <div className={style.container}>
             <div className={style.button}>
                 <button onClick={handleNavigate}>return</button>
             </div>
-            <div className={style.container}>
-                <h1>- Our bloog is coming Soon - </h1>
+            <div className={style.count}>
+                <h1>- Our blog is coming Soon - </h1>
                 <CountDown targetDate={dateTimeAfterOneMonth} />
             </div>
-        </>
+        </div>
     );
 }

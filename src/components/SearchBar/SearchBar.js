@@ -35,7 +35,9 @@ export default function SearchBar() {
                 <div className={style.container}>
                     <div className={style.logoContainer}>
                         <div className={style.logo}>
-                            <img src={logo} alt="Logo" />
+                            <Link to={"/home"}>
+                                <img src={logo} alt="Logo" />
+                            </Link>
                         </div>
                         <div className={style.buttons}>
                             <button className={style.login}>Login</button>

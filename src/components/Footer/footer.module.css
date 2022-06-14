@@ -1,17 +1,18 @@
 .footer {
     background-color: black;
     color: white;
-    padding: 2em 0;
+    padding: 1em 0;
     margin-top: 3em;
     position: relative;
     width: 100%;
-    left: 0;
     bottom: 0;
+    height: 10em;
 }
 
 .container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+    margin-left: 2em;
 }
 
 .logo {
@@ -21,10 +22,11 @@
 
 .logo img {
     width: 15%;
+    margin-left: 3em;
 }
 
 .links {
-    grid-column: 2 /3;
+    grid-column: 2 /4;
 }
 
 .links ul li {
@@ -43,7 +45,8 @@
 }
 
 .subscribe {
-    grid-column: 3 / 7;
+    grid-column: 4 / 7;
+
 }
 
 .subscribe input {
@@ -104,6 +107,7 @@
 @media(max-width:576px) {
     .logo img {
         width: 35%;
+        margin-left: 1em;
     }
 
     .links {
@@ -124,6 +128,6 @@
 
     .subscribe button {
         margin-top: 1em;
-        margin-left: 0;
+        margin-left: 2em;
     }
 }

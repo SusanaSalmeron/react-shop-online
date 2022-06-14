@@ -58,12 +58,32 @@ export default function Footer() {
                 </figure>
                 <div className={style.links}>
                     <ul>
-                        <li>About us</li>
+                        <li>
+                            <Link to="/about">
+                                About us
+                            </Link>
+                        </li>
                         <li>Contact us</li>
-                        <li>General Conditions</li>
-                        <li>Blog</li>
-                        <li>Legal Notice</li>
-                        <li>Privacy Policy</li>
+                        <li>
+                            <Link to="/terms" >
+                                Terms & Conditions
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/comingSoon">
+                                Blog
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/legal">
+                                Legal Notice
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/privacy">
+                                Privacy Policy
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className={style.subscribe}>

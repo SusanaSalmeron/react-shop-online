@@ -1,6 +1,6 @@
 .container {
     width: 99%;
-    height: 47.11vh;
+    height: calc(65.35vh - 10em);
     margin: 0 auto;
     text-align: left;
 }
@@ -18,4 +18,29 @@
 .container p {
     margin-left: 1em;
     font-size: 1.2em;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        min-height: 52.3vh;
+    }
+
+}
+
+@media(max-width:992px) {
+    .container {
+        min-height: 52.2vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        margin-top: 3em;
+        margin-bottom: -2em;
+        min-height: 47.9vh;
+    }
+
+    .container p {
+        font-size: 1em;
+    }
 }
