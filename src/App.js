@@ -1,5 +1,4 @@
 import Home from './components/Home/Home';
-import Header from './components/Header/Header'
 import './App.css';
 import { Route, Routes, Navigate } from 'react-router-dom'
 import Footer from './components/Footer/footer';
@@ -9,15 +8,15 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import ComingSoon from './components/ComingSoon/comingSoon';
 import Terms from './components/Terms/terms';
 import About from './components/About/about';
-
+import Header from './components/Header/header';
 function App() {
+  /* const isDesktop = useMedia('(min-width: 993px)') */
+
   return (
     <div className="page-container">
       <div className="content-wrap">
         <ScrollToTop>
-          <div className="header">
-            <Header />
-          </div>
+          <Header />
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Navigate to="/home" />} />

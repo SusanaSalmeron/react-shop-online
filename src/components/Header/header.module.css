@@ -1,0 +1,25 @@
+.header {
+    height: 58px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    color: white;
+    background-color: black;
+    height: 100px;
+    margin-bottom: 2em;
+}
+
+.area {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: auto;
+    background-color: black;
+}
+
+
+@media(max-width: 1200px) {
+    .nav-area img {
+        width: 90%;
+    }
+}

@@ -12,12 +12,6 @@ export default function SearchBar() {
     return (
         <>
             {isDesktop ? <div className={style.container} >
-                <div className={style.logo}>
-                    <Link to={"/home"}>
-                        <img src={logo} alt="Logo" />
-                    </Link>
-
-                </div>
                 <form className={style.search}>
                     <input type="text" className={style.input} />
                     <button className={style.button} type="text">

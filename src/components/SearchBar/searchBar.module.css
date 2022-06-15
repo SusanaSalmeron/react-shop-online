@@ -1,18 +1,13 @@
 .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     background-color: black;
-}
-
-.logo {
-    color: white;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
+    width: 50%;
 }
 
 .search {
-    margin-bottom: 2em;
+
+    margin: 0 2em 2em 0;
     width: 60%;
     display: flex;
     padding-top: 30px;
@@ -23,7 +18,7 @@
 }
 
 .buttons button {
-    margin-right: 2em;
+    margin-right: 1em;
     align-items: center;
     border-style: none;
     color: #fff;
@@ -71,18 +66,28 @@
     background: #d4bbf7;
 }
 
+.buttons .cart {
+    margin: auto 0;
+
+    padding: 0 2em;
+}
+
+.buttons .login,
+.buttons .signin {
+    margin-right: 0;
+}
+
 @media (max-width: 1200px) {
-    .logo img {
-        width: 80%;
+    .container {
+        width: 42%;
     }
 
     .search {
-        width: 50%;
+        width: 45%;
     }
 
     .buttons button {
-        margin-right: 2em;
-        margin-left: 1em;
+        margin: inherit 0;
         font-size: 0.8rem;
         height: 36px;
         min-width: 64px;
