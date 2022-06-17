@@ -17,19 +17,21 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    width: 100%;
+    max-width: 100%;
     text-transform: uppercase;
 }
 
 .items a,
 .items button {
     text-align: left;
-    padding: 0.7rem 1rem;
+    padding: 0 1rem;
+
 }
 
 .items a:hover,
 .items button:hover {
     background-color: black;
+    color: grey
 }
 
 /* .arrow::after {
@@ -40,4 +42,18 @@
     border-top: 0.42em solid;
     border-right: 0.32em solid transparent;
     border-left: 0.32em solid transparent;
+} */
+
+@media(max-width: 1200px) {
+
+    .items button {
+        max-width: 40%;
+    }
+
+}
+
+/*@media(max-width: 992px) {
+    .items {
+        padding-right: 2em;
+    }
 } */

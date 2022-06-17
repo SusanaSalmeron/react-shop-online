@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 
 export default function Footer() {
-    const isDesktop = useMedia('(min-width: 577px)')
+    const isMobile = useMedia('(min-width: 577px)')
 
     return (
         <div className={style.footer}>
-            {isDesktop ? <div className={style.container}>
+            {isMobile ? <div className={style.container}>
                 <figure className={style.logo}>
                     <img src={logo2} alt="logo2" />
                     <figcaption>©2022 Beauty Store</figcaption>

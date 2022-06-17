@@ -1,20 +1,24 @@
 .container {
     display: flex;
-    justify-content: flex-end;
-    background-color: black;
-    width: 50%;
+    justify-content: space-between;
+    background-color: transparent;
+    height: 80px
 }
 
-.search {
+.container img {
+    width: 70%;
+}
 
-    margin: 0 2em 2em 0;
-    width: 60%;
-    display: flex;
-    padding-top: 30px;
+
+.container figure {
+    width: 10%;
+    height: auto;
 }
 
 .buttons {
+    max-width: 100%;
     padding-top: 30px;
+
 }
 
 .buttons button {
@@ -37,64 +41,32 @@
     background-color: transparent;
 }
 
-.search input {
-    width: 100%;
-    border-radius: 10%;
-    border-right: none;
-    padding: 5px;
-    height: 20px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    font-size: 1.5em;
-}
-
-.search input:focus {
-    color: #A46BF5;
-}
-
-.search button {
-    width: 40px;
-    height: 34px;
-    border: 1px solid #d4bbf7;
-    background: #A46BF5;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 1.2em;
-}
-
-.search button:hover {
-    background: #d4bbf7;
-}
-
 .buttons .cart {
-    margin: auto 0;
-
+    margin-right: 2em;
     padding: 0 2em;
 }
 
-.buttons .login,
-.buttons .signin {
-    margin-right: 0;
-}
+/* 
+
+
+
+
+
 
 @media (max-width: 1200px) {
     .container {
-        width: 42%;
+        grid-column: 2/5;
+        grid-row: 1/2;
+        width: 100%;
     }
 
     .search {
-        width: 45%;
-    }
+        width: 100%;
 
-    .buttons button {
-        margin: inherit 0;
-        font-size: 0.8rem;
-        height: 36px;
-        min-width: 64px;
     }
 }
-
-@media (max-width: 992px) {
+ */
+/* @media (max-width: 992px) {
 
     .buttons button {
         margin-right: 0;
@@ -139,4 +111,4 @@
         margin: 0 auto;
         padding-bottom: 1em;
     }
-}
+} */

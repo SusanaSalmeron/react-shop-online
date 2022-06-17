@@ -1,6 +1,6 @@
 export const menuItems = [
     {
-        title: "New",
+        title: "New products",
         submenu: [
             {
                 title: "Skin Care"

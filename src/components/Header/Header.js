@@ -1,20 +1,16 @@
-import { Link } from "react-router-dom";
 import Navbar from "../Navbar/navbar";
-import SearchBar from "../SearchBar/SearchBar";
-import logo from '../../images/logo.png';
-import style from './header.module.css'
+import style from './header.module.css';
+import useMedia from "../../hooks/useMedia";
+import NavbarMobile from "../NavbarMobile/navbarMobile";
+import LoginAndSigninButtons from "../LoginAndSigninButtons/loginAndSigninButtons";
 
 
 export default function Header() {
+    const isMobile = useMedia(('(max-width: 768px)'))
     return (
         <header className={style.header}>
-            <div className={style.area}>
-                <Link to="/">
-                    <img src={logo} alt="logo" />
-                </Link>
-                <Navbar />
-                <SearchBar />
-            </div>
+            <LoginAndSigninButtons />
+            {isMobile ? <NavbarMobile /> : <Navbar />}
         </header>
     )
 }
