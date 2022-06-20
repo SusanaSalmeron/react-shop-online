@@ -6,7 +6,7 @@ import LoginAndSigninButtons from "../LoginAndSigninButtons/loginAndSigninButton
 
 
 export default function Header() {
-    const isMobile = useMedia(('(max-width: 768px)'))
+    const isMobile = useMedia(('(max-width: 993px)'))
     return (
         <header className={style.header}>
             <LoginAndSigninButtons />

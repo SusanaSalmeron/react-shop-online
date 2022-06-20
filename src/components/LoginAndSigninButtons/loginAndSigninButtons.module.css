@@ -1,8 +1,8 @@
 .container {
     display: flex;
     justify-content: space-between;
-    background-color: transparent;
-    height: 80px
+    height: 80px;
+    max-width: 100%;
 }
 
 .container img {
@@ -18,25 +18,18 @@
 .buttons {
     max-width: 100%;
     padding-top: 30px;
-
 }
 
 .buttons button {
-    margin-right: 1em;
-    align-items: center;
     border-style: none;
     color: #fff;
     cursor: pointer;
-    display: inline-flex;
     font-family: Roboto, sans-serif;
     font-size: 1rem;
-    font-weight: 500;
     height: 36px;
     letter-spacing: .0892857em;
-    line-height: normal;
     min-width: 64px;
-    padding: 0 16px;
-    text-align: center;
+    padding: 0 2em;
     text-transform: uppercase;
     background-color: transparent;
 }
@@ -46,69 +39,49 @@
     padding: 0 2em;
 }
 
-/* 
 
+@media (max-width: 992px) {
+    .container img {
+        width: 90%;
 
-
-
-
-
-@media (max-width: 1200px) {
-    .container {
-        grid-column: 2/5;
-        grid-row: 1/2;
-        width: 100%;
     }
 
-    .search {
-        width: 100%;
-
+    .buttons .cart {
+        margin-right: 0.5em;
     }
 }
- */
-/* @media (max-width: 992px) {
+
+
+
+@media(max-width: 576px) {
+    ç .container {
+        align-items: baseline;
+    }
+
+    .container img {
+        width: 100%;
+    }
+
+    .buttons button {
+        font-size: 0.8rem;
+        margin-right: 1.5em;
+    }
+
+    .buttons .cart {
+        margin-right: 1.5em;
+    }
+}
+
+@media(max-width:480px) {
+    .container figure {
+        width: 15%;
+    }
 
     .buttons button {
         margin-right: 0;
-        margin-left: 0;
+        font-size: 0.7rem;
+        min-width: 50px;
+        padding: 0 2em;
+        text-transform: uppercase;
     }
 }
-
-@media(max-width:768px) {
-    .search {
-        width: 40%;
-    }
-
-    .buttons button {
-        margin: 0;
-    }
-
-    .logo {
-        width: 20%;
-    }
-
-    .logo img {
-        margin-left: 1em;
-    }
-}
-
-@media(max-width: 576px) {
-    .logoContainer {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .logo {
-        width: 30%;
-    }
-
-    .container {
-        display: block;
-    }
-
-    .search {
-        width: 80%;
-        margin: 0 auto;
-        padding-bottom: 1em;
-    }
-} */

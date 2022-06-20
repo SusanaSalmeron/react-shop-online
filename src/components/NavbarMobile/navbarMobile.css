@@ -1,10 +1,16 @@
+.navbarMobile {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
-    position: fixed;
+    position: absolute;
     width: 36px;
     height: 30px;
-    left: 230px;
-    top: 32px;
+    left: 50px;
+    top: 80px;
 }
 
 /* Color/shape of burger icon bars */
@@ -14,9 +20,8 @@
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-    background: #a90000;
+    background-color: #A46BF5;
 }
-
 
 /*
 Sidebar wrapper styles
@@ -30,9 +35,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* General sidebar styles */
 .bm-menu {
     background: black;
-    padding: 0em 1.5em 0 0;
+    padding: 0em 1.5em 0 1em;
     font-size: 1.15em;
-    width: 10em;
+    width: 15em;
     margin-left: -1.5em;
 }
 
@@ -62,32 +67,51 @@ Note: Beware of modifying this element as it can break the animations - you shou
     background: rgba(0, 0, 0, 0.3);
 }
 
-@media(max-width: 768px) {
-    .header {
-        width: 100%;
-    }
+.search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 1em;
+}
 
-    .area input {
-        width: 100%;
-    }
+.search input {
+    width: 70%;
+    height: 23px;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    font-size: 1.2em;
+}
 
-    .navbar {
-        display: flex;
+.search input:focus {
+    color: #A46BF5;
+}
+
+.search button {
+    text-align: center;
+    width: 40px;
+    height: 32px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background: #A46BF5;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0;
+}
+
+.search button:hover {
+    background: #d4bbf7;
+}
+
+@media(max-width:992px) {
+    .search button {
+        height: 33.5px;
     }
 }
 
-
-@media(max-width: 576px) {
-    .bm-burger-button {
-        position: fixed;
-        width: 36px;
-        height: 30px;
-        left: 170px;
-        top: 32px;
-    }
-
-    .bm-menu {
-
-        width: 9em;
+@media(max-width:480px) {
+    .search {
+        width: 60%;
     }
 }

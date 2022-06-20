@@ -1,8 +1,6 @@
 import { menuItems } from "../../menuItems";
 import MenuItems from "../MenuItems/menuItems";
 import style from './navbar.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 const Navbar = () => {
@@ -17,7 +15,7 @@ const Navbar = () => {
             <form className={style.search}>
                 <input type="text" className={style.input} />
                 <button className={style.button} type="text">
-                    <FontAwesomeIcon icon={faSearch} />
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
         </nav>

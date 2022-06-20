@@ -9,6 +9,8 @@ import ComingSoon from './components/ComingSoon/comingSoon';
 import Terms from './components/Terms/terms';
 import About from './components/About/about';
 import Header from './components/Header/header';
+
+
 function App() {
   /* const isDesktop = useMedia('(min-width: 993px)') */
 

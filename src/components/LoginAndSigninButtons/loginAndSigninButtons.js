@@ -1,16 +1,9 @@
-import style from "./loginAndSigninButtons.module.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import useMedia from '../../hooks/useMedia';
+import style from "./loginAndSigninButtons.module.css";
 import { Link } from "react-router-dom";
 import logo from '../../images/logo.png';
 
 
-
-
-
 export default function LoginAndSigninButtons() {
-    /* const isMobile = useMedia('(min-width: 768px)') */
     return (
         <>
             <div className={style.container} >
@@ -22,7 +15,7 @@ export default function LoginAndSigninButtons() {
                     <button className={style.login}>Login</button>
                     <button className={style.signin}>Sign in</button>
                     <button className={style.cart}>
-                        <FontAwesomeIcon icon={faCartShopping} />
+                        <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                 </div>
             </div >

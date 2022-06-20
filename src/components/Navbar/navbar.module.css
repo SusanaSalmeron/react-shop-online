@@ -7,9 +7,9 @@
 .menus {
     display: flex;
     list-style: none;
-    width: 50%;
+    width: 100%;
     justify-content: space-around;
-    margin-left: 5em;
+
 }
 
 .search {
@@ -51,14 +51,11 @@
 
 
 /* @media(max-width: 1200px) {
-    nav {
-        grid-column: 1/5;
-        grid-row: 2/3;
-        width: 100%;
-
-    }
-
     .menus {
+        margin-left: 0;
         width: 100%;
     }
+
+
+
 } */
