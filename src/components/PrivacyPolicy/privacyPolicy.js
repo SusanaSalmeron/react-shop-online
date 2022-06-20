@@ -1,18 +1,12 @@
-import {
-    useNavigate
-} from 'react-router-dom';
+import ReturnButton from '../ReturnButton/returnButton';
 import style from './privacyPolicy.module.css';
 
 
 export default function PrivacyPolicy() {
-    const navigate = useNavigate()
-    const handleNavigate = () => {
-        navigate(-1)
-    }
     return (
         <>
             <div id="privacy" className={style.button}>
-                <button onClick={handleNavigate}>Return</button>
+                <ReturnButton />
             </div>
             <div className={style.container}>
                 <h1>PRIVACY POLICY</h1>

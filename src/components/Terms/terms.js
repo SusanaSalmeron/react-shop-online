@@ -1,16 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+import ReturnButton from '../ReturnButton/returnButton';
 import style from './terms.module.css';
 
 export default function Terms() {
-    const navigate = useNavigate()
-    const handleNavigate = () => {
-        navigate(-1)
-    }
+
 
     return (
         <div className={style.container}>
             <div className={style.button}>
-                <button onClick={handleNavigate}>return</button>
+                <ReturnButton />
             </div>
             <h1>TERMS OF USE</h1>
             <h2>1. INFORMATION ABOUT OUR TERMS OF USE</h2>

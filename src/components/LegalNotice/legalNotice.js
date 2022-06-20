@@ -1,17 +1,12 @@
 import style from './legalNotice.module.css';
-import { useNavigate } from 'react-router-dom';
+import ReturnButton from '../ReturnButton/returnButton';
 
 
 export default function LegalNotice() {
-    const navigate = useNavigate()
-
-    const handleNavigate = () => {
-        navigate(-1)
-    }
     return (
         <>
             <div id="legal" className={style.button}>
-                <button onClick={handleNavigate}>Return</button>
+                <ReturnButton />
             </div>
             <div className={style.container}>
                 <h1>LEGAL NOTICE</h1>

@@ -1,17 +1,11 @@
-import { useNavigate } from 'react-router-dom';
 import style from './about.module.css';
+import ReturnButton from '../ReturnButton/returnButton';
 
 export default function About() {
-    const navigate = useNavigate()
-    const handleNavigate = () => {
-        navigate(-1)
-    }
     return (
         <>
             <div className={style.button}>
-                <button onClick={handleNavigate}>
-                    return
-                </button>
+                <ReturnButton />
             </div>
             <div className={style.container}>
                 <p>We are a beauty online shop.</p>
