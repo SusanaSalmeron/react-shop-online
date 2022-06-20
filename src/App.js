@@ -9,6 +9,7 @@ import ComingSoon from './components/ComingSoon/comingSoon';
 import Terms from './components/Terms/terms';
 import About from './components/About/about';
 import Header from './components/Header/Header';
+import Login from './components/Login/login';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/comingSoon" element={<ComingSoon />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
           <div className="footer">
             <Footer />
