@@ -3,7 +3,7 @@ import ReturnButton from '../ReturnButton/returnButton';
 
 export default function About() {
     return (
-        <>
+        <div>
             <div className={style.button}>
                 <ReturnButton />
             </div>
@@ -13,6 +13,6 @@ export default function About() {
                 <p>Our web have a wide variety of products, all of them great quality.</p>
                 <p>Every day we work to bring more products and brands.</p>
             </div>
-        </>
+        </div>
     )
 }

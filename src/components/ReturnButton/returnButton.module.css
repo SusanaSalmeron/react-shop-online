@@ -6,7 +6,6 @@
     color: #000;
     cursor: pointer;
     height: 3em;
-    margin: 1em 2em 0 0;
     padding: 0 1em;
     text-decoration: none;
     transition: box-shadow .15s, transform .15s;
@@ -25,4 +24,20 @@
 .button:active {
     box-shadow: #6086af 0 3px 7px inset;
     transform: translateY(2px);
+}
+
+@media(max-width:992px) {
+    .button {
+        height: 2em;
+        font-size: 1em;
+    }
+}
+
+@media(max-width: 576px) {
+    .button {
+        font-size: 0.8em;
+        margin-top: 1em;
+        ;
+    }
+
 }

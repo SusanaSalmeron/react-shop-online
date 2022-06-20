@@ -2,8 +2,6 @@ import ReturnButton from '../ReturnButton/returnButton';
 import style from './terms.module.css';
 
 export default function Terms() {
-
-
     return (
         <div className={style.container}>
             <div className={style.button}>
