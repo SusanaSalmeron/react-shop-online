@@ -4,6 +4,18 @@
     justify-content: space-between;
 }
 
+.loginform label {
+    display: none;
+}
+
+.loginform input {
+    width: 90%;
+    height: 3em;
+    font-size: 1.2em;
+    margin: 0.5em auto;
+    border-radius: 15px;
+}
+
 .loginform button {
     margin: 2em auto;
     background: #A46BF5;
@@ -36,4 +48,27 @@
 .close button:active {
     box-shadow: #6086af 0 3px 7px inset;
     transform: translateY(2px);
+}
+
+
+@media(max-width: 576px) {
+    .loginform input {
+        height: 2.5em;
+    }
+
+    .loginform button {
+        height: 2.5em;
+    }
+
+}
+
+@media(max-width: 480px) {
+    .loginform input {
+        height: 2em;
+    }
+
+    .loginform button {
+        height: 2em;
+    }
+
 }
