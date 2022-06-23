@@ -1,0 +1,77 @@
+.close h2 {
+    color: black;
+    text-transform: uppercase;
+    position: relative;
+    top: -0.5em;
+    left: 1em;
+    margin-bottom: 2em;
+}
+
+.close button {
+    position: fixed;
+    top: -1.3em;
+    right: 1em;
+    margin: 2em auto;
+    background: #A46BF5;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    color: #000;
+    cursor: pointer;
+    padding: 0.3em 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: box-shadow .15s, transform .15s;
+    font-size: 1.5em;
+}
+
+.mymodal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background-image: url('../../images/login.jpg');
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    width: 500px;
+    height: 650px;
+}
+
+.mymodal label {
+    font-size: 1.3em;
+    margin-top: 2em;
+    display: none;
+}
+
+.mymodal input {
+    width: 90%;
+    height: 3em;
+    font-size: 1.2em;
+    margin: 0.5em auto;
+    border-radius: 15px;
+}
+
+.mymodal .loginform:nth-child(3) {
+    margin-top: 2em;
+}
+
+.signup {
+    width: 100%;
+    margin-top: 3em;
+    text-align: center;
+}
+
+.signup button {
+    margin-left: 0.5em;
+    border-style: none;
+    color: black;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: inherit;
+    text-decoration: underline;
+    color: #A46BF5;
+    font-weight: 800;
+}

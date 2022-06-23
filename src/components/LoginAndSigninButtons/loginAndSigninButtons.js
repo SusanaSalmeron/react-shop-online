@@ -2,6 +2,7 @@ import style from "./loginAndSigninButtons.module.css";
 import { Link } from "react-router-dom";
 import logo from '../../images/logo.png';
 import NavigateButton from "../NavigateButton/navigateButton";
+import Login from "../Login/login";
 
 
 export default function LoginAndSigninButtons() {
@@ -13,13 +14,8 @@ export default function LoginAndSigninButtons() {
                     </Link>
                 </figure>
                 <div className={style.buttons}>
+                    <Login classStyle={style.login} />
                     <NavigateButton
-                        classStyle={style.login}
-                        route={'/login'}
-                        name={'login'}
-                        label={'login'} />
-                    <NavigateButton
-                        classStyle={style.signin}
                         route={'/login'}
                         name={'signin'}
                         label={'sign in'}
@@ -33,5 +29,6 @@ export default function LoginAndSigninButtons() {
                 </div>
             </div >
         </>
+
     )
 }
