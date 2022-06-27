@@ -54,7 +54,7 @@ export default function MenuItems({ items, depthLevel }) {
                     />
                 </>
             ) : (
-                <a href="/#">{items.title}</a>
+                <a href={`/${items.title}`}>{items.title}</a>
             )}
         </li>
     );

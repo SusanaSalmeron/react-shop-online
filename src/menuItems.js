@@ -82,21 +82,57 @@ export const menuItems = [
         title: "Make up",
         submenu: [
             {
-                title: "Face"
+                title: "Face",
+                submenu: [
+                    {
+                        title: "Bronzer"
+                    },
+                    {
+                        title: "Fundation"
+                    },
+                    {
+                        title: "Blush"
+                    },
+                ]
             },
             {
-                title: "Eyes"
+                title: "Eyes",
+                submenu: [
+                    {
+                        title: "Eyeshadows"
+                    },
+                    {
+                        title: "Mascara"
+                    },
+                    {
+                        title: "Eyeliner"
+                    },
+                    {
+                        title: "Brows"
+                    }
+                ]
             },
             {
-                title: "Lips"
+                title: "Lips",
+                submenu: [
+                    {
+                        title: "lipstick"
+                    },
+                    {
+                        title: "gloss"
+                    },
+                    {
+                        title: "lipliner"
+                    }
+                ]
             },
             {
-                title: "Brows"
-            }, {
                 title: "Brushes"
-            }, {
+            },
+            {
                 title: "Tools"
-            }]
+            }
+        ]
     },
     {
         title: "Hair",

@@ -15,7 +15,7 @@ const Navbar = () => {
             <form className={style.search}>
                 <input type="text" className={style.input} />
                 <button className={style.button} type="text">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
         </nav>

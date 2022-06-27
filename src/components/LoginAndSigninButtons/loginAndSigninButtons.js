@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from '../../images/logo.png';
 import NavigateButton from "../NavigateButton/navigateButton";
 import Login from "../Login/login";
+import Signup from '../Signup/signup';
 
 
 export default function LoginAndSigninButtons() {
@@ -14,17 +15,13 @@ export default function LoginAndSigninButtons() {
                     </Link>
                 </figure>
                 <div className={style.buttons}>
-                    <Login classStyle={style.login} />
-                    <NavigateButton
-                        route={'/login'}
-                        name={'signin'}
-                        label={'sign in'}
-                    />
+                    <Login />
+                    <Signup />
                     <NavigateButton
                         classStyle={style.cart}
                         route={'/login'}
                         name={'cart'}
-                        label={<i class="fa-solid fa-cart-shopping" />}
+                        label={<i className="fa-solid fa-cart-shopping" />}
                     />
                 </div>
             </div >
