@@ -57,139 +57,46 @@ export const menuItems = [
         ]
     },
     {
-        title: "Skin care",
+        title: "Face",
         submenu: [
             {
-                title: "Cleansers and toners"
+                title: "Bronzer"
             },
             {
-                title: "Eyes and lip"
+                title: "Foundation"
             },
             {
-                title: "Serum"
+                title: "Blush"
             },
-            {
-                title: "Moisturisers"
-            },
-            {
-                title: "Masks"
-            },
-            {
-                title: "Spf"
-            }]
+        ]
+
     },
     {
-        title: "Make up",
+        title: "Eyes",
         submenu: [
             {
-                title: "Face",
-                submenu: [
-                    {
-                        title: "Bronzer"
-                    },
-                    {
-                        title: "Fundation"
-                    },
-                    {
-                        title: "Blush"
-                    },
-                ]
+                title: "Eyeshadow"
             },
             {
-                title: "Eyes",
-                submenu: [
-                    {
-                        title: "Eyeshadows"
-                    },
-                    {
-                        title: "Mascara"
-                    },
-                    {
-                        title: "Eyeliner"
-                    },
-                    {
-                        title: "Brows"
-                    }
-                ]
+                title: "Mascara"
             },
             {
-                title: "Lips",
-                submenu: [
-                    {
-                        title: "lipstick"
-                    },
-                    {
-                        title: "gloss"
-                    },
-                    {
-                        title: "lipliner"
-                    }
-                ]
+                title: "Eyeliner"
             },
             {
-                title: "Brushes"
-            },
-            {
-                title: "Tools"
+                title: "Eyebrow"
             }
         ]
     },
     {
-        title: "Hair",
+        title: "Lips",
         submenu: [
             {
-                title: "Shampoo"
+                title: "lipstick"
             },
             {
-                title: "Mask"
-            },
-            {
-                title: "Conditioner"
-            },
-            {
-                title: "Leave in"
-            },
-            {
-                title: "Styling"
-            },
-            {
-                title: "Treatments"
-            },
-            {
-                title: "Tools"
-            }]
+                title: "Lip liner"
+            }
+        ]
     },
-    {
-        title: "Body",
-        submenu: [
-            {
-                title: "Cleansers"
-            },
-            {
-                title: "Exfoliators"
-            },
-            {
-                title: "Moisturisers"
-            },
-            {
-                title: "Spf"
-            },
-            {
-                title: "Hand Cream"
-            },
-            {
-                title: "Foot Cream"
-            }]
-    },
-    {
-        title: "Fragance",
-        submenu:
-            [
-                {
-                    title: "For Her"
-                },
-                {
-                    title: "For Him"
-                }]
-    }
 ]

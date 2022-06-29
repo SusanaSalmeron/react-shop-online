@@ -1,3 +1,7 @@
+.container {
+    padding-top: 3em;
+}
+
 .carousel .control-arrow,
 .carousel.carousel-slider .control-arrow {
     -webkit-transition: all .25s ease-in;
@@ -60,19 +64,20 @@
 
 .carousel {
     position: relative;
-    width: 100%
+    width: 100%;
+    z-index: 0;
 }
 
 .carousel * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 .carousel img {
     width: 100%;
     display: inline-block;
-    pointer-events: none
+    pointer-events: none;
 }
 
 .carousel .carousel {
@@ -240,6 +245,7 @@
     -o-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
     position: absolute;
+
     bottom: 40px;
     left: 50%;
     margin-left: -45%;
@@ -266,12 +272,6 @@
     text-align: center;
     width: 100%;
     z-index: 1
-}
-
-@media (min-width: 960px) {
-    .carousel .control-dots {
-        bottom: 0
-    }
 }
 
 .carousel .control-dots .dot {
@@ -310,4 +310,15 @@
 
 .carousel:hover .slide .legend {
     opacity: 1
+}
+
+@media (max-width: 992px) {
+    .carousel .control-dots {
+        bottom: 0
+    }
+
+    .container {
+        padding-top: 8em;
+    }
+
 }

@@ -6,6 +6,5 @@ export default function Home() {
         <div className={style.container}>
             <CarouselShop />
         </div>
-
     )
 }

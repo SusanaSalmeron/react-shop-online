@@ -3,7 +3,8 @@
     height: auto;
     background-color: black;
     width: 100%;
-
+    position: fixed;
+    z-index: 1;
 }
 
 .area {

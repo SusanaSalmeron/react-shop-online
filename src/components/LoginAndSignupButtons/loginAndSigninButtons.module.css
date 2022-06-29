@@ -55,7 +55,7 @@
 
 
 @media(max-width: 576px) {
-    ç .container {
+    .container {
         align-items: baseline;
     }
 

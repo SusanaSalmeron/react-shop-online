@@ -1,35 +1,48 @@
-import { bubble as Menu } from 'react-burger-menu';
+import Menu from 'react-burger-menu/lib/menus/slide';
 import { NavLink } from 'react-router-dom';
 import './navbarMobile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
-
-export default function NavbarMobile(props) {
+export default function NavbarMobile({ isOpen, closeMenu }) {
     return (
-        <nav className='navbarMobile'>
-            <Menu width={100}>
-                <NavLink to="/" className='menu-item'>
+        <div className='navbarMobile'>
+            <Menu
+                width={300}
+                isOpen={isOpen}>
+                <NavLink to="/" className='menu-item' onClick={() => closeMenu()}>
                     new
                 </NavLink>
-                <NavLink to="/" className='menu-item'>
+                <NavLink to="/" className='menu-item' onClick={() => closeMenu()}>
                     brands
                 </NavLink>
-                <NavLink to="/" className='menu-item'>
-                    skin care
+                <NavLink to="/bronzer" className='menu-item' onClick={() => closeMenu()}>
+                    face - bronzer
                 </NavLink>
-                <NavLink to="/" className='menu-item'>
-                    make up
+                <NavLink to="/blush" className='menu-item' onClick={() => closeMenu()}>
+                    face - blush
                 </NavLink>
-                <NavLink to="/" className='menu-item'>
-                    hair
+                <NavLink to="/foundation" className='menu-item' onClick={() => closeMenu()}>
+                    face - foundation
                 </NavLink>
-                <NavLink to="/" className='menu-item'>
-                    body
+                <NavLink to="/eyeshadow" className='menu-item' onClick={() => closeMenu()}>
+                    eyes - eyeshadow
                 </NavLink>
-                <NavLink to="/" className='menu-item'>
-                    fragance
+                <NavLink to="/mascara" className='menu-item' onClick={() => closeMenu()}>
+                    eyes - mascara
+                </NavLink>
+                <NavLink to="/eyeliner" className='menu-item' onClick={() => closeMenu()}>
+                    eyes - eyeliner
+                </NavLink>
+                <NavLink to="/eyebrow" className='menu-item' onClick={() => closeMenu()}>
+                    eyes - eyebrow
+                </NavLink>
+                <NavLink to="/lipstick" className='menu-item' onClick={() => closeMenu()}>
+                    lips - lipstick
+                </NavLink>
+                <NavLink to="/lip liner" className='menu-item' onClick={() => closeMenu()}>
+                    lips - lip liner
                 </NavLink>
             </Menu>
             <div className='search'>
@@ -40,7 +53,7 @@ export default function NavbarMobile(props) {
                     </button>
                 </form>
             </div>
-        </nav>
+        </div >
 
     )
 }

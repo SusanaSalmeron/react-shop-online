@@ -6,7 +6,7 @@ export default function CarouselShop() {
     const isDesktop = useMedia('(min-width: 577px)')
 
     return (
-        <>
+        <div className={'container'}>
             {isDesktop ? <Carousel autoPlay={true} infiniteLoop={true} centerMode={true} centerSlidePercentage={65} showThumbs={false}>
                 <div >
                     <img src="https://images.pexels.com/photos/7691166/pexels-photo-7691166.jpeg?cs=srgb&dl=pexels-roman-odintsov-7691166.jpg&fm=jpg" alt="Image1" />
@@ -41,6 +41,6 @@ export default function CarouselShop() {
                     <img src="https://images.pexels.com/photos/3735627/pexels-photo-3735627.jpeg?cs=srgb&dl=pexels-polina-tankilevitch-3735627.jpg&fm=jpg" alt="image5" />
                 </div>
             </Carousel >}
-        </>
+        </div>
     )
 }
