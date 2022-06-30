@@ -2,6 +2,7 @@
     display: flex;
     justify-content: flex-end;
     margin: 1em 1em 0 0;
+    padding-top: 10em;
 }
 
 .button button {
@@ -40,9 +41,17 @@ ul {
     .container h3 {
         font-size: medium;
     }
+
+    .button {
+        padding-top: 8em;
+    }
 }
 
 @media(max-width: 576px) {
+    .button {
+        padding-top: 7em;
+    }
+
     .container h1 {
         font-size: larger;
     }

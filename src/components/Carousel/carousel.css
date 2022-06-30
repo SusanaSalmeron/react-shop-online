@@ -1,5 +1,5 @@
 .container {
-    padding-top: 3em;
+    padding-top: 8em;
 }
 
 .carousel .control-arrow,
@@ -310,15 +310,4 @@
 
 .carousel:hover .slide .legend {
     opacity: 1
-}
-
-@media (max-width: 992px) {
-    .carousel .control-dots {
-        bottom: 0
-    }
-
-    .container {
-        padding-top: 8em;
-    }
-
 }

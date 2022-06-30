@@ -1,51 +1,72 @@
 .container {
-    width: 99%;
-    height: 50.15vh;
+    width: 100%;
+}
+
+
+.text {
+    width: 70%;
+    height: 43.50vh;
     margin: 0 auto;
+    padding-top: 5em;
     text-align: left;
+    line-height: 1.8em;
 }
 
 .button {
     display: flex;
     justify-content: flex-end;
     margin: 1em 1em 0 0;
+    padding-top: 10em;
 }
 
 .button button {
     text-transform: uppercase;
 }
 
-.container p {
+.text p {
     margin-left: 1em;
     font-size: 1.2em;
+    text-align: justify;
+}
+
+.text span {
+    width: 100%;
+    display: inline-block;
+    text-align: right;
 }
 
 @media (max-width: 1200px) {
-    .container {
-        height: 45.8vh;
+    .text {
+        height: 40.9vh;
+        padding-top: 4em;
     }
 }
 
 @media(max-width:992px) {
-    .container {
-        min-height: 52.2vh;
+    .text {
+        min-height: 43.7vh;
+        width: 80%;
     }
 }
 
 @media (max-width: 576px) {
-    .container {
+    .text {
         margin-bottom: -2em;
-        height: 56vh;
+        height: 46.6vh;
     }
 
-    .container p {
+    .text p {
         font-size: 1em;
     }
 }
 
 @media(max-width: 480px) {
-    .container {
+    .text {
         margin-bottom: -2em;
-        height: 56vh;
+        height: 51.95vh;
+    }
+
+    .button {
+        padding-top: 7em;
     }
 }
