@@ -33,6 +33,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/:productType" element={<MakeupProductList />} />
+            <Route path="/search/:keyword" element={<MakeupProductList />} />
           </Routes>
           <div className="footer">
             <Footer />

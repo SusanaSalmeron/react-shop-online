@@ -1,6 +1,7 @@
 import { menuItems } from "../../menuItems";
 import MenuItems from "../MenuItems/menuItems";
 import style from './navbar.module.css';
+import SearchBar from "../SearchBar/searchBar";
 
 
 const Navbar = () => {
@@ -12,12 +13,7 @@ const Navbar = () => {
                     return <MenuItems items={menu} key={index} depthLevel={depthLevel} />;
                 })}
             </ul>
-            <form className={style.search}>
-                <input type="text" className={style.input} />
-                <button className={style.button} type="text">
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
+            <SearchBar />
         </nav>
     );
 };
