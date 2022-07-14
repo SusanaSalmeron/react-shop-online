@@ -23,3 +23,14 @@ export async function getAllProducts() {
     }
     return response.data
 }
+
+export async function getAllProductsFromSearch(keyword) {
+    let response = []
+    const requestParams = { params: { keyword: keyword } }
+    try {
+        response = await axios.get(`${baseUrl}/${keyword}`, requestParams)
+    } catch (err) {
+        console.log('Error', err.message)
+    }
+    return response.data
+}

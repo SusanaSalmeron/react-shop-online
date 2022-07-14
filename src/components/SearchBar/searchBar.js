@@ -1,5 +1,5 @@
 import './searchBar.css';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { getAllProducts } from '../../services/productCatalogService';
 import SelectSearch, { fuzzySearch } from 'react-select-search';
 import { useNavigate } from 'react-router-dom';
@@ -9,9 +9,6 @@ export default function SearchBar() {
     const [keyword, setKeyword] = useState('')
     const [suggestions, setSuggestions] = useState([])
     const navigate = useNavigate()
-    const list = useRef(new Array(suggestions))
-
-
 
     useEffect(() => {
         getAllProducts()
@@ -19,7 +16,6 @@ export default function SearchBar() {
                 setSuggestions(response)
             })
     }, [])
-
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -29,10 +25,7 @@ export default function SearchBar() {
 
     const handleKeyword = (e) => {
         setKeyword(e)
-        console.log(list.current)
     }
-
-    //TODO - working link to products is missing - pending
 
     return (
         <>

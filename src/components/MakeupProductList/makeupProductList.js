@@ -1,34 +1,67 @@
 import style from './makeupProductList.module.css';
+import { useContext } from 'react';
+import SpinnerContext from '../../context/SpinnerContext';
 import MakeupProductCard from '../MakeupProductsCard/makeupProductCard';
-import { /* useContext,*/ useEffect, useState } from 'react';
-import { getProductsBy } from '../../services/productCatalogService';
-/* import TypeContext from '../../context/typeContext'; */
+import { useEffect, useState } from 'react';
+import { getAllProductsFromSearch, getProductsBy } from '../../services/productCatalogService';
 import { useParams } from 'react-router-dom';
+import Spinner from '../Spinner/spinner';
+
 
 
 export default function MakeupFaceProductsList() {
     const [showProducts, setShowProducts] = useState([])
-    /* const { type } = useContext(TypeContext) */
-    const { productType } = useParams()
+    const [showSearh, setShowSearch] = useState([])
+    const { productType, keyword } = useParams()
+    const [loading, setLoading] = useState(true)
+    const { setSpinnerDisplay } = useContext(SpinnerContext)
+
 
     useEffect(() => {
-        getProductsBy(productType)
-            .then(response => {
-                setShowProducts(response)
-            })
-    }, [productType])
+        if (keyword) {
+            setShowSearch([])
+            getAllProductsFromSearch(keyword)
+                .then(response => {
+                    setShowSearch(response)
+                    setLoading(false)
+                })
+        } else {
+            setShowProducts([])
+            getProductsBy(productType)
+                .then(response => {
+                    setShowProducts(response)
+                    setLoading(false)
+                })
+        }
+        setLoading(true)
+        setSpinnerDisplay(false)
+    }, [productType, keyword, setSpinnerDisplay])
 
     return (
-        <div className={style.container}>
-            <h1 className={style.title}>{productType}</h1>
-            <div className={style.products}>
-                {showProducts.map((product, i) => {
-                    return <MakeupProductCard
-                        data={product}
-                        key={i}
-                    />
-                })}
-            </div>
-        </div>
+        <>
+            {keyword ? <div className={style.container}>
+                <h2 className={style.title}>Search Results for: {keyword}</h2>
+                <Spinner loading={loading} />
+                <div className={style.products}>
+                    {showSearh.map((product, i) => {
+                        return <MakeupProductCard
+                            data={product}
+                            key={i}
+                        />
+                    })}
+                </div>
+            </div> : <div className={style.container}>
+                <h1 className={style.title}>{productType}</h1>
+                <Spinner loading={loading} />
+                <div className={style.products}>
+                    {showProducts.map((product, i) => {
+                        return <MakeupProductCard
+                            data={product}
+                            key={i}
+                        />
+                    })}
+                </div>
+            </div>}
+        </>
     )
 }
