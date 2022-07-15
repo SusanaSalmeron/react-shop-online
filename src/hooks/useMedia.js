@@ -7,7 +7,6 @@ const useMedia = (query) => {
         const listener = () => setIsDesktop(media.matches);
         listener();
         window.addEventListener('resize', listener);
-
         return () => window.removeEventListener('resize', listener);
     }, [isDesktop, query]);
     return isDesktop;

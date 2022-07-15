@@ -1,6 +1,7 @@
 import style from './makeupProductCard.module.css';
 import SpinnerContext from '../../context/SpinnerContext'
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function MakeupFaceProductCard({ data }) {
@@ -8,16 +9,21 @@ export default function MakeupFaceProductCard({ data }) {
     const regular = "fa-regular fa-heart"
     const solid = "fa-solid fa-heart"
     const [changeIcon, setChangeIcon] = useState(regular)
+    const navigate = useNavigate()
     const handleClick = () => {
         changeIcon === regular ?
             setChangeIcon(solid) :
             setChangeIcon(regular)
     }
+    const handleNavigate = () => {
+        navigate(`/product/${data.id}`)
+    }
 
-    //Todo -  create spinner context to hide products when spinner is displaying
     return (
         <>
-            <div className={spinnerDisplay ? style.hide : style.productCard}>
+            <div
+                className={spinnerDisplay ? style.hide : style.productCard}
+                onClick={handleNavigate}>
                 <div className={style.fav}>
                     <button onClick={handleClick}>
                         <i className={changeIcon} />

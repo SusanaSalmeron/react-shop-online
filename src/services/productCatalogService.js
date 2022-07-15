@@ -32,5 +32,19 @@ export async function getAllProductsFromSearch(keyword) {
     } catch (err) {
         console.log('Error', err.message)
     }
+    console.log(response.data)
     return response.data
+}
+
+export async function getProductById(id) {
+    let response = []
+    const requestParams = { params: { id: id } }
+    try {
+        response = await axios.get(`http://localhost:3001/v1/product/${id}`, requestParams)
+
+    } catch (err) {
+        console.log('Error', err.message)
+    }
+    console.log(response.data)
+    return response.data[0]
 }

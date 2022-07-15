@@ -12,6 +12,7 @@ import Header from './components/Header/Header';
 import Login from './components/Login/login';
 import MakeupProductList from './components/MakeupProductList/makeupProductList';
 import { SpinnerContextProvider } from './context/SpinnerContext';
+import ProductDescription from './components/ProductsDescription/productDescription';
 
 
 
@@ -36,6 +37,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/:productType" element={<MakeupProductList />} />
               <Route path="/search/:keyword" element={<MakeupProductList />} />
+              <Route path="product/:id" element={<ProductDescription />} />
             </Routes>
           </SpinnerContextProvider>
           <div className="footer">

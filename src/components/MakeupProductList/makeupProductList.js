@@ -8,7 +8,6 @@ import { useParams } from 'react-router-dom';
 import Spinner from '../Spinner/spinner';
 
 
-
 export default function MakeupFaceProductsList() {
     const [showProducts, setShowProducts] = useState([])
     const [showSearh, setShowSearch] = useState([])
