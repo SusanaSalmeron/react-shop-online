@@ -1,7 +1,43 @@
 .container {
     height: 100vh;
+    display: flex;
+    width: 100%;
 }
 
 .container h3 {
     padding-top: 10em;
+}
+
+.data {
+    margin: 3em 5em;
+    width: 60%;
+}
+
+.image {
+    margin-top: 5em;
+    width: 50%;
+}
+
+.image img {
+    width: 80%;
+}
+
+.container {
+    height: 100vh;
+    margin-bottom: 15em;
+    width: 100%;
+}
+
+
+.colours_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-row: auto;
+    width: auto;
+
+}
+
+.colours {
+    padding: 2em;
+    width: 90%;
 }

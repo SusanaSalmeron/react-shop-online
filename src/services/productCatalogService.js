@@ -32,7 +32,6 @@ export async function getAllProductsFromSearch(keyword) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    console.log(response.data)
     return response.data
 }
 
@@ -45,6 +44,6 @@ export async function getProductById(id) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    console.log(response.data)
-    return response.data[0]
+/*     console.log(response.data)
+ */    return response.data[0]
 }
