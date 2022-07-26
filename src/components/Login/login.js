@@ -34,10 +34,8 @@ export default function Login() {
                     <h2>Log in</h2>
                     <button onClick={toggleModal}>X</button>
                 </div>
-
                 <LoginForm
                     toggleModal={toggleModal} />
-
                 <div className="signup">
                     <p>Already have an account?<button onClick={handleNavigate} >Sign up</button></p>
                 </div>
