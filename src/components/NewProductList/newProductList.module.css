@@ -1,0 +1,27 @@
+.container {
+    margin: 3em 1em;
+    height: 50vh;
+}
+
+
+.figure {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    color: black;
+    font-size: 14px;
+    background-color: transparent;
+    border-radius: 10px;
+    top: 1.5em;
+    right: 2em;
+}
+
+/* 
+} */

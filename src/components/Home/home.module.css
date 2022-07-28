@@ -1,4 +1,5 @@
 .container {
-    height: calc(100vh - 12em);
+    min-height: 100vh;
     margin-top: 3em;
+
 }

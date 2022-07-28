@@ -4,13 +4,16 @@ const apiBaseUrl = "http://makeup-api.herokuapp.com/api/v1/products.json"
 const baseUrl = "http://localhost:3001/v1/users/search"
 
 export async function getProductsBy(type) {
-    let response = []
+    let allProducts = []
     try {
-        response = await axios.get(`${apiBaseUrl}/?product_type=${type}`)
+        const response = await axios.get(`${apiBaseUrl}/?product_type=${type}`)
+        const newProducts = await getAllNewProducts()
+        const newProductsFiltered = newProducts.filter(p => p.product_type.toLowerCase() === type.toLowerCase())
+        allProducts = [...response.data, ...newProductsFiltered]
     } catch (err) {
         console.log('Error', err.message)
     }
-    return response.data
+    return allProducts
 }
 
 export async function getAllProducts() {
@@ -39,11 +42,22 @@ export async function getProductById(id) {
     let response = []
     const requestParams = { params: { id: id } }
     try {
-        response = await axios.get(`http://localhost:3001/v1/product/${id}`, requestParams)
+        response = await axios.get(`http://localhost:3001/v1/products/${id}`, requestParams)
 
     } catch (err) {
         console.log('Error', err.message)
     }
-/*     console.log(response.data)
- */    return response.data[0]
+    console.log(response.data[0])
+    return response.data[0]
+}
+
+export async function getAllNewProducts() {
+    let response = []
+    try {
+        response = await axios.get('http://localhost:3001/v1/products/new')
+
+    } catch (err) {
+        console.log('Error', err.message)
+    }
+    return response.data
 }

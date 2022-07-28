@@ -1,0 +1,14 @@
+.image {
+    width: 8%;
+    margin: 2em 0.7em;
+    cursor: pointer;
+}
+
+.image:hover {
+    border: 1.2px solid #A46BF5;
+    box-sizing: border-box;
+}
+
+.image:hover .tooltip {
+    visibility: visible;
+}
