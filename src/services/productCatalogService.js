@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const apiBaseUrl = "http://makeup-api.herokuapp.com/api/v1/products.json"
-const baseUrl = "http://localhost:3001/v1/users/search"
+const baseUrl = "http://localhost:3001/v1"
 
 export async function getProductsBy(type) {
     let allProducts = []
+    const requestParams = { params: { type: type } }
     try {
-        const response = await axios.get(`${apiBaseUrl}/?product_type=${type}`)
+        const response = await axios.get(`${baseUrl}/products/type`, requestParams)
         const newProducts = await getAllNewProducts()
         const newProductsFiltered = newProducts.filter(p => p.product_type.toLowerCase() === type.toLowerCase())
         allProducts = [...response.data, ...newProductsFiltered]
@@ -19,7 +19,7 @@ export async function getProductsBy(type) {
 export async function getAllProducts() {
     let response = []
     try {
-        response = await axios.get(baseUrl)
+        response = await axios.get(`${baseUrl}/users/search`)
 
     } catch (err) {
         console.log('Error', err.message)
@@ -31,7 +31,7 @@ export async function getAllProductsFromSearch(keyword) {
     let response = []
     const requestParams = { params: { keyword: keyword } }
     try {
-        response = await axios.get(`${baseUrl}/${keyword}`, requestParams)
+        response = await axios.get(`${baseUrl}/users/search/${keyword}`, requestParams)
     } catch (err) {
         console.log('Error', err.message)
     }
@@ -42,7 +42,7 @@ export async function getProductById(id) {
     let response = []
     const requestParams = { params: { id: id } }
     try {
-        response = await axios.get(`http://localhost:3001/v1/products/${id}`, requestParams)
+        response = await axios.get(`${baseUrl}/products/${id}`, requestParams)
 
     } catch (err) {
         console.log('Error', err.message)
@@ -54,7 +54,7 @@ export async function getProductById(id) {
 export async function getAllNewProducts() {
     let response = []
     try {
-        response = await axios.get('http://localhost:3001/v1/products/new')
+        response = await axios.get(`${baseUrl}/products/new`)
 
     } catch (err) {
         console.log('Error', err.message)

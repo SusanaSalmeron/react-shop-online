@@ -17,7 +17,7 @@ export default function NewProductsList() {
 
     return (
         <div className={style.container}>
-            <h3>Just Arrived </h3>
+            <h2>Just Arrived </h2>
             <figure className={style.figure}>
                 {showNewProducts.map(p => {
                     return <>
@@ -27,7 +27,6 @@ export default function NewProductsList() {
                             alt={p.name}
                             key={p.id}
                             value={p.id} />
-                        <span className={style.tooltip}>{p.name}</span>
                     </>
 
                 })}

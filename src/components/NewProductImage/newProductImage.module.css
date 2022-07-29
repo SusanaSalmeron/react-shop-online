@@ -8,7 +8,3 @@
     border: 1.2px solid #A46BF5;
     box-sizing: border-box;
 }
-
-.image:hover .tooltip {
-    visibility: visible;
-}
