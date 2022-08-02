@@ -31,7 +31,7 @@ export async function getAllProductsFromSearch(keyword) {
     let response = []
     const requestParams = { params: { keyword: keyword } }
     try {
-        response = await axios.get(`${baseUrl}/users/search/${keyword}`, requestParams)
+        response = await axios.get(`${baseUrl}/users/search/ ${keyword}`, requestParams)
     } catch (err) {
         console.log('Error', err.message)
     }
