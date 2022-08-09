@@ -47,7 +47,6 @@ export async function getProductById(id) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    console.log(response.data[0])
     return response.data[0]
 }
 

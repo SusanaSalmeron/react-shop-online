@@ -20,8 +20,10 @@ import UserOrders from './components/UserOrders/userOrders';
 import UserOrdersInProcess from './components/UserOrdersInProcess/userOrdersInProcess';
 import UserOrdersShipped from './components/UserOrdersShipped/UserOrdersShipped';
 import UserWishlist from './components/UserWishList/userWishList';
+import UserAddressForm from './components/UserAddressForm/userAddressForm';
 import './App.css';
-
+import UserAccountOverview from './components/UserAccountOverview/userAccountOverview';
+import { UpdateAddressContextProvider } from './context/UpdateAddressContext'
 
 
 function App() {
@@ -32,33 +34,35 @@ function App() {
       <div className="page-container">
         <div className="content-wrap">
           <SpinnerContextProvider>
-            <Header />
-            <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/" element={<Navigate to="/home" />} />
-              <Route path="/*" element={<Navigate to="/home" />} />
-              <Route path="/legal" element={<LegalNotice />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/comingSoon" element={<ComingSoon />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/:productType" element={<MakeupProductList />} />
-              <Route path="/search/:keyword" element={<MakeupProductList />} />
-              <Route path="/product/:id" element={<ProductDescription />} />
-              <Route path="account/:id" element={<UserAccount />} >
-                <Route path="data" element={<UserAccountData />} />
-                <Route path="address" element={<UserAccountAddressList />} />
-                <Route path="password" element={<UserAccountPassword />} />
-                <Route path="orders" element={<UserOrders />} />
-                <Route path="inprocess" element={<UserOrdersInProcess />} />
-                <Route path="shipped" element={<UserOrdersShipped />} />
-                <Route path="wishlist" element={<UserWishlist />} />
-
-
-
-              </Route>
-            </Routes>
+            <UpdateAddressContextProvider>
+              <Header />
+              <Routes>
+                <Route path="/home" element={<Home />} />
+                <Route path="/" element={<Navigate to="/home" />} />
+                <Route path="/*" element={<Navigate to="/home" />} />
+                <Route path="/legal" element={<LegalNotice />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/comingSoon" element={<ComingSoon />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/:productType" element={<MakeupProductList />} />
+                <Route path="/search/:keyword" element={<MakeupProductList />} />
+                <Route path="/product/:id" element={<ProductDescription />} />
+                <Route path="account/:id" element={<UserAccount />} >
+                  <Route index element={<UserAccountOverview />} />
+                  <Route path="data" element={<UserAccountData />} />
+                  <Route path="address" element={<UserAccountAddressList />} />
+                  <Route path="addressForm" element={<UserAddressForm />} />
+                  <Route path="updateAddressForm" element={<UserAddressForm />} å />
+                  <Route path="password" element={<UserAccountPassword />} />
+                  <Route path="orders" element={<UserOrders />} />
+                  <Route path="inprocess" element={<UserOrdersInProcess />} />
+                  <Route path="shipped" element={<UserOrdersShipped />} />
+                  <Route path="wishlist" element={<UserWishlist />} />
+                </Route>
+              </Routes>
+            </UpdateAddressContextProvider>
           </SpinnerContextProvider>
           <div className="footer">
             <Footer />

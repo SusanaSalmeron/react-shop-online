@@ -6,9 +6,9 @@ import ValidationFormForUserAccountData from "../../middleware/validationFormFor
 import style from './userAccountData.module.css'
 import SubmitButton from "../SubmitButton/submitButton";
 
-export default function UserAccountData({ route }) {
+export default function UserAccountData() {
     const { id } = useParams()
-    const [showData, getShowData] = useState({})
+    const [showData, setShowData] = useState({})
 
     const initialValues = {
         user_name: showData.user_name,
@@ -27,12 +27,13 @@ export default function UserAccountData({ route }) {
     useEffect(() => {
         getUserData(id)
             .then(response =>
-                getShowData(response)
+                setShowData(response)
             )
     }, [id])
 
     return (
         <div className={style.container}>
+            {console.log(showData)}
             <h3>My Data</h3>
             <Formik
                 enableReinitialize={true}
@@ -111,7 +112,6 @@ export default function UserAccountData({ route }) {
                             />
                             <div className={style.button}>
                                 <SubmitButton
-                                    disabled={!isValid || !dirty || isSubmiting}
                                     name='update'
                                     label="UPDATE"
                                 />

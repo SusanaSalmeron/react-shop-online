@@ -1,25 +1,35 @@
 import UserAccountMenu from "../UserAccountMenu/userAccountMenu";
 import style from './userAccount.module.css'
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 //TODO -- resume page of all user data
 
 export default function UserAccount() {
-    const location = useLocation()
+    const [outlet, setOutlet] = useState(false)
+
+    useEffect(() => {
+        setOutlet(true)
+    }, [])
 
     return (
-
         < div className={style.container} >
             <div className={style.menu}>
-                <UserAccountMenu route={location.pathname} />
+                <UserAccountMenu />
             </div>
-            <div>
-                <p>hola</p>
-            </div>
-            <div className={style.content}>
-                <Outlet />
-            </div>
+            {outlet ?
+                <div className={style.content}>
+                    <Outlet />
+                </div>
+                :
+                <div>
+                    <p>hola</p>
+                    <p>hola</p>
+                    <p>hola</p>
+                </div>}
+
+
         </div>
 
     )

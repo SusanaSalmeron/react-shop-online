@@ -18,8 +18,8 @@ export default function LoginAndSigninButtons() {
                     <Login />
                     <Signup />
                     <NavigateButton
-                        classStyle={style.cart}
-                        route={'/login'}
+                        className={style.cart}
+                        route={'account/1000/address'}
                         name={'cart'}
                         label={<i className="fa-solid fa-cart-shopping" />}
                     />
