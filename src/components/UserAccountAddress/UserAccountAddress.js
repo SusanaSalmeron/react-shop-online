@@ -5,8 +5,8 @@ export default function UserAccountAddress({ data }) {
         <div>
 
             <div className={style.data}>
-                {data.billing_address ? <p>{data.billing_address} {data.postalZip} {data.city} {data.country}</p> : <p>{data.address} {data.postalZip} {data.city} {data.country}</p>}
-
+                <p>{data.user_name} {data.surname}</p>
+                <p>{data.address} {data.postalZip} {data.city} {data.country}</p>
             </div >
         </div>
     )

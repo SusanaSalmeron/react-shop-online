@@ -23,7 +23,6 @@ export default function UserAccountData() {
         console.log(e)
     }
 
-
     useEffect(() => {
         getUserData(id)
             .then(response =>
@@ -33,8 +32,7 @@ export default function UserAccountData() {
 
     return (
         <div className={style.container}>
-            {console.log(showData)}
-            <h3>My Data</h3>
+            <h2>My Data</h2>
             <Formik
                 enableReinitialize={true}
                 initialValues={initialValues}

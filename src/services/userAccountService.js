@@ -25,3 +25,25 @@ export async function getUserAddresses(userId) {
     return response.data
 }
 
+export async function updateUserAccountPassword(userId, password, newPassword, repeatNew) {
+    let result
+    const requestParams = { params: { id: userId } }
+    try {
+        const body = {
+            password,
+            newPassword,
+            repeatNew,
+        }
+        console.log(body)
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+        result = await axios.put(`${baseUrl}/users/${userId}/password`, body, requestParams, { headers })
+
+    } catch (err) {
+        console.log('Error', err)
+    }
+    console.log(result)
+    return result.data
+}
+
