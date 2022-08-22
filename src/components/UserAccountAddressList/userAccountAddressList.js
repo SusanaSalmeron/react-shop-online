@@ -20,7 +20,6 @@ export default function UserAccountAddressList() {
     useEffect(() => {
         getUserData(id)
             .then(response => {
-                console.log(`Fetching billing address ${response}`)
                 setMainAddressData(response)
             })
         getUserAddresses(id)

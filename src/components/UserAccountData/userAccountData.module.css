@@ -39,7 +39,13 @@
 
 .button button {
     width: 20%;
+    cursor: pointer;
 }
+
+.button button:disabled {
+    cursor: not-allowed;
+}
+
 
 .error {
     width: 100%;

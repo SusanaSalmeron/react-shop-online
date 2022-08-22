@@ -1,0 +1,38 @@
+ .container {
+     width: 95%;
+     margin: 0 auto;
+ }
+
+ .order {
+     display: grid;
+     width: 100%;
+     grid-template-columns: repeat(7, 10em);
+     width: auto;
+     height: auto;
+     font-size: 1.1em;
+     text-align: center;
+     margin-bottom: 1em;
+ }
+
+ .order .number {
+     grid-column: 1/2;
+ }
+
+ .date {
+     grid-column: 2/4;
+ }
+
+ .shipped {
+     color: green;
+ }
+
+ .process {
+     color: red;
+ }
+
+ .order button {
+     margin: auto 12em;
+     width: 50%;
+     height: 1.5em;
+     font-size: 1em;
+ }

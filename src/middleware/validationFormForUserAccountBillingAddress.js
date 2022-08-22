@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export default function ValidationFormForUserAccountAddress() {
+export default function ValidationFormForUserAccountBillingAddress() {
     let formSchema = yup.object().shape({
         user_name: yup.string()
             .required("Required")
@@ -10,6 +10,8 @@ export default function ValidationFormForUserAccountAddress() {
             .required("Required")
             .min(5, 'min 5 characters')
             .max(30, 'max 30 characters'),
+        /* identification: yup.string()
+            .required("Required"), */
         address: yup.string()
             .required("Required")
             .min(5, 'min 10 characters')

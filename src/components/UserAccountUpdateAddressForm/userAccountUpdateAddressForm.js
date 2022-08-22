@@ -1,5 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import ValidationFormForUserAccountAddress from "../../middleware/validationFormForUserAccountAddress";
+import ValidationFormForUserAccountBillingAddress from '../../middleware/validationFormForUserAccountBillingAddress';
 import SubmitButton from "../SubmitButton/submitButton";
 import style from './userAccountUpdateAddressForm.module.css';
 import UpdateAddressContext from '../../context/UpdateAddressContext';
@@ -19,19 +20,13 @@ export default function UserAccountUpdateAddressForm({ submit, address }) {
         country: address ? address.country : "",
     }
 
-    /* useEffect(() => {
-        getUserData(id)
-            .then(response =>
-                setShowData(response),
-            )
-    }, [id]) */
 
     return (
         <Formik
             enableReinitialize={true}
             initialValues={initialValues}
             onSubmit={submit}
-            validationSchema={ValidationFormForUserAccountAddress}
+            validationSchema={isBilling ? ValidationFormForUserAccountBillingAddress : ValidationFormForUserAccountAddress}
         >
             {
                 ({ isSubmiting, dirty, isValid, errors, status, values }) =>

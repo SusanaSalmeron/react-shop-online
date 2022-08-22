@@ -2,13 +2,16 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import style from './userAccountPassword.module.css';
 import SubmitButton from '../SubmitButton/submitButton'
 import { updateUserAccountPassword } from "../../services/userAccountService";
-import { useParams } from "react-router-dom";
-import Swal from 'sweetalert2';
+import { useNavigate, useParams } from "react-router-dom";
+import { popUpAlert } from "../../utils/popUpAlert";
+import ValidationFormForUserAccountPasswordUpdate from '../../middleware/validationFormForUserAccountPasswordUpdate';
 
 
 
 export default function UserAccountPassword() {
     const { id } = useParams()
+    const navigate = useNavigate()
+
     const initialValues = {
         password: '',
         newPassword: '',
@@ -18,21 +21,10 @@ export default function UserAccountPassword() {
         const { password, newPassword, repeatNew } = values
         const passwordUpdated = await updateUserAccountPassword(id, password, newPassword, repeatNew)
         if (passwordUpdated) {
-            await Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Your password has been changed',
-                showConfirmButton: false,
-                timer: 2000
-            })
+            await popUpAlert('center', 'success', 'Your password has been changed', false, 2000)
+            navigate(`/account/${id}`)
         } else {
-            await Swal.fire({
-                position: 'center',
-                icon: 'error',
-                title: 'There is something wrong...',
-                showConfirmButton: false,
-                timer: 2000
-            })
+            popUpAlert('center', 'error', 'There is something wrong...', false, 2000)
         }
     }
 
@@ -42,13 +34,16 @@ export default function UserAccountPassword() {
             <Formik
                 initialValues={initialValues}
                 onSubmit={submitData}
+                validationSchema={ValidationFormForUserAccountPasswordUpdate}
             >
                 {
-                    ({ isSubmiting, dirty, isValid, errors }) =>
+                    ({ isSubmitting, dirty, isValid, errors }) =>
                         <Form className={style.form}>
                             <label htmlFor="password">Password</label>
                             <Field
-                                id="password" name="password" placeholder="Write your actual password"
+                                id="password"
+                                name="password"
+                                placeholder="Write your actual password"
                                 type="password"
                             />
                             <ErrorMessage
@@ -82,6 +77,7 @@ export default function UserAccountPassword() {
 
                             <div className={style.button}>
                                 <SubmitButton
+                                    disabled={!isValid || !dirty || isSubmitting}
                                     label="Update"
                                     name="change"
                                 />

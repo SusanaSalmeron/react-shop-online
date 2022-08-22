@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getUserData } from "../../services/userAccountService";
+import { useNavigate, useParams } from "react-router-dom";
+import { getUserData, updateUserAccountData } from "../../services/userAccountService";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import ValidationFormForUserAccountData from "../../middleware/validationFormForUserAccountData";
 import style from './userAccountData.module.css'
 import SubmitButton from "../SubmitButton/submitButton";
+import { popUpAlert } from '../../utils/popUpAlert'
 
 export default function UserAccountData() {
     const { id } = useParams()
     const [showData, setShowData] = useState({})
+    const navigate = useNavigate()
 
     const initialValues = {
         user_name: showData.user_name,
@@ -19,8 +21,15 @@ export default function UserAccountData() {
         phone: showData.phone
     }
 
-    const submitData = (e) => {
-        console.log(e)
+    const submitData = async (values) => {
+        const { user_name, surname, identification, date_of_birth, email, phone } = values
+        const dataUpdated = await updateUserAccountData(id, user_name, surname, identification, date_of_birth, email, phone)
+        if (dataUpdated) {
+            await popUpAlert('center', 'success', 'Your data has beeen updated', false, 2000)
+            navigate(`/account/${id}`)
+        } else {
+            popUpAlert('center', 'error', 'There is something wrong...', false, 2000)
+        }
     }
 
     useEffect(() => {
@@ -40,7 +49,7 @@ export default function UserAccountData() {
                 validationSchema={ValidationFormForUserAccountData}
             >
                 {
-                    ({ isSubmiting, dirty, isValid, errors, status, values }) =>
+                    ({ isSubmitting, dirty, isValid, errors, status, values }) =>
                         <Form className={style.form}>
                             <label htmlFor="user_name">Name</label>
                             <Field
@@ -110,6 +119,7 @@ export default function UserAccountData() {
                             />
                             <div className={style.button}>
                                 <SubmitButton
+                                    disabled={!isValid || !dirty || isSubmitting}
                                     name='update'
                                     label="UPDATE"
                                 />
