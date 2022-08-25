@@ -21,9 +21,10 @@ export default function UserAddressForm() {
             popUpAlert("center", "error", "Billing address not updated", false, 2000)
         }
     }
-
-    const submitDeliveryAddressChange = (e) => {
-        console.log("Delivery change sent ", e)
+    //TODO - UPDATE BILLING ADDRESS
+    const submitDeliveryAddressChange = async (values) => {
+        /*         const { user_name, surname, address, postalZip, city, country } = values
+         */
     }
 
     return (

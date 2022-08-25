@@ -25,6 +25,7 @@ import './App.css';
 import UserAccountOverview from './components/UserAccountOverview/userAccountOverview';
 import { UpdateAddressContextProvider } from './context/UpdateAddressContext';
 import Order from './components/Order/order';
+import NewAddressForm from './components/NewAddressForm/newAddressForm';
 
 
 function App() {
@@ -55,7 +56,8 @@ function App() {
                   <Route path="data" element={<UserAccountData />} />
                   <Route path="address" element={<UserAccountAddressList />} />
                   <Route path="addressForm" element={<UserAddressForm />} />
-                  <Route path="updateAddressForm" element={<UserAddressForm />} å />
+                  <Route path="updateAddressForm" element={<UserAddressForm />} />
+                  <Route path="newAddress" element={<NewAddressForm />} />
                   <Route path="password" element={<UserAccountPassword />} />
                   <Route path="orders" element={<UserOrdersList />} />
                   <Route path="orders/:orderid" element={<Order />} />

@@ -11,8 +11,7 @@ export default function UserOrdersList() {
     const [orders, setOrders] = useState([])
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
-    const { spinnerDisplay, setSpinnerDisplay } = useContext(SpinnerContext)
-
+    const { spinnerDisplay } = useContext(SpinnerContext)
 
 
     useEffect(() => {
@@ -20,19 +19,20 @@ export default function UserOrdersList() {
             .then(response => {
                 setOrders(response)
                 setLoading(false)
-                setSpinnerDisplay(false)
             })
-    }, [id, setSpinnerDisplay])
+    }, [id])
 
 
     return (
         <div className={style.container}>
             <h2>My orders</h2>
-            {spinnerDisplay ? <Outlet /> : <>
-                <Spinner
+            {!spinnerDisplay ? <Outlet /> : <>
+                <div className={!loading ? null : style.spinner}>       <Spinner
                     loading={loading} />
-                <div className={style.content}
-                >           {
+                    <div className={style.content}
+                    >
+                    </div>
+                    {
                         orders.map(o => {
                             return <UserOrdersCard
                                 data={o}

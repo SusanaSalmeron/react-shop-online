@@ -2,3 +2,8 @@
     text-transform: uppercase;
     text-align: center;
 }
+
+.spinner {
+    padding-top: 4em;
+    min-height: 52vh;
+}

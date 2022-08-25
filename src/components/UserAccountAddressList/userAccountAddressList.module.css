@@ -9,8 +9,12 @@
 .addresses {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: auto;
+}
+
+.addresses button {
+    margin-top: 1.5em;
 }
 
 

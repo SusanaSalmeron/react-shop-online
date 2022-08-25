@@ -36,7 +36,7 @@ export async function getUserOrders(userId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-
+    console.log(response.data)
     return response.data
 }
 
@@ -105,6 +105,49 @@ export async function updateUserAccountBillingAddress(userId, user_name, surname
         const requestParams = { params: { id: userId } }
 
         result = await axios.put(`${baseUrl}/users/${userId}/billing`, body, requestParams, { headers })
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return result.data
+}
+
+
+//TODO - UPDATE BILLING ADDRESS
+/* export async function updateUserAccountShippingAddress(userId, user_name, surname, address, postalZip, city, country) {
+    let result
+    try {
+        
+    } catch (err) {
+        
+    }
+} */
+
+export async function newShippingAddress(id, user_name, surname, address, postalZip, city, country, defaultAddress) {
+    let result
+    try {
+        const body = {
+            user_name,
+            surname,
+            address,
+            postalZip,
+            city,
+            country,
+            defaultAddress
+        }
+        const requestParams = { params: { id: id } }
+        result = await axios.post(`${baseUrl}/users/${id}/addresses/new`, body, requestParams, { headers })
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return result.data
+}
+
+export async function deleteAddress(addressId, userId) {
+    let result
+    try {
+        const requestParams = { params: { params: { id: userId, addressId: addressId } } }
+        result = await axios.delete(`${baseUrl}/users/${userId}/addresses/${addressId}`, requestParams, { headers })
+
     } catch (err) {
         console.log('Error', err)
     }

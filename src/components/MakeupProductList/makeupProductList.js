@@ -10,7 +10,7 @@ import Spinner from '../Spinner/spinner';
 
 export default function MakeupFaceProductsList() {
     const [showProducts, setShowProducts] = useState([])
-    const [showSearh, setShowSearch] = useState([])
+    const [showSearch, setShowSearch] = useState([])
     const { productType, keyword } = useParams()
     const [loading, setLoading] = useState(true)
     const { setSpinnerDisplay } = useContext(SpinnerContext)
@@ -42,7 +42,7 @@ export default function MakeupFaceProductsList() {
                 <h2 className={style.title}>Search Results for: {keyword}</h2>
                 <Spinner loading={loading} />
                 <div className={style.products}>
-                    {showSearh.map((product, i) => {
+                    {showSearch.map((product, i) => {
                         return <MakeupProductCard
                             data={product}
                             key={i}

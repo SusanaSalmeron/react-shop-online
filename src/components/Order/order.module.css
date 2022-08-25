@@ -30,7 +30,6 @@
 
 }
 
-
 .center {
     text-align: center;
     font-weight: 800;
@@ -47,4 +46,13 @@
 .total {
     margin-top: 2em;
     font-weight: 800;
+}
+
+.hide {
+    display: none;
+}
+
+.spinner {
+    padding-top: 10em;
+    min-height: 52vh;
 }

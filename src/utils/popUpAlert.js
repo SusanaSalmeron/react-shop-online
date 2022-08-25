@@ -9,3 +9,23 @@ export const popUpAlert = async (position, icon, title, showConfirmButton, timer
         timer: timer
     })
 }
+
+export const popUpAlertWithConfirmation = async (title, text, icon, confirmButtonText) => {
+    await Swal.fire({
+        title: title,
+        text: text,
+        icon: icon,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: confirmButtonText
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Your address has been deleted.',
+                'success'
+            )
+        }
+    })
+}
