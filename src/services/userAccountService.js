@@ -45,7 +45,18 @@ export async function getOrder(userId, orderId) {
     const requestParams = { params: { id: userId, orderid: orderId } }
     try {
         response = await axios.get(`${baseUrl}/users/${userId}/orders/${orderId}`, requestParams)
+    } catch (err) {
+        console.log('Error', err.message)
+    }
+    return response.data
+}
 
+export async function getOrdersBy(status, userId) {
+    let response
+    console.log(status)
+    const requestParams = { params: { status: status, id: userId } }
+    try {
+        response = await axios.get(`${baseUrl}/users/${userId}/orders/${status}`, requestParams)
     } catch (err) {
         console.log('Error', err.message)
     }
@@ -147,7 +158,17 @@ export async function deleteAddress(addressId, userId) {
     try {
         const requestParams = { params: { params: { id: userId, addressId: addressId } } }
         result = await axios.delete(`${baseUrl}/users/${userId}/addresses/${addressId}`, requestParams, { headers })
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return result.data
+}
 
+export async function getUserWishlist(userId) {
+    let result
+    try {
+        const requestParams = { params: { id: userId } }
+        result = await axios.get(`${baseUrl}/users/${userId}/wishlist`, requestParams)
     } catch (err) {
         console.log('Error', err)
     }

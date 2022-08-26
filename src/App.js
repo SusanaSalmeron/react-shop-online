@@ -17,9 +17,8 @@ import UserAccountData from './components/UserAccountData/userAccountData';
 import UserAccountAddressList from './components/UserAccountAddressList/userAccountAddressList';
 import UserAccountPassword from './components/UserAccountPassword/userAccountPassword';
 import UserOrdersList from './components/UserOrdersList/userOrdersList';
-import UserOrdersInProcess from './components/UserOrdersInProcess/userOrdersInProcess';
-import UserOrdersShipped from './components/UserOrdersShipped/UserOrdersShipped';
-import UserWishlist from './components/UserWishList/userWishList';
+import UserOrdersByStatus from './components/UserOrdersByStatus/userOrdersByStatus';
+import UserWishlist from './components/UserWishlist/userWishlist';
 import UserAddressForm from './components/UserAddressForm/userAddressForm';
 import './App.css';
 import UserAccountOverview from './components/UserAccountOverview/userAccountOverview';
@@ -61,8 +60,7 @@ function App() {
                   <Route path="password" element={<UserAccountPassword />} />
                   <Route path="orders" element={<UserOrdersList />} />
                   <Route path="orders/:orderid" element={<Order />} />
-                  <Route path="inprocess" element={<UserOrdersInProcess />} />
-                  <Route path="shipped" element={<UserOrdersShipped />} />
+                  <Route path=":status" element={<UserOrdersByStatus />} />
                   <Route path="wishlist" element={<UserWishlist />} />
                 </Route>
               </Routes>
