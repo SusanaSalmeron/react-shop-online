@@ -1,8 +1,11 @@
 import style from './userOrderCard.module.css';
 import NavigateButton from '../NavigateButton/navigateButton';
+import { useParams } from 'react-router-dom';
 
 
 export default function UserOrdersCard({ data }) {
+
+    const { id, status } = useParams()
     return (
         <div className={style.container}>
             <div className={style.order}>
@@ -14,7 +17,7 @@ export default function UserOrdersCard({ data }) {
                 <NavigateButton
                     id={data.order_id}
                     name="See"
-                    route={`${data.order_id}`}
+                    route={!status ? `${data.order_id}` : `/account/${id}/orders/${data.order_id}`}
                     label="SEE"
                 />
             </div>

@@ -1,0 +1,9 @@
+.container h2 {
+    width: 98%;
+    height: 2em;
+    border-bottom: 1px solid #bdb2b2;
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+}

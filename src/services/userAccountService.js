@@ -36,7 +36,6 @@ export async function getUserOrders(userId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    console.log(response.data)
     return response.data
 }
 
@@ -48,15 +47,15 @@ export async function getOrder(userId, orderId) {
     } catch (err) {
         console.log('Error', err.message)
     }
+    console.log(response)
     return response.data
 }
 
 export async function getOrdersBy(status, userId) {
     let response
-    console.log(status)
     const requestParams = { params: { status: status, id: userId } }
     try {
-        response = await axios.get(`${baseUrl}/users/${userId}/orders/${status}`, requestParams)
+        response = await axios.get(`${baseUrl}/users/${userId}/orders/status/${status}`, requestParams)
     } catch (err) {
         console.log('Error', err.message)
     }
