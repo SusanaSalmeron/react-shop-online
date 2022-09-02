@@ -2,11 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import style from './userWishlistCard.module.css';
 
 
-export default function UserWishlistCard({ data }) {
+export default function UserWishlistCard({ data, deleteHandleClick }) {
     const navigate = useNavigate()
+
     const handleClick = () => {
         navigate(`/product/${data.id}`)
     }
+
+
+
     return (
         <div className={style.container}>
             <p>{data.brand}</p>
@@ -28,7 +32,12 @@ export default function UserWishlistCard({ data }) {
                 >
                     <i className="fa-solid fa-cart-shopping" />
                 </button>
-                <button className={style.trash}>
+                <button
+                    id={data.id}
+                    name="delete"
+                    className={style.trash}
+                    onClick={deleteHandleClick}
+                >
                     < i className="fa-solid fa-trash-can" />
                 </button>
             </div>

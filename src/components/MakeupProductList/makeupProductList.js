@@ -32,6 +32,7 @@ export default function MakeupFaceProductsList() {
                     setLoading(false)
                 })
         }
+        localStorage.setItem('id', '1000')
         setLoading(true)
         setSpinnerDisplay(false)
     }, [productType, keyword, setSpinnerDisplay])
@@ -44,7 +45,7 @@ export default function MakeupFaceProductsList() {
                 <div className={style.products}>
                     {showSearch.map((product, i) => {
                         return <MakeupProductCard
-                            data={product}
+                            productData={product}
                             key={i}
                         />
                     })}
@@ -55,7 +56,7 @@ export default function MakeupFaceProductsList() {
                 <div className={style.products}>
                     {showProducts.map((product, i) => {
                         return <MakeupProductCard
-                            data={product}
+                            productData={product}
                             key={i}
                         />
                     })}

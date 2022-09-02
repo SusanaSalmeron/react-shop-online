@@ -10,7 +10,15 @@ export const popUpAlert = async (position, icon, title, showConfirmButton, timer
     })
 }
 
-export const popUpAlertWithConfirmation = async (title, text, icon, confirmButtonText) => {
+export const popUpAlertWithConfirmation = async (title, text, icon, confirmButtonText, text2, text3) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
     await Swal.fire({
         title: title,
         text: text,
@@ -20,11 +28,21 @@ export const popUpAlertWithConfirmation = async (title, text, icon, confirmButto
         cancelButtonColor: '#d33',
         confirmButtonText: confirmButtonText
     }).then((result) => {
+        console.log(result)
+        console.log(Swal.DismissReason.cancel)
         if (result.isConfirmed) {
             Swal.fire(
                 'Deleted!',
-                'Your address has been deleted.',
+                text2,
                 'success'
+            )
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelled',
+                text3,
+                'error'
             )
         }
     })

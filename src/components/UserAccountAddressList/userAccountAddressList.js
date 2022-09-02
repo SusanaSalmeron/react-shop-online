@@ -5,7 +5,7 @@ import { deleteAddress, getUserAddresses, getUserData } from "../../services/use
 import NavigateButton from '../NavigateButton/navigateButton';
 import UserAccountAddress from "../UserAccountAddress/UserAccountAddress";
 import style from './userAccountAddressList.module.css';
-import { popUpAlertWithConfirmation } from '../../utils/popUpAlert'
+import { popUpAlert } from '../../utils/popUpAlert'
 
 
 export default function UserAccountAddressList() {
@@ -41,8 +41,8 @@ export default function UserAccountAddressList() {
         navigate('../addressForm')
     }
     const deleteHandleClick = async (e) => {
-        await popUpAlertWithConfirmation('Are you sure?', 'Your address will be deleted', 'warning', 'delete')
         if (addressListShow[e.target.id].id && id) {
+            await popUpAlert('center', 'success', 'Your address has been removed', false, 2000)
             await deleteAddress(addressListShow[e.target.id].id, id)
             setIsDeleted(!isDeleted)
         }

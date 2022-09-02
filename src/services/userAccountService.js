@@ -36,6 +36,7 @@ export async function getUserOrders(userId) {
     } catch (err) {
         console.log('Error', err.message)
     }
+    console.log(response.data)
     return response.data
 }
 
@@ -47,7 +48,6 @@ export async function getOrder(userId, orderId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    console.log(response)
     return response.data
 }
 
@@ -168,6 +168,33 @@ export async function getUserWishlist(userId) {
     try {
         const requestParams = { params: { id: userId } }
         result = await axios.get(`${baseUrl}/users/${userId}/wishlist`, requestParams)
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return result.data
+}
+
+export async function deleteProductFromWishlist(userId, productId) {
+    let result
+    try {
+        const requestParams = { params: { id: userId, productId: productId } }
+        result = await axios.delete(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, { headers })
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return result.data
+}
+
+//TODO - token is missing to extract id from user
+export async function addProductToWishlist(userId, productId) {
+    let result
+    try {
+        const requestParams = {
+            params:
+                { id: "1000", productId: productId, }
+        }
+        const body = {}
+        result = await axios.put(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, body, { headers })
     } catch (err) {
         console.log('Error', err)
     }
