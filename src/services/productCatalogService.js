@@ -3,17 +3,14 @@ import axios from 'axios';
 const baseUrl = "http://localhost:3001/v1"
 
 export async function getProductsBy(type) {
-    let allProducts = []
+    let response = []
     const requestParams = { params: { type: type } }
     try {
-        const response = await axios.get(`${baseUrl}/products/type`, requestParams)
-        const newProducts = await getAllNewProducts()
-        const newProductsFiltered = newProducts.filter(p => p.product_type.toLowerCase() === type.toLowerCase())
-        allProducts = [...response.data, ...newProductsFiltered]
+        response = await axios.get(`${baseUrl}/products/type`, requestParams)
     } catch (err) {
         console.log('Error', err.message)
     }
-    return allProducts
+    return response.data
 }
 
 export async function getAllProducts() {
@@ -31,7 +28,7 @@ export async function getAllProductsFromSearch(keyword) {
     let response = []
     const requestParams = { params: { keyword: keyword } }
     try {
-        response = await axios.get(`${baseUrl}/users/search/${keyword}`, requestParams)
+        response = await axios.get(`${baseUrl}/users/search/ ${keyword}`, requestParams)
     } catch (err) {
         console.log('Error', err.message)
     }
@@ -47,8 +44,7 @@ export async function getProductById(id) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    console.log(response.data[0])
-    return response.data[0]
+    return response.data
 }
 
 export async function getAllNewProducts() {

@@ -1,0 +1,8 @@
+.container h3 {
+    width: 98%;
+    height: 2em;
+    border-bottom: 1px solid #bdb2b2;
+    color: black;
+    text-align: center;
+    font-size: 1.5em;
+}

@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    width: 100%;
+    margin-top: 10em;
+    min-height: 90vh;
+}
+
+.content {
+    width: 80%;
+    margin-left: 2em;
+
+}
+
+.menu {
+    width: 20%;
+    margin-left: 2em;
+
+}

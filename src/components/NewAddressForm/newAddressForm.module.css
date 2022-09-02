@@ -1,0 +1,60 @@
+.container h2 {
+    width: 98%;
+    height: 2em;
+    border-bottom: 1px solid #bdb2b2;
+    color: black;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 90%;
+    height: 60vh;
+}
+
+.form label {
+    width: 20%;
+    margin: 0 2em 0 2em;
+    font-size: 1.3em;
+}
+
+.form .field {
+    width: 60%;
+    margin: 0 2em 2em 2em;
+    height: 1.3em;
+    font-size: 1.3em;
+    background-color: #eee;
+}
+
+.form .checkbox {
+    margin: 0 2em 2em 2em;
+    height: 1.3em;
+    font-size: 1.3em;
+    background-color: #eee;
+}
+
+.button {
+    width: 100%;
+    text-align: right;
+}
+
+.button button {
+    width: 20%;
+    cursor: pointer;
+}
+
+.button button:disabled {
+    cursor: not-allowed;
+}
+
+.error {
+    width: 100%;
+    color: red;
+    font-size: 1.2em;
+    margin-left: 2em;
+    margin-top: -2em;
+}

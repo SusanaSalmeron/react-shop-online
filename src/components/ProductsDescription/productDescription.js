@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import style from './productDescription.module.css';
 import Spinner from "../Spinner/spinner";
 import SpinnerContext from "../../context/SpinnerContext";
+import { addProductToWishlist } from "../../services/userAccountService";
+import { popUpAlert } from '../../utils/popUpAlert'
 
 
 export default function ProductDescription() {
@@ -27,6 +29,16 @@ export default function ProductDescription() {
         setSpinnerDisplay(false)
     }, [id, setSpinnerDisplay])
 
+    const handleAddProduct = async (e) => {
+        const productAdded = await addProductToWishlist("1000", id)
+        console.log(productAdded)
+        if (productAdded.status === 201) {
+            await popUpAlert('center', 'success', 'Your product has been addded to your wishlist', false, 2000)
+        } else {
+            await popUpAlert('center', 'error', 'Your product is already in your wishlist', false, 2000)
+        }
+    }
+
     return (
         <div className={style.container}>
             <div className={!loading ? null : style.spinner}>
@@ -49,7 +61,11 @@ export default function ProductDescription() {
                     </div>
                     <div className={style.buttons}>
                         <button>BUY</button>
-                        <button>Add to my wishlist</button>
+                        <button
+                            id={showProduct.id}
+                            name="add"
+                            onClick={handleAddProduct}
+                        >Add to my wishlist</button>
                     </div>
 
                 </div>

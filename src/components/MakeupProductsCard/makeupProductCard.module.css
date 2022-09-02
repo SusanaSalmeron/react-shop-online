@@ -45,6 +45,7 @@
     width: 55%;
     height: 16em;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .productCard figure img {

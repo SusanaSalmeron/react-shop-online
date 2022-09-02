@@ -1,0 +1,32 @@
+.container h3 {
+    text-transform: uppercase;
+}
+
+.address button {
+    width: 10em;
+}
+
+.addresses {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.addresses button {
+    margin-top: 1.5em;
+}
+
+
+.add button {
+    width: 10em;
+    margin-top: 3em;
+}
+
+.navigate {
+    width: 5em;
+    height: 2em;
+    font-size: 1em;
+    margin: 0;
+    grid-column: 0/1;
+}
