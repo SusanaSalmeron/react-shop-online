@@ -18,7 +18,7 @@ import UserAccountAddressList from './components/UserAccountAddressList/userAcco
 import UserAccountPassword from './components/UserAccountPassword/userAccountPassword';
 import UserOrdersList from './components/UserOrdersList/userOrdersList';
 import UserOrdersByStatus from './components/UserOrdersByStatus/userOrdersByStatus';
-import UserWishlist from './components/UserWishlist/userWishlist';
+import UserWishlist from './components/UserWishList/userWishList'
 import UserAddressForm from './components/UserAddressForm/userAddressForm';
 import './App.css';
 import UserAccountOverview from './components/UserAccountOverview/userAccountOverview';

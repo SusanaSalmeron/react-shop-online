@@ -14,7 +14,7 @@ export default function UserAccountAddressList() {
     //Delivery addresses data to show
     const [addressListShow, setAddressListShow] = useState([])
     //Context to set one of the delivery addresses to be modified
-    const { setAddress, setIsBilling } = useContext(UpdateAddressContext)
+    const { setShippingAddress, setIsBilling } = useContext(UpdateAddressContext)
     const [isDeleted, setIsDeleted] = useState(false)
     const { id } = useParams()
     const navigate = useNavigate()
@@ -31,13 +31,13 @@ export default function UserAccountAddressList() {
 
     const updateHandleClick = (e) => {
         setIsBilling(0)
-        setAddress(addressListShow[e.target.id])
+        setShippingAddress(addressListShow[e.target.id])
         navigate('../addressForm')
     }
 
     const billingHandleClick = () => {
         setIsBilling(1)
-        setAddress(mainAddressData)
+        setShippingAddress(mainAddressData)
         navigate('../addressForm')
     }
     const deleteHandleClick = async (e) => {
@@ -77,7 +77,7 @@ export default function UserAccountAddressList() {
                                     key={`${a.id}id`}
                                 />
                                 <NavigateButton
-                                    key={index}
+                                    key={`${index}+update`}
                                     id={index}
                                     name="update"
                                     label='Update'

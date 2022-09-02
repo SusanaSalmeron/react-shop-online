@@ -123,14 +123,25 @@ export async function updateUserAccountBillingAddress(userId, user_name, surname
 
 
 //TODO - UPDATE BILLING ADDRESS
-/* export async function updateUserAccountShippingAddress(userId, user_name, surname, address, postalZip, city, country) {
+export async function updateUserAccountShippingAddress(addressId, user_name, surname, address, postalZip, city, country, userId) {
     let result
     try {
-        
+        const body = {
+            user_name,
+            surname,
+            address,
+            postalZip,
+            city,
+            country
+        }
+        const requestParams = { params: { userid: userId, addressid: addressId } }
+        console.log(requestParams)
+        result = await axios.put(`${baseUrl}/users/${userId}/addresses/${addressId}`, body, requestParams, { headers })
     } catch (err) {
-        
+        console.log('Error', err)
     }
-} */
+    return result.data
+}
 
 export async function newShippingAddress(id, user_name, surname, address, postalZip, city, country, defaultAddress) {
     let result

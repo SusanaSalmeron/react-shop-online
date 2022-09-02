@@ -2,12 +2,12 @@ import UserAccountUpdateAddressForm from '../UserAccountUpdateAddressForm/userAc
 import style from './userAddressForm.module.css';
 import UpdateAddressContext from '../../context/UpdateAddressContext';
 import { useContext } from 'react';
-import { updateUserAccountBillingAddress } from '../../services/userAccountService';
+import { updateUserAccountBillingAddress, updateUserAccountShippingAddress } from '../../services/userAccountService';
 import { useNavigate, useParams } from 'react-router-dom';
 import { popUpAlert } from '../../utils/popUpAlert'
 
 export default function UserAddressForm() {
-    const { address, isBilling } = useContext(UpdateAddressContext)
+    const { shippingAddress, isBilling } = useContext(UpdateAddressContext)
     const { id } = useParams()
     const navigate = useNavigate()
 
@@ -21,10 +21,18 @@ export default function UserAddressForm() {
             popUpAlert("center", "error", "Billing address not updated", false, 2000)
         }
     }
-    //TODO - UPDATE BILLING ADDRESS
+    //TODO - UPDATE delivery  ADDRESS
     const submitDeliveryAddressChange = async (values) => {
-        /*         const { user_name, surname, address, postalZip, city, country } = values
-         */
+        const { user_name, surname, address, postalZip, city, country } = values
+        const shippingAddressUpdated = await updateUserAccountShippingAddress(shippingAddress.id, user_name, surname, address, postalZip, city, country, id)
+
+        if (shippingAddressUpdated) {
+            await popUpAlert("center", "success", "Shipping address updated successfully", false, 2000)
+            navigate(`/account/${id}`)
+        } else {
+            popUpAlert("center", "error", "Shipping address not updated", false, 2000)
+        }
+
     }
 
     return (
@@ -32,7 +40,7 @@ export default function UserAddressForm() {
             {isBilling ? <h3>My Billing Address</h3> : <h3>Address Book</h3>}
             <UserAccountUpdateAddressForm
                 submit={isBilling ? submitBillingAddressChange : submitDeliveryAddressChange}
-                address={address}
+                address={shippingAddress}
                 id=''
             />
         </div>

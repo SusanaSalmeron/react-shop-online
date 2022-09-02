@@ -5,11 +5,11 @@ import { createContext, useState } from "react";
 const UpdateAddressContext = createContext()
 
 export function UpdateAddressContextProvider({ children }) {
-    const [address, setAddress] = useState({})
+    const [shippingAddress, setShippingAddress] = useState({})
     const [isBilling, setIsBilling] = useState(0)
 
     return (
-        <UpdateAddressContext.Provider value={{ address, setAddress, isBilling, setIsBilling }}>
+        <UpdateAddressContext.Provider value={{ shippingAddress, setShippingAddress, isBilling, setIsBilling }}>
             {children}
         </UpdateAddressContext.Provider>
     )
