@@ -42,8 +42,8 @@ export default function UserAccountAddressList() {
     }
     const deleteHandleClick = async (e) => {
         if (addressListShow[e.target.id].id && id) {
-            await popUpAlert('center', 'success', 'Your address has been removed', false, 2000)
             await deleteAddress(addressListShow[e.target.id].id, id)
+            await popUpAlert('center', 'success', 'Your address has been removed', false, 2000)
             setIsDeleted(!isDeleted)
         }
     }
@@ -69,33 +69,30 @@ export default function UserAccountAddressList() {
             <h3>Addresses</h3>
             {addressListShow.length === 0 ? <h4>No addresses yet</h4> :
                 <div>
-                    <div className={style.addresses}>
-                        {addressListShow.map((a, index) => {
-                            return <>
-                                <UserAccountAddress
-                                    data={a}
-                                    key={`${a.id}id`}
-                                />
-                                <NavigateButton
-                                    key={`${index}+update`}
-                                    id={index}
-                                    name="update"
-                                    label='Update'
-                                    className={style.navigate}
-                                    onClick={updateHandleClick}
-                                    isbilling={0}
-                                />
-                                <NavigateButton
-                                    key={`${index}+delete`}
-                                    id={index}
-                                    name="delete"
-                                    label='Delete'
-                                    className={style.navigate}
-                                    onClick={deleteHandleClick}
-                                />
-                            </>
-                        })}
-                    </div>
+                    {addressListShow.map((a, index) => {
+                        return <div
+                            className={style.addresses}
+                            key={a.id}
+                            value={a}>
+                            <UserAccountAddress
+                                data={a}
+                            />
+                            <NavigateButton
+                                name="update"
+                                label='Update'
+                                className={style.navigate}
+                                onClick={updateHandleClick}
+                                isbilling={0}
+                            />
+                            <NavigateButton
+                                id={index}
+                                name="delete"
+                                label='Delete'
+                                className={style.navigate}
+                                onClick={deleteHandleClick}
+                            />
+                        </div>
+                    })}
                 </div>}
             <div className={style.add}>
                 <NavigateButton

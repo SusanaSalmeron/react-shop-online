@@ -43,11 +43,10 @@ describe('UserAccountPassword', () => {
         await user.type(repeatPass, 'Zxcvb987!')
         expect(repeatPass).toHaveValue('Zxcvb987!')
         user.click(button)
-        //TODO - not working
+
         await waitFor(() => {
             expect(mockedUpdatePassword).toHaveBeenCalledWith('3', 'Abcdef123!', 'Zxcvb987!', 'Zxcvb987!')
         })
-
         await waitFor(() => {
             expect(mockedPopUp).toHaveBeenCalledWith("center", "success", 'Your password has been changed', false, 2000)
         })
