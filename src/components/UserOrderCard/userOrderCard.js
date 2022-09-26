@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 
 export default function UserOrdersCard({ data }) {
-
     const { id, status } = useParams()
     return (
         <div className={style.container}>

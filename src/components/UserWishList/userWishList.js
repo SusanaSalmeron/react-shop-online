@@ -39,6 +39,7 @@ export default function UserWishlist() {
                     wishlist.length > 0 ?
                         wishlist.map((p, i) => {
                             return <UserWishlistCard
+                                key={i}
                                 id={wishlist[i].id}
                                 data={p}
                                 deleteHandleClick={deleteHandleClick}

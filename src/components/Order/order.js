@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { getOrder, getUserData } from "../../services/userAccountService";
 import style from './order.module.css';
 import Spinner from '../Spinner/spinner';
+import OrderCard from "../OrderCard/orderCard";
 
 
 export default function Order() {
@@ -62,15 +63,10 @@ export default function Order() {
                         <p className={style.center}>UNITS</p>
                         <p className={style.center}>PRICE</p>
                         <p className={style.center}>SUBTOTAL</p>
-                        {order.products.map(p => {
-                            return <>
-                                <p>{p.product_brand}</p>
-                                <p>{p.product_name}</p>
-                                <p className={style.style}>{p.product_colour}</p>
-                                <p className={style.style}>{p.units}</p>
-                                <p className={style.style}>{p.price}€</p>
-                                <p className={style.style}>{p.product_total} €</p>
-                            </>
+                        {order.products.map((p, i) => {
+                            return <OrderCard
+                                product={p}
+                                key={i} />
                         })}
                         <p className={style.total}>TOTAL: {order.total_order} €</p>
                     </div>

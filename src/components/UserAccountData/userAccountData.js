@@ -9,23 +9,32 @@ import { popUpAlert } from '../../utils/popUpAlert'
 
 export default function UserAccountData() {
     const { id } = useParams()
-    const [showData, setShowData] = useState({})
+    const [showData, setShowData] = useState({
+        user_name: "",
+        surname: "",
+        identification: "",
+        date_of_birth: "",
+        email: "",
+        phone: ""
+    })
     const navigate = useNavigate()
 
-    const initialValues = {
-        user_name: showData.user_name,
-        surname: showData.surname,
-        identification: showData.identification,
-        date_of_birth: showData.date_of_birth,
-        email: showData.email,
-        phone: showData.phone
-    }
+    /*    let initialValues = {
+           user_name: showData.user_name,
+           surname: showData.surname,
+           identification: showData.identification,
+           date_of_birth: showData.date_of_birth,
+           email: showData.email,
+           phone: showData.phone
+       } */
 
     const submitData = async (values) => {
         const { user_name, surname, identification, date_of_birth, email, phone } = values
         const dataUpdated = await updateUserAccountData(id, user_name, surname, identification, date_of_birth, email, phone)
         if (dataUpdated) {
             await popUpAlert('center', 'success', 'Your data has beeen updated', false, 2000)
+            console.log("LKKKKK")
+            console.log(navigate)
             navigate(`/account/${id}`)
         } else {
             popUpAlert('center', 'error', 'There is something wrong...', false, 2000)
@@ -44,7 +53,7 @@ export default function UserAccountData() {
             <h2>My Data</h2>
             <Formik
                 enableReinitialize={true}
-                initialValues={initialValues}
+                initialValues={showData}
                 onSubmit={submitData}
                 validationSchema={ValidationFormForUserAccountData}
             >
@@ -115,6 +124,7 @@ export default function UserAccountData() {
                             <ErrorMessage
                                 className={style.error}
                                 name='phone'
+
                                 component="small"
                             />
                             <div className={style.button}>
@@ -122,6 +132,7 @@ export default function UserAccountData() {
                                     disabled={!isValid || !dirty || isSubmitting}
                                     name='update'
                                     label="UPDATE"
+                                    type="submit"
                                 />
                             </div>
                         </Form>

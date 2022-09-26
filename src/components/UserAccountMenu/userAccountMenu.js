@@ -1,8 +1,8 @@
 import style from './userAccountMenu.module.css';
 import { Link } from 'react-router-dom';
 
-export default function UserAccountMenu() {
 
+export default function UserAccountMenu() {
     return (
         <aside className={style.container}>
             <ul>
@@ -11,15 +11,21 @@ export default function UserAccountMenu() {
                     My Account
                 </li>
                 <ul className={style.submenu}>
-                    <Link to='data'>
-                        <li>My Data</li>
-                    </Link>
-                    <Link to='address'>
-                        <li>My Address List</li>
-                    </Link>
-                    <Link to='password'>
-                        <li>Password</li>
-                    </Link>
+                    <li>
+                        <Link to='data'>
+                            My Data
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='address'>
+                            My Address List
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='password'>
+                            Password
+                        </Link>
+                    </li>
                 </ul>
 
                 <li className={style.title}>
@@ -27,23 +33,28 @@ export default function UserAccountMenu() {
                     My Orders
                 </li>
                 <ul className={style.submenu}>
-                    <Link to='orders'>
-                        <li>My Orders</li>
-                    </Link>
-                    <Link to='inprocess'>
-                        <li>Orders in Process</li>
-                    </Link>
-                    <Link to='shipped'>
-                        <li>Orders Shipped</li>
-                    </Link>
+                    <li>
+                        <Link to='orders'>
+                            My Orders
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='inprocess'>
+                            Orders in Process
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='shipped'>
+                            Orders Shipped
+                        </Link>
+                    </li>
                 </ul>
-                <Link to='wishlist'>
-                    <li className={style.title}>
+                <li className={style.title}>
+                    <Link to='wishlist'>
                         <i className="fa-solid fa-heart" />
                         My Wishlist
-                    </li>
-                </Link>
-
+                    </Link>
+                </li>
             </ul>
             <div className={style.button}>
                 <button>LOG OUT</button>

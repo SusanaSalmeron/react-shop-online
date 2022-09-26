@@ -31,7 +31,6 @@ export default function ProductDescription() {
 
     const handleAddProduct = async (e) => {
         const productAdded = await addProductToWishlist("1000", id)
-        console.log(productAdded)
         if (productAdded.status === 201) {
             await popUpAlert('center', 'success', 'Your product has been addded to your wishlist', false, 2000)
         } else {

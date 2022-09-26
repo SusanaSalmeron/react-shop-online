@@ -13,7 +13,7 @@ export default function UserAccountUpdateAddressForm({ submit, address }) {
     const initialValues = {
         user_name: address ? address.user_name : "",
         surname: address ? address.surname : "",
-        identification: address ? address?.identification : "",
+        identification: address && !isBilling ? address?.identification : "",
         address: address ? address.address : "",
         postalZip: address ? address.postalZip : "",
         city: address ? address.city : "",

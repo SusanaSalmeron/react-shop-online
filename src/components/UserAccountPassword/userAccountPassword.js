@@ -37,7 +37,7 @@ export default function UserAccountPassword() {
                 validationSchema={ValidationFormForUserAccountPasswordUpdate}
             >
                 {
-                    ({ isSubmitting, dirty, isValid, errors }) =>
+                    ({ isSubmitting, dirty, isValid }) =>
                         <Form className={style.form}>
                             <label htmlFor="password">Password</label>
                             <Field
@@ -80,11 +80,11 @@ export default function UserAccountPassword() {
                                     disabled={!isValid || !dirty || isSubmitting}
                                     label="Update"
                                     name="change"
+                                    type="submit"
                                 />
                             </div>
                         </Form>
                 }
-
             </Formik>
         </div>
 

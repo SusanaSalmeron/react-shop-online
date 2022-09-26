@@ -28,8 +28,6 @@ export const popUpAlertWithConfirmation = async (title, text, icon, confirmButto
         cancelButtonColor: '#d33',
         confirmButtonText: confirmButtonText
     }).then((result) => {
-        console.log(result)
-        console.log(Swal.DismissReason.cancel)
         if (result.isConfirmed) {
             Swal.fire(
                 'Deleted!',

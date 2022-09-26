@@ -10,7 +10,6 @@ export default function UserWishlistCard({ data, deleteHandleClick }) {
     }
 
 
-
     return (
         <div className={style.container}>
             <p>{data.brand}</p>
@@ -25,12 +24,20 @@ export default function UserWishlistCard({ data, deleteHandleClick }) {
                 <button
                     className={style.see}
                     onClick={handleClick}
+                    name="see"
                 >
-                    <i className="fa-solid fa-eye" />
+                    <i
+                        className="fa-solid fa-eye"
+                    />
                 </button>
-                <button className={style.cart}
+                <button
+                    className={style.cart}
+                    name="cart"
                 >
-                    <i className="fa-solid fa-cart-shopping" />
+                    <i
+                        className="fa-solid fa-cart-shopping"
+                    />
+
                 </button>
                 <button
                     id={data.id}
@@ -38,7 +45,9 @@ export default function UserWishlistCard({ data, deleteHandleClick }) {
                     className={style.trash}
                     onClick={deleteHandleClick}
                 >
-                    < i className="fa-solid fa-trash-can" />
+                    < i
+                        className="fa-solid fa-trash-can"
+                    />
                 </button>
             </div>
 

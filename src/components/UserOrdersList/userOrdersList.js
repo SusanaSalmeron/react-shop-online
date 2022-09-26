@@ -27,9 +27,10 @@ export default function UserOrdersList() {
                 <Spinner
                     loading={loading} />
                 {
-                    orders.map(o => {
+                    orders.map((o, i) => {
                         return <UserOrdersCard
                             data={o}
+                            key={i}
                         />
                     })
                 }

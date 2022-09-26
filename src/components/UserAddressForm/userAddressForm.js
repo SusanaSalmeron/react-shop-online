@@ -32,7 +32,6 @@ export default function UserAddressForm() {
         } else {
             popUpAlert("center", "error", "Shipping address not updated", false, 2000)
         }
-
     }
 
     return (

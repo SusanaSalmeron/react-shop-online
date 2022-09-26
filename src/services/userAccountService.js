@@ -36,7 +36,6 @@ export async function getUserOrders(userId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    console.log(response.data)
     return response.data
 }
 
@@ -63,7 +62,6 @@ export async function getOrdersBy(status, userId) {
 }
 
 export async function updateUserAccountData(userId, userName, surname, identification, dateOfBirth, email, phone) {
-    let result
     try {
         const body = {
             user_name: userName,
@@ -75,11 +73,12 @@ export async function updateUserAccountData(userId, userName, surname, identific
         }
         const requestParams = { params: { id: userId } }
 
-        result = await axios.put(`${baseUrl}/users/${userId}/data`, body, requestParams, { headers })
+        await axios.put(`${baseUrl}/users/${userId}/data`, body, requestParams, { headers })
+        return true
     } catch (err) {
         console.log('Error', err)
+        return false
     }
-    return result.data
 }
 
 export async function updateUserAccountPassword(userId, password, newPassword, repeatNew) {
@@ -135,7 +134,6 @@ export async function updateUserAccountShippingAddress(addressId, user_name, sur
             country
         }
         const requestParams = { params: { userid: userId, addressid: addressId } }
-        console.log(requestParams)
         result = await axios.put(`${baseUrl}/users/${userId}/addresses/${addressId}`, body, requestParams, { headers })
     } catch (err) {
         console.log('Error', err)
