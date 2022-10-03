@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ReturnButton(onClick) {
     const navigate = useNavigate()
+
     const handleNavigate = () => {
         navigate(-1)
     }

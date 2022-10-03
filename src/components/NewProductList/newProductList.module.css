@@ -10,8 +10,8 @@
 }
 
 .figure {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(8, 2fr);
     width: 96%;
     justify-content: center;
 }

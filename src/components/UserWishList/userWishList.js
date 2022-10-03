@@ -30,7 +30,6 @@ export default function UserWishlist() {
             })
     }, [id, isDeleted])
 
-
     return (
         <div className={style.container}>
             <h2 >My Wishlist</h2>
@@ -46,10 +45,6 @@ export default function UserWishlist() {
                             />
                         }) : <h3>You don't have products in your wishlist</h3>
                 }
-
-
-
-
             </div>
         </div>
     )

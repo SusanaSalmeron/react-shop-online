@@ -191,6 +191,7 @@ export async function deleteProductFromWishlist(userId, productId) {
     } catch (err) {
         console.log('Error', err)
     }
+    console.log(result.data)
     return result.data
 }
 
@@ -207,7 +208,7 @@ export async function addProductToWishlist(userId, productId) {
     } catch (err) {
         console.log('Error', err)
     }
-    return result.data
+    return result.status === 201
 }
 
 

@@ -18,17 +18,15 @@ export default function NewProductsList() {
     return (
         <div className={style.container}>
             <h2>Just Arrived </h2>
-            <figure className={style.figure}>
+            <figure className={style.figure} >
                 {showNewProducts.map((product, index) => {
-                    return <>
+                    return <div key={index}>
                         <NewProductImage
-                            key={index}
                             className={style.product}
                             src={product.api_featured_image}
                             alt={product.name}
                             value={product.id} />
-                    </>
-
+                    </div>
                 })}
             </figure>
         </div>

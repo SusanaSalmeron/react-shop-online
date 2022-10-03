@@ -1,13 +1,14 @@
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import UserWishlistCard from "../components/UserWishlistCard/userWishlistCard";
-import userEvent from '@testing-library/user-event'
+import userEvent from '@testing-library/user-event';
+
+const mockedNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
-    useNavigate: () => mockedNavigate,
+    useNavigate: () => mockedNavigate
 }))
 
-const mockedNavigate = jest.fn();
 
 
 describe('UserWishlistCard', () => {
@@ -40,8 +41,10 @@ describe('UserWishlistCard', () => {
         expect(buttons).toHaveLength(3)
         expect(screen.getByAltText('Biba Palette')).toBeInTheDocument()
         expect(buttons[0]).toBeInTheDocument()
-        await user.click(buttons[0])
-        expect(mockedNavigate).toHaveBeenCalledTimes(1)
+        user.click(buttons[0])
+        await waitFor(() => {
+            expect(mockedNavigate).toHaveBeenCalledWith('/product/1')
+        })
         expect(buttons[1]).toBeInTheDocument()
         expect(buttons[2]).toBeInTheDocument()
 

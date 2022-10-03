@@ -6,7 +6,6 @@ import { newShippingAddress } from "../../services/userAccountService";
 import { popUpAlert } from "../../utils/popUpAlert";
 import ValidationFormForUserNewAddress from "../../middleware/validationForUserNewAddress";
 
-//TODO - validation is missing
 
 export default function NewAddressForm() {
     const { id } = useParams()
@@ -42,7 +41,7 @@ export default function NewAddressForm() {
                 validationSchema={ValidationFormForUserNewAddress}
             >
                 {
-                    ({ isSubmiting, dirty, isValid, handleChange, values }) =>
+                    ({ isSubmiting, dirty, isValid }) =>
                         <Form className={style.form}>
                             <label htmlFor="name">Name</label>
                             <Field
@@ -124,7 +123,6 @@ export default function NewAddressForm() {
                                 id="default"
                                 name="defaultAddress"
                                 type="checkbox"
-                                handleChange={handleChange}
                             />
 
                             <div className={style.button}>

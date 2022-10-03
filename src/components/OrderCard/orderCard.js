@@ -9,7 +9,7 @@ export default function OrderCard({ product }) {
             <p className={style.style}>{product.product_colour}</p>
             <p className={style.style}>{product.units}</p>
             <p className={style.style}>{product.price}€</p>
-            <p className={style.style}>{product.product_total} €</p>
+            <p className={style.style}>{product.product_total}€</p>
         </>
     )
 }

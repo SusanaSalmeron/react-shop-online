@@ -78,6 +78,7 @@ export default function UserAccountAddressList() {
                                 data={a}
                             />
                             <NavigateButton
+                                id={index}
                                 name="update"
                                 label='Update'
                                 className={style.navigate}

@@ -4,7 +4,7 @@ import UpdateAddressContext from "../context/UpdateAddressContext";
 import userEvent from '@testing-library/user-event';
 
 
-const mockNavigate = jest.fn()//.mockImplementation(() => ({}))
+const mockNavigate = jest.fn()
 
 
 jest.mock('react-router-dom', () => ({

@@ -4,7 +4,7 @@ import style from './privacyPolicy.module.css';
 
 export default function PrivacyPolicy() {
     return (
-        <>
+        <div>
             <div id="privacy" className={style.button}>
                 <ReturnButton />
             </div>
@@ -99,6 +99,6 @@ export default function PrivacyPolicy() {
 
                 <p>If you have any questions about this policy, you can contact the following email: <span>info@hopehospital.com</span></p>
             </div>
-        </>
+        </div>
     )
 }
