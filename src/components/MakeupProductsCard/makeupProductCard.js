@@ -6,7 +6,7 @@ import { addProductToWishlist, deleteProductFromWishlist } from '../../services/
 import { checkProductExistsOnWishlist } from '../../services/wishlistService';
 
 
-export default function MakeupFaceProductCard({ productData }) {
+export default function MakeupProductCard({ productData }) {
     const userId = localStorage.getItem('id')
     const { spinnerDisplay } = useContext(SpinnerContext)
     const regular = "fa-regular fa-heart"

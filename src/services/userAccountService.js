@@ -191,8 +191,7 @@ export async function deleteProductFromWishlist(userId, productId) {
     } catch (err) {
         console.log('Error', err)
     }
-    console.log(result.data)
-    return result.data
+    return result.status === 200
 }
 
 //TODO - token is missing to extract id from user

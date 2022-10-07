@@ -1,7 +1,7 @@
 import Menu from 'react-burger-menu/lib/menus/slide';
 import { NavLink } from 'react-router-dom';
 import './navbarMobile.css';
-import SearcBar from '../SearchBar/searchBar';
+import SearchBar from '../SearchBar/searchBar';
 
 export default function NavbarMobile({ isOpen, closeMenu }) {
     return (
@@ -44,7 +44,7 @@ export default function NavbarMobile({ isOpen, closeMenu }) {
                 </NavLink>
             </Menu>
             <div className='search'>
-                <SearcBar />
+                <SearchBar />
             </div>
 
 
