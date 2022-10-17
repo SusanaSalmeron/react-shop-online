@@ -8,15 +8,15 @@ export default function UserOrdersCard({ data }) {
     return (
         <div className={style.container}>
             <div className={style.order}>
-                <p className={style.number}>ORDER Nº: {data.order_id}</p>
-                <p className={style.date}>DATE: {data.order_date}</p>
-                <p className={style.total}>TOTAL: {data.total_order} €</p>
+                <p className={style.number}>ORDER Nº: {data.orderId}</p>
+                <p className={style.date}>DATE: {data.orderDate}</p>
+                <p className={style.total}>TOTAL: {data.totalOrder} €</p>
                 {data?.status === "Shipped" ? <p className={style.shipped}>{data.status}</p> : <p className={style.process}>{data.status}</p>}
 
                 <NavigateButton
                     id={data.order_id}
                     name="See"
-                    route={!status ? `${data.order_id}` : `/account/${id}/orders/${data.order_id}`}
+                    route={!status ? `${data.orderId}` : `/account/${id}/orders/${data.orderId}`}
                     label="SEE"
                 />
             </div>

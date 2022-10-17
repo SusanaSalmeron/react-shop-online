@@ -210,4 +210,19 @@ export async function addProductToWishlist(userId, productId) {
     return result.status === 201
 }
 
+export async function getUserReviews(userId) {
+    let result
+    try {
+        const requestParams = {
+            params: { id: userId }
+        }
+        result = await axios.get(`${baseUrl}/users/${userId}/reviews`, requestParams)
+
+    } catch (err) {
+        console.log('Error', err)
+    }
+    console.log(result.data)
+    return result.data
+}
+
 

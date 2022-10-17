@@ -25,6 +25,7 @@ import UserAccountOverview from './components/UserAccountOverview/userAccountOve
 import { UpdateAddressContextProvider } from './context/UpdateAddressContext';
 import Order from './components/Order/order';
 import NewAddressForm from './components/NewAddressForm/newAddressForm';
+import MyReviewsList from './components/MyReviewsList/myReviewsList';
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
                   <Route path="orders/:orderid" element={<Order />} />
                   <Route path=":status" element={<UserOrdersByStatus />} />
                   <Route path="wishlist" element={<UserWishlist />} />
+                  <Route path="reviews" element={<MyReviewsList />} />
                 </Route>
               </Routes>
             </UpdateAddressContextProvider>

@@ -55,6 +55,12 @@ export default function UserAccountMenu() {
                         My Wishlist
                     </Link>
                 </li>
+                <li className={style.title}>
+                    <Link to='reviews'>
+                        <i className="fa-solid fa-eye" />
+                        My Reviews
+                    </Link>
+                </li>
             </ul>
             <div className={style.button}>
                 <button>LOG OUT</button>

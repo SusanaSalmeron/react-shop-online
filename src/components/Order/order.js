@@ -33,16 +33,16 @@ export default function Order() {
                 </div>
 
                 <div className={loading ? style.hide : style.container}>
-                    <h2>ORDER Nº {order.order_id}</h2>
+                    <h2>ORDER Nº {order.orderId}</h2>
                     <div className={style.data}>
-                        <p>DATE: {order.order_date}</p>
+                        <p>DATE: {order.orderDate}</p>
                         <p className={style.status}> {order.status}</p>
                     </div>
 
                     <div className={style.userdata}>
                         <div className={style.billing}>
                             <h3>Billing Address</h3>
-                            <p>{userData.user_name} {userData.surname}</p>
+                            <p>{userData.userName} {userData.surname}</p>
                             <p>{userData.address}</p>
                             <p>{userData.postalZip} {userData.city} </p>
                             <p>{userData.country}</p>
@@ -68,7 +68,7 @@ export default function Order() {
                                 product={p}
                                 key={i} />
                         })}
-                        <p className={style.total}>TOTAL: {order.total_order} €</p>
+                        <p className={style.total}>TOTAL: {order.totalOrder} €</p>
                     </div>
                 </div>
             </>}

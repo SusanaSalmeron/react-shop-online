@@ -10,10 +10,10 @@ import { popUpAlert } from '../../utils/popUpAlert'
 export default function UserAccountData() {
     const { id } = useParams()
     const [showData, setShowData] = useState({
-        user_name: "",
+        userName: "",
         surname: "",
         identification: "",
-        date_of_birth: "",
+        dateOfBirth: "",
         email: "",
         phone: ""
     })
@@ -29,8 +29,8 @@ export default function UserAccountData() {
        } */
 
     const submitData = async (values) => {
-        const { user_name, surname, identification, date_of_birth, email, phone } = values
-        const dataUpdated = await updateUserAccountData(id, user_name, surname, identification, date_of_birth, email, phone)
+        const { userName, surname, identification, dateOfBirth, email, phone } = values
+        const dataUpdated = await updateUserAccountData(id, userName, surname, identification, dateOfBirth, email, phone)
         if (dataUpdated) {
             await popUpAlert('center', 'success', 'Your data has beeen updated', false, 2000)
             console.log("LKKKKK")
@@ -60,15 +60,15 @@ export default function UserAccountData() {
                 {
                     ({ isSubmitting, dirty, isValid, errors, status, values }) =>
                         <Form className={style.form}>
-                            <label htmlFor="user_name">Name</label>
+                            <label htmlFor="userName">Name</label>
                             <Field
-                                id="user_name"
-                                name="user_name"
+                                id="userName"
+                                name="userName"
                                 placeholder="Write your name"
                             />
                             <ErrorMessage
                                 className={style.error}
-                                name='user_name'
+                                name='userName'
                                 component="small"
                             />
 
@@ -95,14 +95,14 @@ export default function UserAccountData() {
                                 component="small"
                             />
 
-                            <label htmlFor="date_of_birth">Date of Birth</label>
+                            <label htmlFor="dateOfBirth">Date of Birth</label>
                             <Field
-                                id="date_of_birth"
-                                name="date_of_birth"
-                                placeholder={showData.date_of_birth} />
+                                id="dateOfBirth"
+                                name="dateOfBirth"
+                                placeholder={showData.dateOfBirth} />
                             <ErrorMessage
                                 className={style.error}
-                                name='date_of_birth'
+                                name='dateOfBirth'
                                 component="small"
                             />
 

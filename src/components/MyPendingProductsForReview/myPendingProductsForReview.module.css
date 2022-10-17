@@ -1,0 +1,32 @@
+.container {
+    width: 90%;
+    margin: 0 auto 4em auto;
+}
+
+.button {
+    background: #A46BF5;
+    border: 0;
+    border-radius: 2px;
+    color: #000;
+    cursor: pointer;
+    height: 2.5em;
+    padding: 0 1em;
+    font-size: 1em;
+}
+
+.button:focus,
+.close button:focus {
+    box-shadow: #a188b3 0 0 0 1.5px inset, rgba(148, 123, 236, 0.4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+}
+
+.button:hover,
+.close button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button:active,
+.close button:active {
+    box-shadow: #6086af 0 3px 7px inset;
+    transform: translateY(2px);
+}

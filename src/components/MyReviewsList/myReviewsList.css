@@ -1,0 +1,46 @@
+.tabs {
+    display: flex;
+    margin-right: 2em;
+}
+
+.tab {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: lightsteelblue;
+    padding: 2em 0;
+    border: none;
+}
+
+.tab:not(:last-child) {
+    border-right: 1px solid steelblue;
+}
+
+.tab.active {
+    background: steelblue;
+    font-weight: bold;
+}
+
+.panel {
+    display: none;
+    background-color: #eaeaea;
+    padding: 10px;
+    margin: 0 2em 2em 0;
+}
+
+.panel:last-child {
+    margin-bottom: 2em;
+}
+
+.panel.active {
+    display: block;
+}
+
+.spinner {
+    padding-top: 4em;
+    min-height: 52vh;
+}
+
+.null {
+    display: none
+}
