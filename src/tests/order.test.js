@@ -10,14 +10,14 @@ jest.mock('react-router-dom', () => ({
 }))
 
 const order = {
-    order_id: 1,
+    orderId: 1,
     name: "Susana",
     surname: "Salmeron",
     address: "Marcelina 32",
     postalZip: "28029",
     city: "Madrid",
     country: "Spain",
-    order_date: "02/09/2022",
+    orderDate: "02/09/2022",
     status: "shipped",
     products: [
         {
@@ -29,7 +29,7 @@ const order = {
             products_total: 129
         }
     ],
-    total_order: 129
+    totalOrder: 129
 }
 
 const user = {
@@ -42,7 +42,7 @@ const user = {
     country: "Spain",
     phone: "667897654",
     email: "mamamama@gmail.com",
-    date_of_birth: "04/05/1976",
+    dateOfBirth: "04/05/1976",
     identification: "12345678U",
     password: "Abcdef123!"
 }

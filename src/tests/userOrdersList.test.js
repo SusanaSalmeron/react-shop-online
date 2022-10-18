@@ -37,9 +37,9 @@ describe('UserOrdersList', () => {
     test('renders ok when there are orders on the list', async () => {
         jest.spyOn(userAccountService, 'getUserOrders').mockResolvedValue([
             {
-                order_id: 1,
-                order_date: "01/02/2022",
-                total_order: 37,
+                orderId: 1,
+                orderDate: "01/02/2022",
+                totalOrder: 37,
                 status: "shipped",
             }
         ])

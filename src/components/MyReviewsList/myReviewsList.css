@@ -1,3 +1,8 @@
+.review {
+    width: 90%;
+    margin: 0 auto 4em auto;
+}
+
 .tabs {
     display: flex;
     margin-right: 2em;
@@ -7,17 +12,18 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: lightsteelblue;
+    background: #d4bcf5;
     padding: 2em 0;
     border: none;
+    font-size: 1.2em;
 }
 
 .tab:not(:last-child) {
-    border-right: 1px solid steelblue;
+    border-right: 1px solid #d4bcf5;
 }
 
 .tab.active {
-    background: steelblue;
+    background: #A46BF5;
     font-weight: bold;
 }
 

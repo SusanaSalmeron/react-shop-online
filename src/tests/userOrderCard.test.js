@@ -17,9 +17,9 @@ jest.mock('react-router-dom', () => ({
 describe('UserOrderCard', () => {
     test('renders ok when there is an order', async () => {
         const data = {
-            order_id: 1,
-            order_date: "03/02/2022",
-            total_order: 37,
+            orderId: 1,
+            orderDate: "03/02/2022",
+            totalOrder: 37,
             status: "shipped",
         }
 

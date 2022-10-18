@@ -4,7 +4,7 @@ import style from './myReviewCard.module.css'
 
 export default function MyReviewCard({ review }) {
     return (
-        <div className={style.container}>
+        <div>
             <div className={style.review}>
                 <h3>{review.productName}</h3>
                 <h4>Rating: {review.rating} <i className="fa-solid fa-star" /></h4>

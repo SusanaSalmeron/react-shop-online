@@ -63,16 +63,17 @@ export async function getOrdersBy(status, userId) {
 
 export async function updateUserAccountData(userId, userName, surname, identification, dateOfBirth, email, phone) {
     try {
+        console.log(1)
         const body = {
-            user_name: userName,
+            userName: userName,
             surname: surname,
             identification: identification,
-            date_of_birth: dateOfBirth,
+            dateOfBirth: dateOfBirth,
             email: email,
             phone: phone,
         }
         const requestParams = { params: { id: userId } }
-
+        console.log(body)
         await axios.put(`${baseUrl}/users/${userId}/data`, body, requestParams, { headers })
         return true
     } catch (err) {

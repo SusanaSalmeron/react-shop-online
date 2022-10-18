@@ -10,7 +10,7 @@ export default function MyPendingProductsForReview({ product }) {
                     id={product.productId}
                     name="Review"
                     route={'/home'}
-                    label='Review'
+                    label='REVIEW'
                     className={style.button}
                 />
             </div>

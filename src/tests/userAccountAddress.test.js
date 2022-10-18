@@ -7,7 +7,7 @@ describe('UserAccountAddress', () => {
 
     test('it renders ok when there are addresses', async () => {
         mockData = {
-            user_name: "Susana",
+            userName: "Susana",
             surname: "Salmeron",
             address: "Calle Marcelina 32",
             postalZip: "28029",

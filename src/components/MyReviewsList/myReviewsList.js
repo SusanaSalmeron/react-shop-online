@@ -43,19 +43,24 @@ export default function MyReviewsList() {
                                 className={`tab ${checkActive(2, "active")}`}
                                 onClick={() => handleClick(2)}
                             >
-                                REVIEW PENDING
+                                PENDING REVIEWS
                             </button>
 
                         </div>
                         <div className="panels">
                             <div className={`panel ${checkActive(1, "active")}`}>
                                 {reviews.map(r => {
-                                    return <MyReviewCard review={r} />
+                                    return <div className='review' key={r.id}>
+                                        <MyReviewCard review={r} />
+                                    </div>
+
                                 })}
                             </div>
                             <div className={`panel ${checkActive(2, "active")}`}>
                                 {pending.map(p => {
-                                    return <MyPendingProductsForReview product={p} />
+                                    return <div key={p.id}>
+                                        <MyPendingProductsForReview product={p} />
+                                    </div>
                                 })}
                             </div>
                         </div>

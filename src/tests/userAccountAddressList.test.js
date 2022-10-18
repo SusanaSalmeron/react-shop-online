@@ -25,7 +25,7 @@ describe('UserAccountAddressList', () => {
         const mockedSetShippingAddress = jest.fn()
         const mockGetUSerData = jest.spyOn(userAccountService, 'getUserData').mockResolvedValue({
             id: "3",
-            user_name: "Susana",
+            userName: "Susana",
             surname: "Salmeron",
             address: "Calle Marcelina",
             postalZip: "28029",
@@ -41,7 +41,7 @@ describe('UserAccountAddressList', () => {
         const mockedGetUserAddresses = jest.spyOn(userAccountService, 'getUserAddresses').mockResolvedValue([
             {
                 id: "1",
-                user_name: "Susana",
+                userName: "Susana",
                 surname: "Salmeron",
                 address: "Calle Marcelina",
                 postalZip: "28029",
@@ -87,7 +87,7 @@ describe('UserAccountAddressList', () => {
         await waitFor(() => {
             expect(mockedSetShippingAddress).toHaveBeenCalledWith({
                 id: "3",
-                user_name: "Susana",
+                userName: "Susana",
                 surname: "Salmeron",
                 address: "Calle Marcelina",
                 postalZip: "28029",
@@ -110,7 +110,7 @@ describe('UserAccountAddressList', () => {
         await waitFor(() => {
             expect(mockedSetShippingAddress).toHaveBeenCalledWith({
                 id: "3",
-                user_name: "Susana",
+                userName: "Susana",
                 surname: "Salmeron",
                 address: "Calle Marcelina",
                 postalZip: "28029",

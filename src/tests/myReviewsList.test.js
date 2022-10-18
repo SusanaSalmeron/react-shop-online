@@ -1,7 +1,18 @@
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import MyReviewsList from "../components/MyReviewsList/myReviewsList";
 
 const mockedNavigate = jest.fn()
+
+const mockedReviews = {
+    pending: [{ productId: 1, productName: "Biba Palette" }],
+    created: [{
+        id: 1,
+        productId: 2,
+        productName: "Pastel Palette",
+        rating: 5,
+        comment: "ygldsuhfgohkgkfjihlgdoijfpkjsf"
+    }]
+}
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
@@ -13,14 +24,20 @@ jest.mock('react-router-dom', () => ({
 
 describe('MyReviewsList', () => {
     const userAccountService = require('../services/userAccountService')
-    test('renders ok', async () => {
-        const mockedGetUserReviews = jest.spyOn(userAccountService, 'getUserReviews').mockResolvedValue([])
+    test('show reviews and pending reviews', async () => {
+        const mockedGetUserReviews = jest.spyOn(userAccountService, 'getUserReviews').mockResolvedValue(mockedReviews)
         render(<MyReviewsList />)
 
-        expect(await screen.findByRole('heading')).toHaveAccessibleName("My reviews")
+        const buttons = await screen.findAllByRole('button')
+        expect(buttons).toHaveLength(4)
+        expect(buttons[0]).toHaveAccessibleName("MY REVIEWS")
+        expect(buttons[1]).toHaveAccessibleName("PENDING REVIEWS")
+        expect(buttons[2]).toHaveAccessibleName("UPDATE")
+        expect(buttons[3]).toHaveAccessibleName("REVIEW")
         expect(mockedGetUserReviews).toHaveBeenCalledWith(2)
-        expect(mockedGetUserReviews).toHaveLength(0)
-
-
+        expect(await screen.findByText('Biba Palette')).toBeInTheDocument()
+        expect(await screen.findByText('Pastel Palette')).toBeInTheDocument()
+        expect(await screen.findByText('Rating: 5')).toBeInTheDocument()
+        expect(await screen.findByText('ygldsuhfgohkgkfjihlgdoijfpkjsf')).toBeInTheDocument()
     })
 })
