@@ -1,0 +1,32 @@
+.form {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    margin-left: 2em;
+}
+
+label {
+    display: block;
+    font-size: 1.3em;
+    margin: 1em 1em 1em 0;
+}
+
+textarea {
+    height: 200px;
+    width: 80%;
+    margin-bottom: 2em;
+    font-size: 1.5em;
+}
+
+select {
+    width: 5%;
+    font-size: 1em;
+}
+
+option {
+    font-size: 2em;
+}
+
+.button {
+    width: 16%;
+}

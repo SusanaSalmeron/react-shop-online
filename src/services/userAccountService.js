@@ -63,7 +63,6 @@ export async function getOrdersBy(status, userId) {
 
 export async function updateUserAccountData(userId, userName, surname, identification, dateOfBirth, email, phone) {
     try {
-        console.log(1)
         const body = {
             userName: userName,
             surname: surname,
@@ -73,7 +72,6 @@ export async function updateUserAccountData(userId, userName, surname, identific
             phone: phone,
         }
         const requestParams = { params: { id: userId } }
-        console.log(body)
         await axios.put(`${baseUrl}/users/${userId}/data`, body, requestParams, { headers })
         return true
     } catch (err) {
@@ -222,8 +220,32 @@ export async function getUserReviews(userId) {
     } catch (err) {
         console.log('Error', err)
     }
-    console.log(result.data)
     return result.data
+}
+
+export async function addUserReview(productId, productName, userId, rating, comment) {
+    let result
+    try {
+        const requestParams = {
+            params: {
+                userId: userId
+            }
+        }
+        const body = {
+            productId: productId,
+            productName: productName,
+            rating: rating,
+            comment: comment
+        }
+        console.log(requestParams)
+        console.log(body)
+        result = await axios.post(`${baseUrl}/users/${userId}/review`, body, requestParams, { headers })
+
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return result.status === 201
+
 }
 
 

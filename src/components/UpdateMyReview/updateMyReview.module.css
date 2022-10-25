@@ -1,0 +1,11 @@
+.container {
+    width: 100%;
+}
+
+.container h2 {
+    margin: 8em 0 0 1em;
+}
+
+.container h3 {
+    margin: 1.5em 0 0 1.5em;
+}

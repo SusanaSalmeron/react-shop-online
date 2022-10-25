@@ -5,31 +5,47 @@
 
 .tabs {
     display: flex;
-    margin-right: 2em;
+    gap: 1em;
+    width: 97.5%;
 }
 
 .tab {
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: #d4bcf5;
-    padding: 2em 0;
-    border: none;
+    height: 80px;
+    background: #f5eefb;
+    padding: 1em 0;
+    border: 1px solid #efe5fa;
+    border-radius: 30px 30px 0 0;
     font-size: 1.2em;
+    cursor: pointer;
+}
+
+.tab i {
+    font-size: 1.2em;
+    transition: all 0.3s ease-in-out;
 }
 
 .tab:not(:last-child) {
-    border-right: 1px solid #d4bcf5;
+    border-right: 1px solid #efe5fa;
 }
 
 .tab.active {
+    background: #e4d6f7;
+    border: 1px solid #e4d6f7;
+    border-radius: 30px 30px 0 0;
+}
+
+.tab.active i {
     background: #A46BF5;
-    font-weight: bold;
+    padding: 0.5em;
+    border-radius: 50%;
 }
 
 .panel {
     display: none;
-    background-color: #eaeaea;
+    background-color: #e4d6f7;
     padding: 10px;
     margin: 0 2em 2em 0;
 }
@@ -40,6 +56,11 @@
 
 .panel.active {
     display: block;
+    border-radius: 0 0 30px 30px;
+}
+
+.panel.active h2 {
+    margin: 1em 0 2em 2em;
 }
 
 .spinner {

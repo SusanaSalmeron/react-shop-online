@@ -26,6 +26,8 @@ import { UpdateAddressContextProvider } from './context/UpdateAddressContext';
 import Order from './components/Order/order';
 import NewAddressForm from './components/NewAddressForm/newAddressForm';
 import MyReviewsList from './components/MyReviewsList/myReviewsList';
+import CreateMyReview from './components/CreateMyReview/createMyReview';
+import UpdateMyReview from './components/UpdateMyReview/updateMyReview';
 
 
 function App() {
@@ -65,6 +67,8 @@ function App() {
                   <Route path="wishlist" element={<UserWishlist />} />
                   <Route path="reviews" element={<MyReviewsList />} />
                 </Route>
+                <Route path="/products/:productId/review" element={<CreateMyReview />} />
+                <Route path="/products/:productId/reviews/:reviewId" element={<UpdateMyReview />} />
               </Routes>
             </UpdateAddressContextProvider>
           </SpinnerContextProvider>

@@ -9,7 +9,7 @@ export default function MyPendingProductsForReview({ product }) {
                 <NavigateButton
                     id={product.productId}
                     name="Review"
-                    route={'/home'}
+                    route={`/products/${product.productId}/review`}
                     label='REVIEW'
                     className={style.button}
                 />

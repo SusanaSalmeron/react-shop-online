@@ -1,23 +1,15 @@
-import NavigateButton from "../NavigateButton/navigateButton";
-import style from './myReviewCard.module.css'
+import style from './myReviewCard.module.css';
 
 
 export default function MyReviewCard({ review }) {
     return (
         <div>
             <div className={style.review}>
-                <h3>{review.productName}</h3>
-                <h4>Rating: {review.rating} <i className="fa-solid fa-star" /></h4>
+                <h1>{review.productName}</h1>
+                <h3>Rating: {review.rating} <i className="fa-solid fa-star" /></h3>
                 <h4>Comments:</h4>
                 <p>{review.comment}</p>
             </div>
-            <NavigateButton
-                id={review.id}
-                name="Update"
-                route={'/home'}
-                label='UPDATE'
-                className={style.button}
-            />
         </div>
 
 
