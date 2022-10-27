@@ -1,22 +1,27 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import SubmitButton from '../SubmitButton/submitButton';
-import { addUserReview } from '../../services/userAccountService'
+import { getReviewBy, updateUserReview } from '../../services/userAccountService'
 import { useNavigate, useParams } from 'react-router-dom';
 import { popUpAlert } from '../../utils/popUpAlert';
 import { useEffect, useState } from 'react';
-import { getProductById } from '../../services/productCatalogService';
 import style from './updateMyReviewForm.module.css';
+import ValidationFormForReviews from '../../middleware/validationFormForReviews';
 
 
 export default function UpdateMyReviewForm() {
-    const [product, setProduct] = useState({})
-
-    const { productId } = useParams()
+    const [review, setReview] = useState({})
+    const initialValues = {
+        rating: review ? review.rating : "",
+        comment: review ? review.comment : ""
+    }
+    const userId = "1000" //TODO -- get userId from token
+    const { reviewId } = useParams()
     const navigate = useNavigate()
 
     const submitForm = async (values) => {
         const { rating, comment } = values
-        const reviewIsUpdated = true
+        const reviewIsUpdated = await updateUserReview(userId, reviewId, review.productId, rating, comment)
+        console.log(reviewIsUpdated)
         if (reviewIsUpdated) {
             await popUpAlert("center", "success", "Review created successfully", false, 2000)
             navigate(-1)
@@ -26,21 +31,19 @@ export default function UpdateMyReviewForm() {
     }
 
     useEffect(() => {
-        getProductById(productId)
+        getReviewBy(userId, reviewId)
             .then(response => {
-                setProduct(response)
+                setReview(response)
             })
-    }, [productId])
+    }, [reviewId])
 
     return (
         <div className={style.form}>
-
             <Formik
-                initialValues={{
-                    rating: "",
-                    comment: ""
-                }}
+                enableReinitialize={true}
+                initialValues={initialValues}
                 onSubmit={submitForm}
+                validationSchema={ValidationFormForReviews}
             >
                 {
                     ({
@@ -52,15 +55,20 @@ export default function UpdateMyReviewForm() {
                                 id="rating"
                                 name="rating"
                                 as="select"
-                                placeholder="Choose"
                             >
-                                <option value="0" >0</option>
+                                <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </Field>
+                            <ErrorMessage
+                                className={style.error}
+                                name='rating'
+                                component="small"
+                            />
+
                             <label htmlFor="comment">Comment:</label>
                             <Field
                                 id="comment"
@@ -68,11 +76,16 @@ export default function UpdateMyReviewForm() {
                                 as="textarea"
                                 placeholder="Write your review"
                             />
+                            <ErrorMessage
+                                className={style.error}
+                                name='comment'
+                                component="small"
+                            />
                             <div className={style.button}>
                                 <SubmitButton
                                     disabled={!dirty || !isValid || isSubmiting}
-                                    name="Send"
-                                    label="SEND REVIEW"
+                                    name="update"
+                                    label="UPDATE"
                                 />
                             </div>
                         </Form>

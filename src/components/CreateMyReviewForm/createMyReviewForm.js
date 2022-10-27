@@ -1,11 +1,12 @@
 import style from './createMyReviewForm.module.css'
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import SubmitButton from '../SubmitButton/submitButton';
 import { addUserReview } from '../../services/userAccountService'
 import { useNavigate, useParams } from 'react-router-dom';
 import { popUpAlert } from '../../utils/popUpAlert';
 import { useEffect, useState } from 'react';
 import { getProductById } from '../../services/productCatalogService';
+import ValidationFormForReviews from '../../middleware/validationFormForReviews';
 
 
 export default function CreateMyReviewForm() {
@@ -40,6 +41,7 @@ export default function CreateMyReviewForm() {
                     comment: '',
                 }}
                 onSubmit={submitForm}
+                validationSchema={ValidationFormForReviews}
             >
                 {
                     ({
@@ -60,12 +62,22 @@ export default function CreateMyReviewForm() {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </Field>
+                            <ErrorMessage
+                                className={style.error}
+                                name='rating'
+                                component="small"
+                            />
                             <label htmlFor="comment">Comment:</label>
                             <Field
                                 id="comment"
                                 name="comment"
                                 as="textarea"
                                 placeholder="Write your review"
+                            />
+                            <ErrorMessage
+                                className={style.error}
+                                name='comment'
+                                component="small"
                             />
                             <div className={style.button}>
                                 <SubmitButton

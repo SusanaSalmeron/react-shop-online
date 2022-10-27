@@ -17,7 +17,6 @@ export default function UpdateMyReview() {
     }, [productId])
     return (
         <div className={style.container}>
-            {console.log(productId)}
             <h2>Change your review about:</h2>
             <h3> <i className="fa-solid fa-splotch">
             </i> {product.brand} - {product.name}</h3>

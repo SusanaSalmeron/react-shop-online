@@ -11,13 +11,6 @@ label {
     margin: 1em 1em 1em 0;
 }
 
-textarea {
-    height: 200px;
-    width: 80%;
-    margin-bottom: 2em;
-    font-size: 1.5em;
-}
-
 select {
     width: 5%;
     font-size: 1em;
@@ -29,4 +22,12 @@ option {
 
 .button {
     width: 16%;
+}
+
+.error {
+    display: block;
+    width: 100%;
+    color: red;
+    font-size: 1.2em;
+
 }

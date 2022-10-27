@@ -50,27 +50,31 @@ export default function MyReviewsList() {
                         </div>
                         <div className="panels">
                             <div className={`panel ${checkActive(1, "active")}`}>
-                                {reviews.map((r, i) => {
-                                    return <div className='review' key={r.id} >
-                                        <MyReviewCard review={r} />
-                                        <NavigateButton
-                                            id={i}
-                                            name="Update"
-                                            route={`/products/${r.productId}/reviews/${r.id}`}
-                                            label='UPDATE'
-                                            className='button'
-                                        />
-                                    </div>
+                                {reviews.length > 0 ?
+                                    reviews.map((r, i) => {
+                                        return <div className='review' key={r.id} >
+                                            <MyReviewCard review={r} />
+                                            <NavigateButton
+                                                id={i}
+                                                name="Update"
+                                                route={`/products/${r.productId}/reviews/${r.id}`}
+                                                label='UPDATE'
+                                                className='button'
+                                            />
+                                        </div>
 
-                                })}
+                                    })
+                                    : <h3 className='message'>You don't have any review yet</h3>}
+
                             </div>
                             <div className={`panel ${checkActive(2, "active")}`}>
                                 <h2>Please, write a review: </h2>
-                                {pending.map(p => {
+                                {pending.length >= 1 ? pending.map(p => {
                                     return <div key={p.productId}>
                                         <MyPendingProductsForReview product={p} />
                                     </div>
-                                })}
+                                }) : <h3 className='message'>You don't have any product to review</h3>}
+
                             </div>
                         </div>
                     </>}

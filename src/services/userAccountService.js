@@ -223,6 +223,23 @@ export async function getUserReviews(userId) {
     return result.data
 }
 
+export async function getReviewBy(userId, reviewId) {
+    let result
+    try {
+        const requestParams = {
+            params: {
+                userId: userId,
+                reviewId: reviewId
+            }
+        }
+        result = await axios.get(`${baseUrl}/users/${userId}/reviews/${reviewId}`, requestParams)
+
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return result.data
+}
+
 export async function addUserReview(productId, productName, userId, rating, comment) {
     let result
     try {
@@ -237,15 +254,33 @@ export async function addUserReview(productId, productName, userId, rating, comm
             rating: rating,
             comment: comment
         }
-        console.log(requestParams)
-        console.log(body)
         result = await axios.post(`${baseUrl}/users/${userId}/review`, body, requestParams, { headers })
 
     } catch (err) {
         console.log('Error', err)
     }
     return result.status === 201
+}
 
+export async function updateUserReview(userId, reviewId, productId, rating, comment) {
+    let result
+    try {
+        const requestParams = {
+            params: {
+                userId: userId,
+                reviewId: reviewId
+            }
+        }
+        const body = {
+            productId,
+            rating,
+            comment
+        }
+        result = await axios.put(`${baseUrl}/users/${userId}/reviews/${reviewId}`, body, requestParams, { headers })
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return result.status === 201
 }
 
 
