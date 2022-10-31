@@ -14,7 +14,8 @@ export default function UpdateMyReviewForm() {
         rating: review ? review.rating : "",
         comment: review ? review.comment : ""
     }
-    const userId = "1000" //TODO -- get userId from token
+    const userId = localStorage.getItem('id')
+
     const { reviewId } = useParams()
     const navigate = useNavigate()
 
@@ -35,10 +36,11 @@ export default function UpdateMyReviewForm() {
             .then(response => {
                 setReview(response)
             })
-    }, [reviewId])
+    }, [reviewId, userId])
 
     return (
         <div className={style.form}>
+            {console.log(userId)}
             <Formik
                 enableReinitialize={true}
                 initialValues={initialValues}

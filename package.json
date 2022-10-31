@@ -20,7 +20,8 @@
     "react-spinners": "0.13.3",
     "web-vitals": "3.0.1",
     "sweetalert2": "11.4.26",
-    "yup": "0.32.11"
+    "yup": "0.32.11",
+    "jwt-decode": "3.1.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.5",

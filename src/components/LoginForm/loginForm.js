@@ -2,22 +2,19 @@ import style from './loginForm.module.css';
 import { Formik, Field, Form } from 'formik'
 
 
-export default function LoginForm({ toggleModal }) {
+export default function LoginForm({ submitLogin }) {
+
     return (
         <Formik
             initialValues={{
                 email: '',
                 password: ''
             }}
-            onSubmit={async (values) => {
-                await new Promise((r) => setTimeout(r, 500));
-                alert(JSON.stringify(values, null, 2));
-                toggleModal()
-            }}
+            onSubmit={submitLogin}
         >
             <Form className={style.loginform}>
-                <label htmlFor="Email">Email</label>
-                <Field id="Email" name="Email" placeholder="Write your email" />
+                <label htmlFor="email">Email</label>
+                <Field id="email" name="email" placeholder="Write your email" />
                 <label htmlFor="password">Password</label>
                 <Field
                     id="password"

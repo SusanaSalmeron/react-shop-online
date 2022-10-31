@@ -37,7 +37,6 @@ export default function UserWishlistCard({ data, deleteHandleClick }) {
                     <i
                         className="fa-solid fa-cart-shopping"
                     />
-
                 </button>
                 <button
                     id={data.id}

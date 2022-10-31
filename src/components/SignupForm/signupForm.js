@@ -17,8 +17,8 @@ export default function SignupForm({ toggleModal }) {
             }}
         >
             <Form className={style.signupform}>
-                <label htmlFor="Email">Email</label>
-                <Field id="Email" name="Email" placeholder="Write your email" />
+                <label htmlFor="email">Email</label>
+                <Field id="email" name="email" placeholder="Write your email" />
                 <label htmlFor="password">Password</label>
                 <Field
                     id="password"

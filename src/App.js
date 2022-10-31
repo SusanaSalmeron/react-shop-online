@@ -49,7 +49,6 @@ function App() {
                 <Route path="/comingSoon" element={<ComingSoon />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/login" element={<Login />} />
                 <Route path="/:productType" element={<MakeupProductList />} />
                 <Route path="/search/:keyword" element={<MakeupProductList />} />
                 <Route path="/product/:id" element={<ProductDescription />} />

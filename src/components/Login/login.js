@@ -1,19 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 import { useState } from "react";
 import './login.css';
 import LoginForm from "../LoginForm/loginForm";
+import { userLogin } from "../../services/userAccountService";
+import { popUpAlert } from "../../utils/popUpAlert";
 
 
-Modal.setAppElement('#root');
+ReactModal.setAppElement('#root');
 
 
-export default function Login() {
+export default function Login({ setLoggedIn }) {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate()
 
+
     const handleNavigate = () => {
-        navigate('/about')
+        navigate('/signup')
         toggleModal()
     }
 
@@ -21,25 +24,43 @@ export default function Login() {
         setIsOpen(!isOpen)
     }
 
+    const submitLogin = async (values) => {
+        const { email, password } = values
+        const id = await userLogin(email, password)
+        if (id) {
+            await popUpAlert('center', 'success', 'You are log in', false, 2000)
+            navigate(`/account/${id}/address`)
+            setLoggedIn(true)
+
+        } else {
+            await popUpAlert('center', 'error', 'Email and/or password invalid', false, 2000)
+        }
+        toggleModal()
+    }
+
+
     return (
-        <div>
-            <button onClick={toggleModal}>Log in</button>
-            <Modal
-                isOpen={isOpen}
-                onRequestClose={toggleModal}
-                contentLabel="Login"
-                className='mymodal'
-            >
-                <div className="close">
-                    <h2>Log in</h2>
-                    <button onClick={toggleModal}>X</button>
-                </div>
-                <LoginForm
-                    toggleModal={toggleModal} />
-                <div className="signup">
-                    <p>Already have an account?<button onClick={handleNavigate} >Sign up</button></p>
-                </div>
-            </Modal >
-        </div >
+        <>
+            <div>
+                <button onClick={toggleModal}>Log in</button>
+                <ReactModal
+                    isOpen={isOpen}
+                    onRequestClose={toggleModal}
+                    contentLabel="Login"
+                    className='mymodal'
+                >
+                    <div className="close">
+                        <h2>Log in</h2>
+                        <button onClick={toggleModal}>X</button>
+                    </div>
+                    <LoginForm
+                        submitLogin={submitLogin}
+                    />
+                    <div className="signup">
+                        <p>Already have an account?<button onClick={handleNavigate} >Sign up</button></p>
+                    </div>
+                </ReactModal >
+            </div >
+        </>
     )
 }

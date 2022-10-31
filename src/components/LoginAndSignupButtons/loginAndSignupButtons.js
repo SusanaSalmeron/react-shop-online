@@ -4,9 +4,21 @@ import logo from '../../images/logo.png';
 import NavigateButton from "../NavigateButton/navigateButton";
 import Login from "../Login/login";
 import Signup from '../Signup/signup';
+import { useEffect, useState } from "react";
+import LogoutButton from "../LogoutButton/logoutButton";
+import AccountButton from "../AccountButton/accountButton";
 
 
 export default function LoginAndSigninButtons() {
+    const [loggedIn, setLoggedIn] = useState(false)
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) {
+            setLoggedIn(true)
+        }
+    }, [])
+
     return (
         <>
             <div className={style.container} >
@@ -15,8 +27,7 @@ export default function LoginAndSigninButtons() {
                     </Link>
                 </figure>
                 <div className={style.buttons}>
-                    <Login />
-                    <Signup />
+                    {!loggedIn ? <><Login setLoggedIn={setLoggedIn} /><Signup /></> : <><LogoutButton setLoggedIn={setLoggedIn} /><AccountButton /></>}
                     <NavigateButton
                         className={style.cart}
                         route={'account/1000/address'}

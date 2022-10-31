@@ -1,4 +1,5 @@
 import axios from 'axios';
+import decode from 'jwt-decode'
 
 
 const baseUrl = "http://localhost:3001/v1";
@@ -120,7 +121,6 @@ export async function updateUserAccountBillingAddress(userId, user_name, surname
 }
 
 
-//TODO - UPDATE BILLING ADDRESS
 export async function updateUserAccountShippingAddress(addressId, user_name, surname, address, postalZip, city, country, userId) {
     let result
     try {
@@ -193,13 +193,12 @@ export async function deleteProductFromWishlist(userId, productId) {
     return result.status === 200
 }
 
-//TODO - token is missing to extract id from user
 export async function addProductToWishlist(userId, productId) {
     let result
     try {
         const requestParams = {
             params:
-                { id: "1000", productId: productId, }
+                { id: userId, productId: productId, }
         }
         const body = {}
         result = await axios.put(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, body, { headers })
@@ -282,5 +281,25 @@ export async function updateUserReview(userId, reviewId, productId, rating, comm
     }
     return result.status === 201
 }
+
+export async function userLogin(email, password) {
+    let result
+    let id
+    try {
+        const body = {
+            email: email,
+            password: password
+        }
+        result = await axios.post(`${baseUrl}/users/login`, body, { headers })
+        localStorage.setItem('token', result.data.token)
+        const decodeToken = decode(result.data.token)
+        id = decodeToken.id
+    } catch (err) {
+        console.log('Error', err)
+    }
+    return id
+}
+
+
 
 

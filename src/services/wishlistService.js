@@ -12,5 +12,6 @@ export async function checkProductExistsOnWishlist(userId, productId) {
     } catch (err) {
         console.log('Error', err.message)
     }
+    console.log(response)
     return response.status < 400
 }
