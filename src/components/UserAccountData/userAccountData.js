@@ -19,15 +19,6 @@ export default function UserAccountData() {
     })
     const navigate = useNavigate()
 
-    /*    let initialValues = {
-           user_name: showData.user_name,
-           surname: showData.surname,
-           identification: showData.identification,
-           date_of_birth: showData.date_of_birth,
-           email: showData.email,
-           phone: showData.phone
-       } */
-
     const submitData = async (values) => {
         const { userName, surname, identification, dateOfBirth, email, phone } = values
         const dataUpdated = await updateUserAccountData(id, userName, surname, identification, dateOfBirth, email, phone)
@@ -99,7 +90,7 @@ export default function UserAccountData() {
                             <Field
                                 id="dateOfBirth"
                                 name="dateOfBirth"
-                                placeholder={showData.dateOfBirth} />
+                                placeholder="Ex: 01/01/2000" />
                             <ErrorMessage
                                 className={style.error}
                                 name='dateOfBirth'

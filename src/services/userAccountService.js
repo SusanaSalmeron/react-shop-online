@@ -15,7 +15,7 @@ export async function getUserData(userId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    return response.data
+    return response ? response.data : {}
 }
 
 export async function getUserAddresses(userId) {
@@ -26,7 +26,7 @@ export async function getUserAddresses(userId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    return response.data
+    return response ? response.data : []
 }
 
 export async function getUserOrders(userId) {
@@ -37,7 +37,7 @@ export async function getUserOrders(userId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    return response.data
+    return response ? response.data : []
 }
 
 export async function getOrder(userId, orderId) {
@@ -48,7 +48,7 @@ export async function getOrder(userId, orderId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    return response.data
+    return response ? response.data : {}
 }
 
 export async function getOrdersBy(status, userId) {
@@ -59,7 +59,7 @@ export async function getOrdersBy(status, userId) {
     } catch (err) {
         console.log('Error', err.message)
     }
-    return response.data
+    return response ? response.data : []
 }
 
 export async function updateUserAccountData(userId, userName, surname, identification, dateOfBirth, email, phone) {
@@ -82,7 +82,6 @@ export async function updateUserAccountData(userId, userName, surname, identific
 }
 
 export async function updateUserAccountPassword(userId, password, newPassword, repeatNew) {
-    let result
     try {
         const body = {
             password,
@@ -91,19 +90,18 @@ export async function updateUserAccountPassword(userId, password, newPassword, r
         }
         const requestParams = { params: { id: userId } }
 
-        result = await axios.put(`${baseUrl}/users/${userId}/password`, body, requestParams, { headers })
-
+        await axios.put(`${baseUrl}/users/${userId}/password`, body, requestParams, { headers })
+        return true
     } catch (err) {
         console.log('Error', err)
+        return false
     }
-    return result.data
 }
 
-export async function updateUserAccountBillingAddress(userId, user_name, surname, identification, address, postalZip, city, country) {
-    let result
+export async function updateUserAccountBillingAddress(userId, userName, surname, identification, address, postalZip, city, country) {
     try {
         const body = {
-            user_name,
+            userName,
             surname,
             identification,
             address,
@@ -113,19 +111,19 @@ export async function updateUserAccountBillingAddress(userId, user_name, surname
         }
         const requestParams = { params: { id: userId } }
 
-        result = await axios.put(`${baseUrl}/users/${userId}/billing`, body, requestParams, { headers })
+        await axios.put(`${baseUrl}/users/${userId}/billing`, body, requestParams, { headers })
+        return true
     } catch (err) {
         console.log('Error', err)
+        return false
     }
-    return result.data
 }
 
 
-export async function updateUserAccountShippingAddress(addressId, user_name, surname, address, postalZip, city, country, userId) {
-    let result
+export async function updateUserAccountShippingAddress(addressId, userName, surname, address, postalZip, city, country, userId) {
     try {
         const body = {
-            user_name,
+            userName,
             surname,
             address,
             postalZip,
@@ -133,18 +131,18 @@ export async function updateUserAccountShippingAddress(addressId, user_name, sur
             country
         }
         const requestParams = { params: { userid: userId, addressid: addressId } }
-        result = await axios.put(`${baseUrl}/users/${userId}/addresses/${addressId}`, body, requestParams, { headers })
+        await axios.put(`${baseUrl}/users/${userId}/addresses/${addressId}`, body, requestParams, { headers })
+        return true
     } catch (err) {
         console.log('Error', err)
+        return false
     }
-    return result.data
 }
 
-export async function newShippingAddress(id, user_name, surname, address, postalZip, city, country, defaultAddress) {
-    let result
+export async function newShippingAddress(id, userName, surname, address, postalZip, city, country, defaultAddress) {
     try {
         const body = {
-            user_name,
+            userName,
             surname,
             address,
             postalZip,
@@ -153,77 +151,81 @@ export async function newShippingAddress(id, user_name, surname, address, postal
             defaultAddress
         }
         const requestParams = { params: { id: id } }
-        result = await axios.post(`${baseUrl}/users/${id}/addresses/new`, body, requestParams, { headers })
+        await axios.post(`${baseUrl}/users/${id}/addresses/new`, body, requestParams, { headers })
+        return true
     } catch (err) {
         console.log('Error', err)
+        return false
     }
-    return result.data
 }
 
 export async function deleteAddress(addressId, userId) {
-    let result
     try {
         const requestParams = { params: { params: { id: userId, addressId: addressId } } }
-        result = await axios.delete(`${baseUrl}/users/${userId}/addresses/${addressId}`, requestParams, { headers })
+        await axios.delete(`${baseUrl}/users/${userId}/addresses/${addressId}`, requestParams, { headers })
+        return true
     } catch (err) {
         console.log('Error', err)
+        return false
     }
-    return result.data
 }
 
 export async function getUserWishlist(userId) {
-    let result
+    let response
     try {
         const requestParams = { params: { id: userId } }
-        result = await axios.get(`${baseUrl}/users/${userId}/wishlist`, requestParams)
+        response = await axios.get(`${baseUrl}/users/${userId}/wishlist`, requestParams)
     } catch (err) {
         console.log('Error', err)
     }
-    return result.data
+    return response ? response.data : []
 }
 
 export async function deleteProductFromWishlist(userId, productId) {
-    let result
+    let response
     try {
         const requestParams = { params: { id: userId, productId: productId } }
-        result = await axios.delete(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, { headers })
+        response = await axios.delete(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, { headers })
     } catch (err) {
         console.log('Error', err)
+        response = err.response
     }
-    return result.status === 200
+    return response.status === 200
 }
 
 export async function addProductToWishlist(userId, productId) {
-    let result
+    let response
     try {
         const requestParams = {
             params:
                 { id: userId, productId: productId, }
         }
         const body = {}
-        result = await axios.put(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, body, { headers })
+        response = await axios.put(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, body, { headers })
     } catch (err) {
         console.log('Error', err)
+        response = err.response
     }
-    return result.status === 201
+    return response.status === 201
 }
 
 export async function getUserReviews(userId) {
-    let result
+    let response
     try {
         const requestParams = {
             params: { id: userId }
         }
-        result = await axios.get(`${baseUrl}/users/${userId}/reviews`, requestParams)
+        response = await axios.get(`${baseUrl}/users/${userId}/reviews`, requestParams)
 
     } catch (err) {
         console.log('Error', err)
     }
-    return result.data
+    console.log(response)
+    return response ? response.data : {}
 }
 
 export async function getReviewBy(userId, reviewId) {
-    let result
+    let response
     try {
         const requestParams = {
             params: {
@@ -231,16 +233,16 @@ export async function getReviewBy(userId, reviewId) {
                 reviewId: reviewId
             }
         }
-        result = await axios.get(`${baseUrl}/users/${userId}/reviews/${reviewId}`, requestParams)
+        response = await axios.get(`${baseUrl}/users/${userId}/reviews/${reviewId}`, requestParams)
 
     } catch (err) {
         console.log('Error', err)
     }
-    return result.data
+    return response ? response.data : {}
 }
 
 export async function addUserReview(productId, productName, userId, rating, comment) {
-    let result
+    let response
     try {
         const requestParams = {
             params: {
@@ -253,16 +255,17 @@ export async function addUserReview(productId, productName, userId, rating, comm
             rating: rating,
             comment: comment
         }
-        result = await axios.post(`${baseUrl}/users/${userId}/review`, body, requestParams, { headers })
+        response = await axios.post(`${baseUrl}/users/${userId}/review`, body, requestParams, { headers })
 
     } catch (err) {
         console.log('Error', err)
+        response = err.response
     }
-    return result.status === 201
+    return response.status === 201
 }
 
 export async function updateUserReview(userId, reviewId, productId, rating, comment) {
-    let result
+    let response
     try {
         const requestParams = {
             params: {
@@ -275,29 +278,50 @@ export async function updateUserReview(userId, reviewId, productId, rating, comm
             rating,
             comment
         }
-        result = await axios.put(`${baseUrl}/users/${userId}/reviews/${reviewId}`, body, requestParams, { headers })
+        response = await axios.put(`${baseUrl}/users/${userId}/reviews/${reviewId}`, body, requestParams, { headers })
     } catch (err) {
         console.log('Error', err)
+        response = err.response
     }
-    return result.status === 201
+    return response.status === 201
 }
 
 export async function userLogin(email, password) {
-    let result
+    let response
     let id
     try {
         const body = {
             email: email,
             password: password
         }
-        result = await axios.post(`${baseUrl}/users/login`, body, { headers })
-        localStorage.setItem('token', result.data.token)
-        const decodeToken = decode(result.data.token)
+        response = await axios.post(`${baseUrl}/users/login`, body, { headers })
+        localStorage.setItem('token', response.data.token)
+        const decodeToken = decode(response.data.token)
         id = decodeToken.id
     } catch (err) {
         console.log('Error', err)
+        return null
     }
     return id
+}
+
+export async function userSignup(email, password, repeatPassword) {
+    let response
+    try {
+        const body = {
+            email: email,
+            password: password,
+            repeatPassword: repeatPassword
+        }
+        response = await axios.post(`${baseUrl}/users/signup`, body, { headers })
+    } catch (err) {
+        console.log('Error', err)
+        response = {
+            status: err.response.status,
+            message: err.response.data.error
+        }
+    }
+    return response
 }
 
 

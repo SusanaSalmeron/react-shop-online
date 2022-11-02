@@ -11,6 +11,7 @@ export async function checkProductExistsOnWishlist(userId, productId) {
         response = await axios.head(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams)
     } catch (err) {
         console.log('Error', err.message)
+        response = err.response
     }
     console.log(response)
     return response.status < 400

@@ -4,10 +4,11 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addProductToWishlist, deleteProductFromWishlist } from '../../services/userAccountService';
 import { checkProductExistsOnWishlist } from '../../services/wishlistService';
+import { popUpAlert } from '../../utils/popUpAlert';
 
 
 export default function MakeupProductCard({ productData }) {
-    const userId = localStorage.getItem('id')
+
     const { spinnerDisplay } = useContext(SpinnerContext)
     const regular = "fa-regular fa-heart"
     const solid = "fa-solid fa-heart"
@@ -15,12 +16,17 @@ export default function MakeupProductCard({ productData }) {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        if (!like) {
-            addProductToWishlist(userId, productData.id)
+        const userId = localStorage.getItem('id')
+        if (userId) {
+            if (!like) {
+                addProductToWishlist(userId, productData.id)
+            } else {
+                deleteProductFromWishlist(userId, productData.id)
+            }
+            setLike(!like)
         } else {
-            deleteProductFromWishlist(userId, productData.id)
+            popUpAlert('center', 'info', 'You must be log in to add any product to your wishlist', true, 3000)
         }
-        setLike(!like)
     }
 
     const handleNavigate = () => {
@@ -28,11 +34,14 @@ export default function MakeupProductCard({ productData }) {
     }
 
     useEffect(() => {
-        checkProductExistsOnWishlist(userId, productData.id)
-            .then(inWishlist => {
-                setLike(inWishlist)
-            })
-    }, [productData.id, userId])
+        const userId = localStorage.getItem('id')
+        if (userId) {
+            checkProductExistsOnWishlist(userId, productData.id)
+                .then(inWishlist => {
+                    setLike(inWishlist)
+                })
+        }
+    }, [productData.id])
 
     return (
         <>

@@ -8,7 +8,6 @@ import ComingSoon from './components/ComingSoon/comingSoon';
 import Terms from './components/Terms/terms';
 import About from './components/About/about';
 import Header from './components/Header/Header';
-import Login from './components/Login/login';
 import UserAccount from './components/UserAccount/userAccount';
 import MakeupProductList from './components/MakeupProductList/makeupProductList';
 import ProductDescription from './components/ProductsDescription/productDescription';

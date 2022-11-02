@@ -15,7 +15,7 @@ describe('UserAccountUpdateAddressForm', () => {
 
     test('renders the form ok', async () => {
         const mockedShippingAddress = {
-            user_name: "Susana",
+            userName: "Susana",
             surname: "Salmeron",
             address: "Marcelina 32",
             postalZip: "08229",
@@ -81,7 +81,7 @@ describe('UserAccountUpdateAddressForm', () => {
 
     test('renders all the inputs including ID when context is true', async () => {
         const mockedShippingAddress = {
-            user_name: "Susana",
+            userName: "Susana",
             surname: "Salmeron",
             identification: "0123456A",
             address: "Marcelina 32",

@@ -12,8 +12,8 @@ export default function UserAddressForm() {
     const navigate = useNavigate()
 
     const submitBillingAddressChange = async (values) => {
-        const { user_name, surname, identification, address, postalZip, city, country } = values
-        const userDataUpdated = await updateUserAccountBillingAddress(id, user_name, surname, identification, address, postalZip, city, country)
+        const { userName, surname, identification, address, postalZip, city, country } = values
+        const userDataUpdated = await updateUserAccountBillingAddress(id, userName, surname, identification, address, postalZip, city, country)
         if (userDataUpdated) {
             await popUpAlert("center", "success", "Billing address updated successfully", false, 2000)
             navigate(`/account/${id}`)
@@ -23,8 +23,8 @@ export default function UserAddressForm() {
     }
 
     const submitDeliveryAddressChange = async (values) => {
-        const { user_name, surname, address, postalZip, city, country } = values
-        const shippingAddressUpdated = await updateUserAccountShippingAddress(shippingAddress.id, user_name, surname, address, postalZip, city, country, id)
+        const { userName, surname, address, postalZip, city, country } = values
+        const shippingAddressUpdated = await updateUserAccountShippingAddress(shippingAddress.id, userName, surname, address, postalZip, city, country, id)
 
         if (shippingAddressUpdated) {
             await popUpAlert("center", "success", "Shipping address updated successfully", false, 2000)

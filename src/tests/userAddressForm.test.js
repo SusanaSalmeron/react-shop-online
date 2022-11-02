@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import UserAddressForm from "../components/UserAddressForm/userAddressForm"
 import UpdateAddressContext from "../context/UpdateAddressContext";
 import userEvent from '@testing-library/user-event'
@@ -15,7 +15,7 @@ jest.mock('react-router-dom', () => ({
 
 const mockedShippingAddress = {
     id: 1,
-    user_name: "Susana",
+    userName: "Susana",
     surname: "Salmeron",
     identification: "1234567Z",
     address: "Marcelina 32",

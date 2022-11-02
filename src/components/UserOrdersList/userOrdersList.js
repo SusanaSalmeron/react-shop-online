@@ -27,12 +27,12 @@ export default function UserOrdersList() {
                 <Spinner
                     loading={loading} />
                 {
-                    orders.map((o, i) => {
+                    orders.length > 0 ? orders.map((o, i) => {
                         return <UserOrdersCard
                             data={o}
                             key={i}
                         />
-                    })
+                    }) : <h3>You don't have any order yet</h3>
                 }
             </div>
         </div>

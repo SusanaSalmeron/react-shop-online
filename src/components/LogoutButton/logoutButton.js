@@ -6,6 +6,7 @@ export default function LogoutButton({ setLoggedIn }) {
 
     const submitLogout = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('id')
         setLoggedIn(false)
         navigate('/home')
     }

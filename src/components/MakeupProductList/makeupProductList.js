@@ -32,7 +32,6 @@ export default function MakeupProductsList() {
                     setLoading(false)
                 })
         }
-        localStorage.setItem('id', '1000')
         setLoading(true)
         setSpinnerDisplay(false)
     }, [productType, keyword, setSpinnerDisplay])

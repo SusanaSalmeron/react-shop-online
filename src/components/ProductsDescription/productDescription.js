@@ -9,7 +9,7 @@ import { popUpAlert } from '../../utils/popUpAlert'
 
 
 export default function ProductDescription() {
-    const [showProduct, setShowProduct] = useState([])
+    const [showProduct, setShowProduct] = useState({})
     const [productColors, setProductColors] = useState([])
     const { id } = useParams()
     const [loading, setLoading] = useState(true)
@@ -30,7 +30,8 @@ export default function ProductDescription() {
     }, [id, setSpinnerDisplay])
 
     const handleAddProduct = async (e) => {
-        const productAdded = await addProductToWishlist("1000", id)
+        const userId = localStorage.getItem('id')
+        const productAdded = await addProductToWishlist(userId, id)
         if (productAdded) {
             await popUpAlert('center', 'success', 'Your product has been addded to your wishlist', false, 2000)
         } else {

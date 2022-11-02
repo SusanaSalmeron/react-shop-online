@@ -28,10 +28,10 @@ export default function Login({ setLoggedIn }) {
         const { email, password } = values
         const id = await userLogin(email, password)
         if (id) {
+            localStorage.setItem('id', id)
             await popUpAlert('center', 'success', 'You are log in', false, 2000)
             navigate(`/account/${id}/address`)
             setLoggedIn(true)
-
         } else {
             await popUpAlert('center', 'error', 'Email and/or password invalid', false, 2000)
         }

@@ -1,4 +1,6 @@
 import { Formik, Field, Form } from 'formik';
+import { userSignup } from '../../services/userAccountService';
+import { popUpAlert } from '../../utils/popUpAlert';
 import style from './signupForm.module.css';
 
 
@@ -8,11 +10,19 @@ export default function SignupForm({ toggleModal }) {
             initialValues={{
                 email: '',
                 password: '',
-                repeat: ''
+                repeatPassword: ''
             }}
             onSubmit={async (values) => {
-                await new Promise((r) => setTimeout(r, 500));
-                alert(JSON.stringify(values, null, 2));
+                const { email, password, repeatPassword } = values
+                const signupResponse = await userSignup(email, password, repeatPassword)
+                console.log(signupResponse)
+                if (signupResponse.status === 201) {
+                    await popUpAlert('center', 'success', 'You are now registered', false, 2000)
+                } else if (signupResponse.status === 400) {
+                    await popUpAlert('center', 'error', signupResponse.message, false, 2000)
+                } else {
+                    await popUpAlert('center', 'error', 'Unexpected error, try later', false, 2000)
+                }
                 toggleModal()
             }}
         >
@@ -26,10 +36,10 @@ export default function SignupForm({ toggleModal }) {
                     placeholder="Write your password"
                     type="password"
                 />
-                <label htmlFor="repeat">Repeat password</label>
+                <label htmlFor="repeatPassword">Repeat password</label>
                 <Field
-                    id="repeat"
-                    name="repeat"
+                    id="repeatPassword"
+                    name="repeatPassword"
                     placeholder="Repeat your password"
                     type="password"
                 />

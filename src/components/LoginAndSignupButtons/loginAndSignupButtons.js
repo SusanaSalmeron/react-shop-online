@@ -30,7 +30,7 @@ export default function LoginAndSigninButtons() {
                     {!loggedIn ? <><Login setLoggedIn={setLoggedIn} /><Signup /></> : <><LogoutButton setLoggedIn={setLoggedIn} /><AccountButton /></>}
                     <NavigateButton
                         className={style.cart}
-                        route={'account/1000/address'}
+                        route={'/home'}
                         name={'cart'}
                         label={<i className="fa-solid fa-cart-shopping" />}
                     />

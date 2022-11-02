@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 export default function ValidationFormForUserAccountBillingAddress() {
     let formSchema = yup.object().shape({
-        user_name: yup.string()
+        userName: yup.string()
             .required("Required")
             .min(5, 'min 5 characters')
             .max(20, 'max 20 characters'),

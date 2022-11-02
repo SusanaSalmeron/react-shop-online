@@ -11,7 +11,7 @@ export default function NewAddressForm() {
     const { id } = useParams()
     const navigate = useNavigate()
     const initialValues = {
-        user_name: "",
+        userName: "",
         surname: "",
         address: "",
         postalZip: "",
@@ -22,8 +22,8 @@ export default function NewAddressForm() {
 
 
     const handleSubmit = async (values) => {
-        const { user_name, surname, address, postalZip, city, country, defaultAddress } = values
-        const newAddress = await newShippingAddress(id, user_name, surname, address, postalZip, city, country, defaultAddress)
+        const { userName, surname, address, postalZip, city, country, defaultAddress } = values
+        const newAddress = await newShippingAddress(id, userName, surname, address, postalZip, city, country, defaultAddress)
         if (newAddress) {
             await popUpAlert("center", "success", "Address created successfully", false, 2000)
             navigate(`/account/${id}/address`)
@@ -43,16 +43,16 @@ export default function NewAddressForm() {
                 {
                     ({ isSubmiting, dirty, isValid }) =>
                         <Form className={style.form}>
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="userName">Name</label>
                             <Field
                                 className={style.field}
-                                id="user_name"
-                                name="user_name"
+                                id="userName"
+                                name="userName"
                                 placeholder="Write your name"
                             />
                             <ErrorMessage
                                 className={style.error}
-                                name='user_name'
+                                name='userName'
                                 component="small"
                             />
 

@@ -11,7 +11,7 @@ export default function UserAccountUpdateAddressForm({ submit, address }) {
     const { isBilling } = useContext(UpdateAddressContext)
 
     const initialValues = {
-        user_name: address ? address.user_name : "",
+        userName: address ? address.userName : "",
         surname: address ? address.surname : "",
         identification: address && isBilling ? address?.identification : "",
         address: address ? address.address : "",
@@ -33,14 +33,14 @@ export default function UserAccountUpdateAddressForm({ submit, address }) {
                     <Form
                         className={style.form}
                         id="">
-                        <label htmlFor="user_name">Name</label>
+                        <label htmlFor="userName">Name</label>
                         <Field
-                            id="user_name"
-                            name="user_name"
+                            id="userName"
+                            name="userName"
                         />
                         <ErrorMessage
                             className={style.error}
-                            name='user_name'
+                            name='userName'
                             component="small"
                         />
                         <label htmlFor="surname">Last Name</label>
