@@ -1,36 +1,38 @@
 import UserAccountMenu from "../UserAccountMenu/userAccountMenu";
 import style from './userAccount.module.css'
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { checkValidToken } from '../../middleware/checkValidToken';
+import Error403 from "../Error403/error403";
 
 
 //TODO -- resume page of all user data
 
 export default function UserAccount() {
     const [outlet, setOutlet] = useState(false)
+    const { id } = useParams()
 
     useEffect(() => {
         setOutlet(true)
     }, [])
 
     return (
-        < div className={style.container} >
-            <div className={style.menu}>
-                <UserAccountMenu />
-            </div>
-            {outlet ?
-                <div className={style.content}>
-                    <Outlet />
+        <>
+            {checkValidToken(id) ? <>
+                <div className={style.container} >
+                    <div className={style.menu}>
+                        <UserAccountMenu />
+                    </div>
+                    {outlet ?
+                        <div className={style.content}>
+                            <Outlet />
+                        </div>
+                        :
+                        <div>
+                        </div>}
                 </div>
-                :
-                <div>
-                    <p>hola</p>
-                    <p>hola</p>
-                    <p>hola</p>
-                </div>}
-
-
-        </div>
+            </> : <Error403 />}
+        </>
 
     )
 }

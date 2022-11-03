@@ -7,20 +7,32 @@ const headers = {
     'Content-Type': 'application/json'
 }
 
+const getHeaders = () => {
+    const token = localStorage.getItem('token')
+    console.log(token)
+    return {
+        headers: {
+            "Authorization": `Bearer: ${token}`
+        }
+    }
+}
+
 export async function getUserData(userId) {
     let response
-    const requestParams = { params: { id: userId } }
+    const requestParams = { ...getHeaders(), ...{ params: { id: userId } } }
     try {
         response = await axios.get(`${baseUrl}/users/${userId}/data`, requestParams)
     } catch (err) {
         console.log('Error', err.message)
+        response = err.response
     }
+    console.log(response)
     return response ? response.data : {}
 }
 
 export async function getUserAddresses(userId) {
     let response
-    const requestParams = { params: { id: userId } }
+    const requestParams = { ...getHeaders(), ...{ params: { id: userId } } }
     try {
         response = await axios.get(`${baseUrl}/users/${userId}/addresses`, requestParams)
     } catch (err) {
@@ -31,7 +43,7 @@ export async function getUserAddresses(userId) {
 
 export async function getUserOrders(userId) {
     let response
-    const requestParams = { params: { id: userId } }
+    const requestParams = { ...getHeaders(), ...{ params: { id: userId } } }
     try {
         response = await axios.get(`${baseUrl}/users/${userId}/orders`, requestParams)
     } catch (err) {
@@ -42,7 +54,7 @@ export async function getUserOrders(userId) {
 
 export async function getOrder(userId, orderId) {
     let response
-    const requestParams = { params: { id: userId, orderid: orderId } }
+    const requestParams = { ...getHeaders(), ...{ params: { id: userId, orderid: orderId } } }
     try {
         response = await axios.get(`${baseUrl}/users/${userId}/orders/${orderId}`, requestParams)
     } catch (err) {
@@ -53,7 +65,7 @@ export async function getOrder(userId, orderId) {
 
 export async function getOrdersBy(status, userId) {
     let response
-    const requestParams = { params: { status: status, id: userId } }
+    const requestParams = { ...getHeaders(), ...{ params: { status: status, id: userId } } }
     try {
         response = await axios.get(`${baseUrl}/users/${userId}/orders/status/${status}`, requestParams)
     } catch (err) {
@@ -72,8 +84,8 @@ export async function updateUserAccountData(userId, userName, surname, identific
             email: email,
             phone: phone,
         }
-        const requestParams = { params: { id: userId } }
-        await axios.put(`${baseUrl}/users/${userId}/data`, body, requestParams, { headers })
+        const requestParams = { ...getHeaders(), ...{ params: { id: userId } } }
+        await axios.put(`${baseUrl}/users/${userId}/data`, body, requestParams)
         return true
     } catch (err) {
         console.log('Error', err)
@@ -88,9 +100,9 @@ export async function updateUserAccountPassword(userId, password, newPassword, r
             newPassword,
             repeatNew,
         }
-        const requestParams = { params: { id: userId } }
+        const requestParams = { ...getHeaders(), ...{ params: { id: userId } } }
 
-        await axios.put(`${baseUrl}/users/${userId}/password`, body, requestParams, { headers })
+        await axios.put(`${baseUrl}/users/${userId}/password`, body, requestParams)
         return true
     } catch (err) {
         console.log('Error', err)
@@ -109,9 +121,9 @@ export async function updateUserAccountBillingAddress(userId, userName, surname,
             city,
             country
         }
-        const requestParams = { params: { id: userId } }
+        const requestParams = { ...getHeaders(), ...{ params: { id: userId } } }
 
-        await axios.put(`${baseUrl}/users/${userId}/billing`, body, requestParams, { headers })
+        await axios.put(`${baseUrl}/users/${userId}/billing`, body, requestParams)
         return true
     } catch (err) {
         console.log('Error', err)
@@ -130,8 +142,8 @@ export async function updateUserAccountShippingAddress(addressId, userName, surn
             city,
             country
         }
-        const requestParams = { params: { userid: userId, addressid: addressId } }
-        await axios.put(`${baseUrl}/users/${userId}/addresses/${addressId}`, body, requestParams, { headers })
+        const requestParams = { ...getHeaders(), ...{ params: { userid: userId, addressid: addressId } } }
+        await axios.put(`${baseUrl}/users/${userId}/addresses/${addressId}`, body, requestParams)
         return true
     } catch (err) {
         console.log('Error', err)
@@ -150,8 +162,8 @@ export async function newShippingAddress(id, userName, surname, address, postalZ
             country,
             defaultAddress
         }
-        const requestParams = { params: { id: id } }
-        await axios.post(`${baseUrl}/users/${id}/addresses/new`, body, requestParams, { headers })
+        const requestParams = { ...getHeaders(), ...{ params: { id: id } } }
+        await axios.post(`${baseUrl}/users/${id}/addresses/new`, body, requestParams)
         return true
     } catch (err) {
         console.log('Error', err)
@@ -161,7 +173,7 @@ export async function newShippingAddress(id, userName, surname, address, postalZ
 
 export async function deleteAddress(addressId, userId) {
     try {
-        const requestParams = { params: { params: { id: userId, addressId: addressId } } }
+        const requestParams = { ...getHeaders(), ...{ params: { params: { id: userId, addressId: addressId } } } }
         await axios.delete(`${baseUrl}/users/${userId}/addresses/${addressId}`, requestParams, { headers })
         return true
     } catch (err) {
@@ -173,7 +185,7 @@ export async function deleteAddress(addressId, userId) {
 export async function getUserWishlist(userId) {
     let response
     try {
-        const requestParams = { params: { id: userId } }
+        const requestParams = { ...getHeaders(), ...{ params: { id: userId } } }
         response = await axios.get(`${baseUrl}/users/${userId}/wishlist`, requestParams)
     } catch (err) {
         console.log('Error', err)
@@ -184,8 +196,8 @@ export async function getUserWishlist(userId) {
 export async function deleteProductFromWishlist(userId, productId) {
     let response
     try {
-        const requestParams = { params: { id: userId, productId: productId } }
-        response = await axios.delete(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, { headers })
+        const requestParams = { ...getHeaders(), ...{ params: { id: userId, productId: productId } } }
+        response = await axios.delete(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams,)
     } catch (err) {
         console.log('Error', err)
         response = err.response
@@ -197,11 +209,14 @@ export async function addProductToWishlist(userId, productId) {
     let response
     try {
         const requestParams = {
-            params:
-                { id: userId, productId: productId, }
+            ...getHeaders(),
+            ...{
+                params:
+                    { id: userId, productId: productId, }
+            }
         }
         const body = {}
-        response = await axios.put(`${baseUrl}/users/${userId}/wishlist/${productId}`, requestParams, body, { headers })
+        response = await axios.put(`${baseUrl}/users/${userId}/wishlist/${productId}`, body, requestParams)
     } catch (err) {
         console.log('Error', err)
         response = err.response
@@ -213,7 +228,10 @@ export async function getUserReviews(userId) {
     let response
     try {
         const requestParams = {
-            params: { id: userId }
+            ...getHeaders(),
+            ...{
+                params: { id: userId }
+            }
         }
         response = await axios.get(`${baseUrl}/users/${userId}/reviews`, requestParams)
 
@@ -228,9 +246,12 @@ export async function getReviewBy(userId, reviewId) {
     let response
     try {
         const requestParams = {
-            params: {
-                userId: userId,
-                reviewId: reviewId
+            ...getHeaders(),
+            ...{
+                params: {
+                    userId: userId,
+                    reviewId: reviewId
+                }
             }
         }
         response = await axios.get(`${baseUrl}/users/${userId}/reviews/${reviewId}`, requestParams)
@@ -245,8 +266,11 @@ export async function addUserReview(productId, productName, userId, rating, comm
     let response
     try {
         const requestParams = {
-            params: {
-                userId: userId
+            ...getHeaders(),
+            ...{
+                params: {
+                    userId: userId
+                }
             }
         }
         const body = {
@@ -268,9 +292,12 @@ export async function updateUserReview(userId, reviewId, productId, rating, comm
     let response
     try {
         const requestParams = {
-            params: {
-                userId: userId,
-                reviewId: reviewId
+            ...getHeaders(),
+            ...{
+                params: {
+                    userId: userId,
+                    reviewId: reviewId
+                }
             }
         }
         const body = {

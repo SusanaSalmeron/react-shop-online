@@ -51,6 +51,7 @@ function App() {
                 <Route path="/:productType" element={<MakeupProductList />} />
                 <Route path="/search/:keyword" element={<MakeupProductList />} />
                 <Route path="/product/:id" element={<ProductDescription />} />
+                < Route path="account" element={<Navigate to="/home" />} />
                 <Route path="account/:id" element={<UserAccount />} >
                   <Route index element={<UserAccountOverview />} />
                   <Route path="data" element={<UserAccountData />} />

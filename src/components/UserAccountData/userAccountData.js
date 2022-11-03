@@ -24,8 +24,6 @@ export default function UserAccountData() {
         const dataUpdated = await updateUserAccountData(id, userName, surname, identification, dateOfBirth, email, phone)
         if (dataUpdated) {
             await popUpAlert('center', 'success', 'Your data has beeen updated', false, 2000)
-            console.log("LKKKKK")
-            console.log(navigate)
             navigate(`/account/${id}`)
         } else {
             popUpAlert('center', 'error', 'There is something wrong...', false, 2000)
