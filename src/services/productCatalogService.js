@@ -57,3 +57,15 @@ export async function getAllNewProducts() {
     }
     return response ? response.data : []
 }
+
+export async function getAllReviews(id) {
+    let response
+
+    try {
+        response = await axios.get(`${baseUrl}/products/${id}/reviews`)
+
+    } catch (err) {
+        console.log('Error', err.message)
+    }
+    return response ? response.data : []
+}

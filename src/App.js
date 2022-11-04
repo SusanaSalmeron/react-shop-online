@@ -27,6 +27,7 @@ import NewAddressForm from './components/NewAddressForm/newAddressForm';
 import MyReviewsList from './components/MyReviewsList/myReviewsList';
 import CreateMyReview from './components/CreateMyReview/createMyReview';
 import UpdateMyReview from './components/UpdateMyReview/updateMyReview';
+import ReviewsFromProduct from './components/ReviewsFromProduct/reviewsFromProduct';
 
 
 function App() {
@@ -51,7 +52,7 @@ function App() {
                 <Route path="/:productType" element={<MakeupProductList />} />
                 <Route path="/search/:keyword" element={<MakeupProductList />} />
                 <Route path="/product/:id" element={<ProductDescription />} />
-                < Route path="account" element={<Navigate to="/home" />} />
+                <Route path="account" element={<Navigate to="/home" />} />
                 <Route path="account/:id" element={<UserAccount />} >
                   <Route index element={<UserAccountOverview />} />
                   <Route path="data" element={<UserAccountData />} />

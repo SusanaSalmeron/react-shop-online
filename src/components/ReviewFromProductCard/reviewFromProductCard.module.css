@@ -1,0 +1,15 @@
+.review {
+    width: 95%;
+    margin: 0 0 3em 1em;
+    padding: 1em;
+    border-style: dotted;
+    border-color: #A46BF5;
+}
+
+.review i {
+    color: #A46BF5;
+}
+
+.review p {
+    font-weight: bold;
+}

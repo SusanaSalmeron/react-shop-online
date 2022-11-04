@@ -6,6 +6,7 @@ import Spinner from "../Spinner/spinner";
 import SpinnerContext from "../../context/SpinnerContext";
 import { addProductToWishlist } from "../../services/userAccountService";
 import { popUpAlert } from '../../utils/popUpAlert'
+import ReviewsFromProduct from "../ReviewsFromProduct/reviewsFromProduct";
 
 
 export default function ProductDescription() {
@@ -66,6 +67,7 @@ export default function ProductDescription() {
                             name="add"
                             onClick={handleAddProduct}
                         >Add to my wishlist</button>
+                        <ReviewsFromProduct />
                     </div>
 
                 </div>
@@ -74,6 +76,7 @@ export default function ProductDescription() {
                         <img src={showProduct.api_featured_image} alt={showProduct.name} />
                     </figure>
                 </div>
+
             </div>
         </div>
     )
