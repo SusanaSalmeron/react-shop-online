@@ -38,7 +38,8 @@ export default function MyReviewsList() {
                                 className={`tab ${checkActive(1, "active")}`}
                                 onClick={() => handleClick(1)}
                             >
-                                <i className="fa-solid fa-magnifying-glass"></i>
+                                <i className="fa-solid fa-magnifying-glass"
+                                    name="review"></i>
                             </button>
                             <button
                                 className={`tab ${checkActive(2, "active")}`}

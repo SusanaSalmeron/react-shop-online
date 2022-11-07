@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import MyReviewsList from "../components/MyReviewsList/myReviewsList";
 
 const mockedNavigate = jest.fn()
@@ -30,8 +30,6 @@ describe('MyReviewsList', () => {
 
         const buttons = await screen.findAllByRole('button')
         expect(buttons).toHaveLength(4)
-        expect(buttons[0]).toHaveAccessibleName("MY REVIEWS")
-        expect(buttons[1]).toHaveAccessibleName("PENDING REVIEWS")
         expect(buttons[2]).toHaveAccessibleName("UPDATE")
         expect(buttons[3]).toHaveAccessibleName("REVIEW")
         expect(mockedGetUserReviews).toHaveBeenCalledWith(2)

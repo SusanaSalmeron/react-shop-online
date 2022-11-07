@@ -6,7 +6,7 @@ import { getAllReviews } from '../../services/productCatalogService';
 import { useParams } from 'react-router-dom';
 
 
-ReactModal.setAppElement('#root');
+/* ReactModal.setAppElement('#root'); */
 
 
 export default function ReviewsFromProductModal() {
@@ -33,6 +33,7 @@ export default function ReviewsFromProductModal() {
                 <ReactModal
                     isOpen={isOpen}
                     onRequestClose={toggleModal}
+                    ariaHideApp={false}
                     contentLabel="Reviews"
                     className='reviews'
                 >
