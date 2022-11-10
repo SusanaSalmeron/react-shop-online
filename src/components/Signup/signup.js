@@ -3,6 +3,7 @@ import ReactModal from 'react-modal';
 import { useState } from "react";
 import './signup.css';
 import SignupForm from '../SignupForm/signupForm';
+import Login from "../Login/login";
 
 
 ReactModal.setAppElement('#root');
@@ -38,7 +39,8 @@ export default function Signup() {
                     toggleModal={toggleModal} />
 
                 <div className="login">
-                    <p>Have an account?<button onClick={handleNavigate} >Log in</button></p>
+                    <p>Have an account?</p>
+                    <Login />
                 </div>
             </ReactModal >
         </div >

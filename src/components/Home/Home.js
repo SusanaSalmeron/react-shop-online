@@ -1,5 +1,6 @@
 import CarouselShop from "../Carousel/Carousel"
 import NewProductList from "../NewProductList/newProductList"
+import WhyBuyBanner from "../WhyBuyBanner/whyBuyBanner"
 import style from './home.module.css'
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
         <div className={style.container}>
             <CarouselShop />
             <NewProductList />
+            <WhyBuyBanner />
         </div>
     )
 }

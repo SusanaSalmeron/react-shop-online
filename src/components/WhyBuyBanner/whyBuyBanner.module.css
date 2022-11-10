@@ -1,3 +1,53 @@
+.container {
+    width: 100%;
+    height: 10em;
+    background-color: rgb(248, 241, 251);
+    text-align: center;
+    margin-bottom: 2em;
+    border: 1px, solic rgb(233, 229, 233)
+}
+
+.container h3 {
+    padding: 1em 0;
+    border-bottom: 0.3px solid rgb(102, 102, 102);
+    color: rgb(154, 118, 169);
+}
+
+.container:last-child {
+    padding-bottom: 1em;
+}
+
+.list ul li:nth-child(2) {
+    padding-right: 7em;
+
+}
+
+.list ul {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    gap: 1em;
+    font-size: 1.3em;
+}
+
+.list button {
+    background-color: transparent;
+    border: none;
+    color: rgb(154, 118, 169);
+    font-weight: bold;
+}
+
+.list li {
+    padding-bottom: 1em;
+    width: 25%;
+}
+
+.list ul i {
+    font-size: 5em;
+    margin-right: 0.1em;
+    color: rgb(154, 118, 169);
+}
+
 .close h2 {
     color: black;
     text-transform: uppercase;
@@ -25,40 +75,25 @@
     font-size: 1.5em;
 }
 
-.mymodal {
+.modal {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -45%);
     border: 1px solid #ccc;
-    background-image: url('../../images/login.jpg');
+    background-color: rgb(248, 241, 251);
     overflow: auto;
     border-radius: 4px;
     outline: none;
     padding: 20px;
-    width: 500px;
-    height: 650px;
+    width: 800px;
+    height: 200px;
 }
 
-.signup {
-    width: 100%;
-    margin-top: 3em;
-    text-align: center;
-}
 
-.signup button {
-    border-style: none;
-    color: black;
-    cursor: pointer;
-    background-color: transparent;
-    font-size: inherit;
-    text-decoration: underline;
-    color: #A46BF5;
-    font-weight: 800;
-}
 
 @media(max-width: 576px) {
-    .mymodal {
+    .modal {
         width: 400px;
         height: 550px;
         background-position: bottom;
@@ -66,7 +101,7 @@
 }
 
 @media(max-width: 480px) {
-    .mymodal {
+    .modal {
         width: 350px;
         height: 500px;
         background-position: bottom;

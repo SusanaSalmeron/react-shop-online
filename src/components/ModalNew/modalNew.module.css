@@ -1,0 +1,49 @@
+.close h3,
+.close p {
+    color: rgb(154, 118, 169);
+    margin-left: 2em;
+}
+
+.close p {
+    font-weight: bold;
+}
+
+.close button {
+    position: fixed;
+    top: -1.3em;
+    right: 1em;
+    margin: 2em auto;
+    background: #A46BF5;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    color: #000;
+    cursor: pointer;
+    padding: 0.3em 0.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: box-shadow .15s, transform .15s;
+    font-size: 1.5em;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    border: 3px solid #9a76a9;
+    background-color: rgb(248, 241, 251);
+    overflow: auto;
+    border-radius: 4px;
+    border: 3px solid 154, 118, 169;
+    outline: none;
+    padding: 20px;
+    width: 800px;
+    height: 200px;
+}
+
+.modal i {
+    font-size: 3em;
+    margin-right: 0.1em;
+    color: rgb(154, 118, 169);
+}

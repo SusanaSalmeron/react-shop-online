@@ -38,7 +38,7 @@ export default function ReviewsFromProductModal() {
                     className='reviews'
                 >
                     <div className="closereviews">
-                        <h2>See what people think about</h2>
+                        <h2>What customers are saying...</h2>
                         <button onClick={toggleModal}>X</button>
                     </div>
                     {reviews.length > 0 ? reviews.map(r =>

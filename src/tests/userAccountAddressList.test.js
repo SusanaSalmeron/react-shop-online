@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import UserAccountAddressList from "../components/UserAccountAddressList/UserAccountAddressList";
+import UserAccountAddressList from '../components/UserAccountAddressList/userAccountAddressList'
 import UpdateAddressContext from "../context/UpdateAddressContext";
 import userEvent from '@testing-library/user-event';
 

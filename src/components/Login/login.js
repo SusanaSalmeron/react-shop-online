@@ -5,6 +5,7 @@ import './login.css';
 import LoginForm from "../LoginForm/loginForm";
 import { userLogin } from "../../services/userAccountService";
 import { popUpAlert } from "../../utils/popUpAlert";
+import Signup from "../Signup/signup";
 
 
 ReactModal.setAppElement('#root');
@@ -13,12 +14,6 @@ ReactModal.setAppElement('#root');
 export default function Login({ setLoggedIn }) {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate()
-
-
-    const handleNavigate = () => {
-        navigate('/signup')
-        toggleModal()
-    }
 
     const toggleModal = () => {
         setIsOpen(!isOpen)
@@ -57,7 +52,8 @@ export default function Login({ setLoggedIn }) {
                         submitLogin={submitLogin}
                     />
                     <div className="signup">
-                        <p>Already have an account?<button onClick={handleNavigate} >Sign up</button></p>
+                        <p>Already have an account?</p>
+                        <Signup />
                     </div>
                 </ReactModal >
             </div >
