@@ -27,8 +27,6 @@ import NewAddressForm from './components/NewAddressForm/newAddressForm';
 import MyReviewsList from './components/MyReviewsList/myReviewsList';
 import CreateMyReview from './components/CreateMyReview/createMyReview';
 import UpdateMyReview from './components/UpdateMyReview/updateMyReview';
-import ReviewsFromProduct from './components/ReviewsFromProduct/reviewsFromProduct';
-
 
 function App() {
   /* const isDesktop = useMedia('(min-width: 993px)') */

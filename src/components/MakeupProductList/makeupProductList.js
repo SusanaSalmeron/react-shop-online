@@ -17,7 +17,8 @@ export default function MakeupProductsList() {
     const [loading, setLoading] = useState(true)
     const { setSpinnerDisplay } = useContext(SpinnerContext)
 
-    const PER_PAGE = 10
+
+    const PER_PAGE = 20
     const offset = currentPage * PER_PAGE;
     const currentPageData = showProducts
         .slice(offset, offset + PER_PAGE)
@@ -25,6 +26,7 @@ export default function MakeupProductsList() {
 
 
     useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
         if (keyword) {
             setShowSearch([])
             getAllProductsFromSearch(keyword)
@@ -46,7 +48,8 @@ export default function MakeupProductsList() {
     }, [productType, keyword, setSpinnerDisplay])
 
     function handlePageClick({ selected: selectedPage }) {
-        setCurrentPage(selectedPage);
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+        setCurrentPage(selectedPage)
     }
 
     return (
