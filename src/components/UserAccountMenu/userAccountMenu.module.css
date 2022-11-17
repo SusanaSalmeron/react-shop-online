@@ -32,14 +32,3 @@
 .submenu li {
     margin: 1em 0 1em 2em;
 }
-
-.button {
-    width: 100%;
-    display: inline-block;
-}
-
-.button button {
-    width: 7em;
-    margin: 2em 10em;
-
-}

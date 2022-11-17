@@ -7,7 +7,9 @@ export default function CarouselShop() {
 
     return (
         <div className={'container'}>
-            {isDesktop ? <Carousel autoPlay={true} infiniteLoop={true} centerMode={true} centerSlidePercentage={65} showThumbs={false}>
+            {isDesktop ? <Carousel autoPlay={true} infiniteLoop={true} centerMode={true} centerSlidePercentage={65}
+                showThumbs={false}
+            >
                 <div >
                     <img src="https://images.pexels.com/photos/7691166/pexels-photo-7691166.jpeg?cs=srgb&dl=pexels-roman-odintsov-7691166.jpg&fm=jpg" alt="Image1" />
                 </div >

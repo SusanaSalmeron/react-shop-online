@@ -1,0 +1,18 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(2, 3fr);
+}
+
+.content:nth-child(3),
+.content:last-child {
+    margin-top: -3em;
+}
+
+.content img {
+    width: 98%;
+}
+
+.content button {
+    width: 20%;
+}

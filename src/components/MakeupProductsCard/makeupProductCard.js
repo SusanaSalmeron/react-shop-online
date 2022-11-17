@@ -25,7 +25,7 @@ export default function MakeupProductCard({ productData }) {
             }
             setLike(!like)
         } else {
-            popUpAlert('center', 'info', 'You must be log in to add any product to your wishlist', true, 3000)
+            popUpAlert('center', 'warning', 'You must be log in to add any product to your wishlist', true, 3000)
         }
     }
 
@@ -62,7 +62,7 @@ export default function MakeupProductCard({ productData }) {
                     <img src={productData.api_featured_image} alt={productData.brand} />
                 </figure>
                 <div className={style.bottom}>
-                    <p>{productData.price} $</p>
+                    <p className={productData.price === "0.0" || productData.price === null ? style.soldout : null}>{productData.price !== "0.0" && productData.price !== null ? productData.price + "€" : "SOLD OUT"}</p>
                     <button >
                         <i className="fa-solid fa-cart-shopping"></i>
                     </button>

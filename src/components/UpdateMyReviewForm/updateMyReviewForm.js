@@ -22,7 +22,6 @@ export default function UpdateMyReviewForm() {
     const submitForm = async (values) => {
         const { rating, comment } = values
         const reviewIsUpdated = await updateUserReview(userId, reviewId, review.productId, rating, comment)
-        console.log(reviewIsUpdated)
         if (reviewIsUpdated) {
             await popUpAlert("center", "success", "Review created successfully", false, 2000)
             navigate(-1)
@@ -40,7 +39,6 @@ export default function UpdateMyReviewForm() {
 
     return (
         <div className={style.form}>
-            {console.log(userId)}
             <Formik
                 enableReinitialize={true}
                 initialValues={initialValues}

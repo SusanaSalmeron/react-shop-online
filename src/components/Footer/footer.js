@@ -2,6 +2,8 @@ import style from './footer.module.css';
 import logo2 from "../../images/logo2.png";
 import useMedia from '../../hooks/useMedia';
 import { Link } from 'react-router-dom';
+import cards from '../../images/cards.png'
+
 
 
 export default function Footer() {
@@ -48,8 +50,12 @@ export default function Footer() {
                     <h3>Receive essential news and updates, before everyone else</h3>
                     <form>
                         <input placeholder='Subscribe'></input>
-                        <button>subscribe</button>
+                        <button>subscribe!</button>
                     </form>
+                    <figure>
+                        <img src={cards} alt='visa and mastercard logo'></img>
+
+                    </figure>
                 </div>
             </div> : <div className={style.container}>
                 <figure className={style.logo}>
@@ -91,6 +97,9 @@ export default function Footer() {
                         <input placeholder='Subscribe to our bulletin'></input>
                         <button>subscribe</button>
                     </form>
+                    <figure>
+                        <img src={cards} alt='visa and mastercard logo'></img>
+                    </figure>
                 </div>
             </div>}
         </div >

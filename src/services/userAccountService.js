@@ -9,7 +9,6 @@ const headers = {
 
 const getHeaders = () => {
     const token = localStorage.getItem('token')
-    console.log(token)
     return {
         headers: {
             "Authorization": `Bearer: ${token}`
@@ -26,7 +25,6 @@ export async function getUserData(userId) {
         console.log('Error', err.message)
         response = err.response
     }
-    console.log(response)
     return response ? response.data : {}
 }
 
@@ -238,7 +236,6 @@ export async function getUserReviews(userId) {
     } catch (err) {
         console.log('Error', err)
     }
-    console.log(response)
     return response ? response.data : {}
 }
 

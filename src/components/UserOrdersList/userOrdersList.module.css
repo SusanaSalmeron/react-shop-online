@@ -12,3 +12,7 @@
     padding-top: 4em;
     min-height: 52vh;
 }
+
+.hide {
+    display: none;
+}

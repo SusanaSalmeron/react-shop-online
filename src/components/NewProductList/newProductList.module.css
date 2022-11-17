@@ -2,16 +2,94 @@
     margin: 3em 1em;
     min-height: 50vh;
     width: 98%;
+    cursor: pointer;
 }
 
 .container h2 {
     text-align: center;
-    margin-bottom: 2em;
+    margin: 3em auto;
 }
 
-.figure {
-    display: grid;
-    grid-template-columns: repeat(8, 2fr);
-    width: 96%;
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.buttons button {
+    border: none;
+    background-color: transparent;
+    font-size: 2em;
+}
+
+.buttons button:last-child {
+    border: none;
+    background-color: transparent;
+    font-size: 2em;
+}
+
+.img img {
+    width: 60%;
+    margin-left: 2em;
+}
+
+.img:hover img {
+    filter: grayscale(1);
+}
+
+.img p {
+    margin-left: 2em;
+}
+
+.img p:nth-child(2) {
+    font-weight: bold;
+
+}
+
+.img p:nth-child(4) {
+    font-weight: bold;
+}
+
+.img button {
+    margin-left: 1em;
+    background: #A46BF5;
+    border: 0;
+    border-radius: 15px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    color: #000;
+    cursor: pointer;
+    width: 75%;
+    height: 3em;
+    padding: 0 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: box-shadow .15s, transform .15s;
+    font-size: 1.2em;
+}
+
+.img button:focus,
+.close button:focus {
+    box-shadow: #a188b3 0 0 0 1.5px inset, rgba(148, 123, 236, 0.4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+}
+
+.img button:hover,
+.close button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.img button:active,
+.close button:active {
+    box-shadow: #6086af 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.dot {
+    display: flex;
     justify-content: center;
+    margin-top: 1em
+}
+
+.dot button {
+    margin-left: 0.1em;
 }

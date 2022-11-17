@@ -33,7 +33,10 @@ export default function ProductDescription() {
     const handleAddProduct = async (e) => {
         const userId = localStorage.getItem('id')
         const productAdded = await addProductToWishlist(userId, id)
-        if (productAdded) {
+        if (!userId) {
+            await popUpAlert('center', 'warning', 'You must be log in to add products to your wishlist', true, 2000)
+        }
+        else if (userId && productAdded) {
             await popUpAlert('center', 'success', 'Your product has been addded to your wishlist', false, 2000)
         } else {
             await popUpAlert('center', 'error', 'Your product is already in your wishlist', false, 2000)

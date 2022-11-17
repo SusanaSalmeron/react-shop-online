@@ -7,3 +7,7 @@
     text-transform: uppercase;
     margin-bottom: 2em;
 }
+
+.hide {
+    display: none;
+}

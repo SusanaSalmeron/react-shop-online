@@ -12,7 +12,6 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     margin-left: 2em;
-
 }
 
 .logo {
@@ -26,7 +25,7 @@
 }
 
 .links {
-    grid-column: 2 /4;
+    grid-column: 2/4;
 }
 
 .links ul li {
@@ -45,12 +44,10 @@
 }
 
 .subscribe {
-    grid-column: 4 / 7;
-
+    grid-column: 4/7;
 }
 
 .subscribe input {
-    margin-top: 2em;
     height: 2em;
     width: 30%;
     border-radius: 5px;
@@ -76,6 +73,17 @@
     text-transform: uppercase;
     background-color: transparent;
 }
+
+.subscribe figure {
+    width: 50%;
+}
+
+.subscribe figure img {
+    width: 50%;
+    height: 1%;
+    margin: 1em 0 0 -2.5em;
+}
+
 
 @media(max-width:1200px) {
 

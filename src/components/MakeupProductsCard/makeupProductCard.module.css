@@ -76,6 +76,10 @@
     display: none;
 }
 
+.soldout {
+    color: red;
+}
+
 @media(max-width: 1200px) {
     .productCard {
         width: 25%;

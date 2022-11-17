@@ -20,7 +20,6 @@ export default function SearchBar() {
     const handleSearch = (e) => {
         e.preventDefault()
         setKeyword(keyword.trim().toLowerCase())
-        console.log(keyword)
         navigate(`/search/${keyword}`)
     }
 

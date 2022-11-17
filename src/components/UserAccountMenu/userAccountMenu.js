@@ -62,10 +62,6 @@ export default function UserAccountMenu() {
                     </Link>
                 </li>
             </ul>
-            <div className={style.button}>
-                <button>LOG OUT</button>
-            </div>
-
         </aside>
     )
 }

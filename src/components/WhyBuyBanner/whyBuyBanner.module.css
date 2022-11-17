@@ -46,6 +46,7 @@
     font-size: 5em;
     margin-right: 0.1em;
     color: rgb(154, 118, 169);
+    cursor: pointer;
 }
 
 .close h2 {

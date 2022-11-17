@@ -15,7 +15,6 @@ export default function SignupForm({ toggleModal }) {
             onSubmit={async (values) => {
                 const { email, password, repeatPassword } = values
                 const signupResponse = await userSignup(email, password, repeatPassword)
-                console.log(signupResponse)
                 if (signupResponse.status === 201) {
                     await popUpAlert('center', 'success', 'You are now registered', false, 2000)
                 } else if (signupResponse.status === 400) {

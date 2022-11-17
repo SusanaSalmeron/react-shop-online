@@ -34,7 +34,7 @@ export default function UserOrdersInprocess() {
                             key={i}
 
                         />
-                    }) : <h3>You don't have any order yet</h3>
+                    }) : <h3 className={loading ? style.hide : null}>You don't have any order yet</h3>
                 }
             </div>
         </div>
