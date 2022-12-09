@@ -2,7 +2,7 @@ import UserAccountMenu from "../UserAccountMenu/userAccountMenu";
 import style from './userAccount.module.css'
 import { Outlet, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { checkValidToken } from '../../middleware/checkValidToken';
+import { checkValidToken } from '../../services/tokenService';
 import Error403 from "../Error403/error403";
 
 

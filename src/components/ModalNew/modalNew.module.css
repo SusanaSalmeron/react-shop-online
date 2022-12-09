@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .close h3,
 .close p {
     color: rgb(154, 118, 169);
     margin-left: 2em;
+
+}
+
+.close h3 {
+    font-family: 'Calistoga';
 }
 
 .close p {

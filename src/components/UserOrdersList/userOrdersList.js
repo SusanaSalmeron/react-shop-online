@@ -31,7 +31,7 @@ export default function UserOrdersList() {
                         data={o}
                         key={i}
                     />
-                }) : <h3 className={loading ? style.hide : null}>You don't have any order yet</h3>
+                }) : <h3 className={loading ? style.hide : style.info}>You don't have any order yet</h3>
                 }
             </div>
         </div>

@@ -27,6 +27,8 @@ import NewAddressForm from './components/NewAddressForm/newAddressForm';
 import MyReviewsList from './components/MyReviewsList/myReviewsList';
 import CreateMyReview from './components/CreateMyReview/createMyReview';
 import UpdateMyReview from './components/UpdateMyReview/updateMyReview';
+import NewMakeupProductsList from './components/NewMakeupProductList/newMakeupProductList';
+import Error403 from './components/Error403/error403';
 
 function App() {
   /* const isDesktop = useMedia('(min-width: 993px)') */
@@ -48,6 +50,7 @@ function App() {
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/:productType" element={<MakeupProductList />} />
+                <Route path="/New" element={<NewMakeupProductsList />} />
                 <Route path="/search/:keyword" element={<MakeupProductList />} />
                 <Route path="/product/:id" element={<ProductDescription />} />
                 <Route path="account" element={<Navigate to="/home" />} />
@@ -67,6 +70,7 @@ function App() {
                 </Route>
                 <Route path="/products/:productId/review" element={<CreateMyReview />} />
                 <Route path="/products/:productId/reviews/:reviewId" element={<UpdateMyReview />} />
+                <Route path="/error403" element={<Error403 />} />
               </Routes>
             </UpdateAddressContextProvider>
           </SpinnerContextProvider>

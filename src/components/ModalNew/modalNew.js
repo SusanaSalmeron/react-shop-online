@@ -24,7 +24,7 @@ export default function ModalNew() {
                 className={style.modal}                    >
                 <div className={style.close}>
                     <h3><i className="fa-solid fa-face-grin-stars" />NEW PRODUCTS</h3>
-                    <p>The last releases and new products always first on Makeup Store</p>
+                    <p>The last releases and new products always first on Beauty Store</p>
                     <button onClick={toggleModal}>X</button>
                 </div>
             </ReactModal>

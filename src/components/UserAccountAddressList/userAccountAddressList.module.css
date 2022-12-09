@@ -1,5 +1,7 @@
 .container h3 {
     text-transform: uppercase;
+    font-family: 'Calistoga';
+    font-weight: 300;
 }
 
 .address button {

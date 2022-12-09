@@ -6,14 +6,17 @@ import LoginForm from "../LoginForm/loginForm";
 import { userLogin } from "../../services/userAccountService";
 import { popUpAlert } from "../../utils/popUpAlert";
 import Signup from "../Signup/signup";
+import { useDispatch } from "react-redux";
+import { login } from '../../features/loginState'
 
 
 ReactModal.setAppElement('#root');
 
 
-export default function Login({ setLoggedIn }) {
+export default function Login() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const toggleModal = () => {
         setIsOpen(!isOpen)
@@ -26,13 +29,12 @@ export default function Login({ setLoggedIn }) {
             localStorage.setItem('id', id)
             await popUpAlert('center', 'success', 'You are log in', false, 2000)
             navigate(`/account/${id}/address`)
-            setLoggedIn(true)
+            dispatch(login())
         } else {
             await popUpAlert('center', 'error', 'Email and/or password invalid', false, 2000)
         }
         toggleModal()
     }
-
 
     return (
         <>

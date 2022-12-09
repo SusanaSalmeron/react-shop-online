@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import ReactModal from 'react-modal';
 import { useState } from "react";
 import './signup.css';
@@ -11,12 +10,6 @@ ReactModal.setAppElement('#root');
 
 export default function Signup() {
     const [isOpen, setIsOpen] = useState(false);
-    const navigate = useNavigate()
-
-    const handleNavigate = () => {
-        navigate('/about')
-        toggleModal()
-    }
 
     const toggleModal = () => {
         setIsOpen(!isOpen)

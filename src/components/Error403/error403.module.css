@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .error {
     margin-top: 23em;
-    height: 36.3vh;
+    height: 40.4vh;
     width: 100%;
 }
 
 .error h1,
 .error h3 {
     text-align: center;
+    font-family: 'Calistoga';
 }
 
 .error button {

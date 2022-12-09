@@ -11,10 +11,13 @@ jest.mock('react-router-dom', () => ({
         keyword: 'Natasha'
     })
 }))
+window.scrollTo = jest.fn()
 
 describe('MakeupProductList', () => {
     const productCatalogService = require('../services/productCatalogService')
     const wishlistService = require('../services/wishlistService')
+
+
     test('renders a list of products when have a keyword', async () => {
         const mockedGetAllProductsFromSearch = jest.spyOn(productCatalogService, 'getAllProductsFromSearch').mockResolvedValue([{
             id: 1,
@@ -44,5 +47,6 @@ describe('MakeupProductList', () => {
         expect(mockedGetAllProductsFromSearch).toHaveBeenCalledWith('Natasha')
         const button = await screen.findAllByRole('button')
         expect(button).toHaveLength(4)
+        expect(window.scrollTo).toBeCalledWith({ top: 0, left: 0, behavior: "smooth" })
     })
 })

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .container {
-    height: 74.3vh;
+    height: 78.5vh;
 }
 
 .count {
@@ -12,6 +14,7 @@
     text-transform: uppercase;
     padding-top: 2em;
     margin-top: 3em;
+    font-family: 'Calistoga';
 }
 
 

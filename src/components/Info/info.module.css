@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .container {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
     grid-template-rows: repeat(2, 3fr);
 }
+
+.content h3 {
+    font-family: 'Calistoga';
+}
+
 
 .content:nth-child(3),
 .content:last-child {

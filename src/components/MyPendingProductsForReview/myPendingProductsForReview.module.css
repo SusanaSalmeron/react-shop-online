@@ -10,6 +10,11 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
+.pending h3 {
+    font-family: 'Calistoga';
+    font-weight: 300;
+}
+
 .button {
     margin: 0 auto;
     background: #A46BF5;

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .container {
     margin: 3em 1em;
     min-height: 50vh;
@@ -8,6 +10,8 @@
 .container h2 {
     text-align: center;
     margin: 3em auto;
+    text-transform: uppercase;
+    font-family: 'Calistoga'
 }
 
 .buttons {
@@ -87,9 +91,22 @@
 .dot {
     display: flex;
     justify-content: center;
-    margin-top: 1em
+    margin-top: 2em;
 }
 
 .dot button {
-    margin-left: 0.1em;
+    margin-left: 0.4em;
+    border-radius: 50%;
+    border: 0.1px solid rgb(206, 203, 203);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width: 1em;
+    height: 1em;
+}
+
+.dot button:hover {
+    background-color: rgb(93, 87, 87)
+}
+
+.dot button:focus {
+    background-color: #A46BF5;
 }

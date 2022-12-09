@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .container {
     width: 98%;
 }
 
 .container h2 {
     text-align: center;
+    font-family: 'Calistoga';
+}
+
+.container h3 {
+    font-family: 'Calistoga';
+    font-weight: 300;
 }
 
 .data,

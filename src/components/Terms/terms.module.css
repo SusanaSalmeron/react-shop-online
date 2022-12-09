@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .button {
     display: flex;
     justify-content: flex-end;
@@ -16,7 +18,10 @@
     text-align: justify;
 }
 
-.container h1 {
+.container h1,
+.container h2,
+.container h3 {
+    font-family: 'Calistoga';
     text-align: left;
 }
 

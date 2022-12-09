@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .container {
     min-height: 60vh;
     width: 100%;
@@ -9,6 +11,12 @@
 
 .product h2 {
     padding-top: 5em;
+    font-family: 'Calistoga';
+}
+
+.product h3 {
+    font-family: 'Calistoga';
+    font-weight: 300;
 }
 
 .product h4:nth-child(2) {
@@ -114,5 +122,9 @@
 
 .spinner {
     padding-top: 14em;
-    min-height: 52vh;
+    min-height: 57vh;
+}
+
+.soldout {
+    color: red;
 }

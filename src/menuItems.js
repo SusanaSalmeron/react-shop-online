@@ -1,25 +1,6 @@
 export const menuItems = [
     {
-        title: "New products",
-        submenu: [
-            {
-                title: "Skin Care"
-            },
-            {
-                title: "Make up"
-            },
-            {
-                title: "Hair"
-            },
-            {
-                title: "Body"
-            },
-            {
-                title: "Fragances"
-            },
-            {
-                title: "Offers"
-            },]
+        title: "New",
     },
     {
         title: "Brands",
@@ -95,7 +76,7 @@ export const menuItems = [
                 title: "lipstick"
             },
             {
-                title: "Lip liner"
+                title: "Lip_liner"
             }
         ]
     },

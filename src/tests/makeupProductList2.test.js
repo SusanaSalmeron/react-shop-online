@@ -46,6 +46,6 @@ describe('MakeupProductList', () => {
         expect(screen.queryByText('Search Results for: eyeshadow')).not.toBeInTheDocument()
         expect(mockedGetProductsBy).toHaveBeenCalledWith('eyeshadow')
         const button = await screen.findAllByRole('button')
-        expect(button).toHaveLength(4)
+        expect(button).toHaveLength(7)
     })
 })

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .container {
     width: 100%;
     height: 10em;
@@ -11,6 +13,7 @@
     padding: 1em 0;
     border-bottom: 0.3px solid rgb(102, 102, 102);
     color: rgb(154, 118, 169);
+    font-family: 'Calistoga';
 }
 
 .container:last-child {
@@ -43,7 +46,7 @@
 }
 
 .list ul i {
-    font-size: 5em;
+    font-size: 4.5em;
     margin-right: 0.1em;
     color: rgb(154, 118, 169);
     cursor: pointer;
@@ -56,6 +59,7 @@
     top: -0.5em;
     left: 1em;
     margin-bottom: 2em;
+    font-family: 'Calistoga';
 }
 
 .close button {

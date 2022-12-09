@@ -55,7 +55,7 @@ export default function MenuItems({ items, depthLevel }) {
                     />
                 </>
             ) : (
-                <Link to={`/${items.title}`}>{items.title}</Link>
+                <Link to={items.title === 'New' ? '/New' : `/${items.title}`}>{items.title === 'Lip_liner' ? 'Lip Liner' : items.title}</Link>
             )}
         </li>
     );

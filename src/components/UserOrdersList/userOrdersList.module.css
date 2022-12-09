@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .container h2 {
     width: 98%;
     height: 2em;
@@ -6,6 +8,12 @@
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 2em;
+    font-family: 'Calistoga';
+}
+
+.info {
+    font-family: 'Calistoga';
+    color: red
 }
 
 .spinner {

@@ -10,7 +10,7 @@ import ModalPayment from '../ModalPayment/modalPayment';
 export default function WhyBuyBanner() {
     return (
         <div className={style.container}>
-            <h3>WHY BUY IN MAKEUP STORE? </h3>
+            <h3>WHY BUY IN BEAUTY STORE? </h3>
             <div className={style.list}>
                 <ul>
                     <ModalNew />

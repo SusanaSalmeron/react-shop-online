@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .review h1 {
     font-size: x-large;
     text-decoration: underline;
+}
+
+.review h1 .review h3,
+.review h4 {
+    font-family: 'Calistoga';
 }
 
 .review p {

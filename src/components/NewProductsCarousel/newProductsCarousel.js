@@ -3,9 +3,9 @@ import { getAllNewProducts } from "../../services/productCatalogService";
 import { useNavigate } from "react-router-dom";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import style from './newProductList.module.css'
+import style from './newProductsCarousel.module.css'
 
-export default function NewProductsList() {
+export default function NewProductsCarousel() {
     const [showNewProducts, setShowNewProducts] = useState([])
     const navigate = useNavigate()
 
@@ -32,11 +32,11 @@ export default function NewProductsList() {
                 visibleSlides={4}
                 step={3}
                 infinite={true}
-
             >
                 <Slider>
                     {showNewProducts.map((p, i) =>
                         <Slide
+                            key={i}
                             index={i}
                             onBlur={true}
                             className={style.img}

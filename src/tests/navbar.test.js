@@ -23,8 +23,8 @@ describe('Navbar', () => {
             </Router>
         )
         expect(await screen.findByRole('navigation')).toHaveClass('navbar')
-        expect(await screen.findAllByRole('list')).toHaveLength(6)
-        expect(await screen.findAllByRole('listitem')).toHaveLength(30)
+        expect(await screen.findAllByRole('list')).toHaveLength(5)
+        expect(await screen.findAllByRole('listitem')).toHaveLength(24)
         expect(screen.getByRole('textbox')).toBeInTheDocument()
     })
 })

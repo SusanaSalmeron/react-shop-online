@@ -52,7 +52,7 @@ export default function ProductDescription() {
                 <div className={style.data}>
                     <h2>{showProduct.name}</h2>
                     <h4>Brand: {showProduct.brand}</h4>
-                    <h4>{showProduct.price} €</h4>
+                    <h4 className={showProduct.price === "0.0" || showProduct.price === null ? style.soldout : null}>{showProduct.price !== "0.0" && showProduct.price !== null ? showProduct.price : "SOLD OUT"} €</h4>
                     <p>{showProduct.description}</p>
                     <h3>Choose your colour:</h3>
                     <div className={style.colours_container}>

@@ -2,7 +2,6 @@ import { render, screen, waitFor } from "@testing-library/react"
 import ProductDescription from "../components/ProductsDescription/productDescription"
 import SpinnerContext from "../context/SpinnerContext";
 import userEvent from '@testing-library/user-event'
-import ReactModal from "react-modal";
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
@@ -77,7 +76,7 @@ describe('ProductsDescription', () => {
             expect(mockedAddProductToWishlist).toHaveBeenCalled()
         })
         await waitFor(() => {
-            expect(mockedPopUpAlert).toHaveBeenCalledWith('center', 'success', 'Your product has been addded to your wishlist', false, 2000)
+            expect(mockedPopUpAlert).toHaveBeenCalledWith('center', 'warning', 'You must be log in to add products to your wishlist', true, 2000)
         })
         expect(await screen.findByAltText('Biba Palette')).toBeInTheDocument()
     })
