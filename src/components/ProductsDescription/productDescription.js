@@ -7,6 +7,9 @@ import SpinnerContext from "../../context/SpinnerContext";
 import { addProductToWishlist } from "../../services/userAccountService";
 import { popUpAlert } from '../../utils/popUpAlert'
 import ReviewsFromProduct from "../ReviewsFromProduct/reviewsFromProduct";
+import { useDispatch, useSelector } from "react-redux";
+import { checkTokenExpiration } from "../../services/tokenService";
+import { logout } from "../../features/loginState";
 
 
 export default function ProductDescription() {
@@ -15,6 +18,9 @@ export default function ProductDescription() {
     const { id } = useParams()
     const [loading, setLoading] = useState(true)
     const { setSpinnerDisplay } = useContext(SpinnerContext)
+    const [colorSelected, setColorSelected] = useState(null)
+    const loginState = useSelector((state) => state.loginState.value)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         setShowProduct([])
@@ -28,20 +34,32 @@ export default function ProductDescription() {
             })
         setLoading(true)
         setSpinnerDisplay(false)
-    }, [id, setSpinnerDisplay])
+    }, [id, setSpinnerDisplay, loginState])
 
-    const handleAddProduct = async (e) => {
+    const handleCart = async (e) => {
+        //TODO -- call service to add producto to cart
+        alert('miau')
+    }
+
+    const handleWishlist = async (e) => {
         const userId = localStorage.getItem('id')
         const productAdded = await addProductToWishlist(userId, id)
-        if (!userId) {
+        const isTokenExpired = checkTokenExpiration()
+        if (!userId || isTokenExpired) {
             await popUpAlert('center', 'warning', 'You must be log in to add products to your wishlist', true, 2000)
-        }
-        else if (userId && productAdded) {
+            dispatch(logout())
+        } else if (userId && productAdded && !isTokenExpired) {
             await popUpAlert('center', 'success', 'Your product has been addded to your wishlist', false, 2000)
         } else {
             await popUpAlert('center', 'error', 'Your product is already in your wishlist', false, 2000)
         }
     }
+
+    const handleClick = (e) => {
+        setColorSelected(e.target.textContent)
+    }
+
+
 
     return (
         <div className={style.container}>
@@ -57,18 +75,27 @@ export default function ProductDescription() {
                     <h3>Choose your colour:</h3>
                     <div className={style.colours_container}>
                         {productColors.map(p => {
-                            return <div
-                                style={{ backgroundColor: p.hex_value }} key={`${showProduct.id}${p.colour_name}`} className={style.colours}>
+                            return <button
+                                style={{ backgroundColor: p.hex_value }}
+                                key={`${showProduct.id}${p.colour_name}`}
+                                className={style.colours}
+                                onClick={handleClick}
+                            >
+
                                 <span className={style.tooltip}>{p.colour_name}</span>
-                            </div>
+                            </button>
                         })}
                     </div>
                     <div className={style.buttons}>
-                        <button>BUY</button>
+                        <button
+                            id={showProduct.id}
+                            name="buy"
+                            onClick={handleCart}
+                        >BUY</button>
                         <button
                             id={showProduct.id}
                             name="add"
-                            onClick={handleAddProduct}
+                            onClick={handleWishlist}
                         >Add to my wishlist</button>
                         <ReviewsFromProduct />
                     </div>

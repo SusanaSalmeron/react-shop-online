@@ -29,7 +29,7 @@ export default function LoginAndSigninButtons() {
                 localStorage.removeItem('token')
                 localStorage.removeItem('id')
                 dispatch(logout())
-                navigate('/error')
+                navigate('/error403')
             }
         } else {
             dispatch(logout())
@@ -48,7 +48,7 @@ export default function LoginAndSigninButtons() {
                     /><Signup /></> : <><LogoutButton /><AccountButton /></>}
                     <NavigateButton
                         className={style.cart}
-                        route={'/products/1065/reviews'}
+                        route={'/cart'}
                         name={'cart'}
                         label={<i className="fa-solid fa-cart-shopping" />}
                     />

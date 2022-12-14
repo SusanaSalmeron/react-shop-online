@@ -21,7 +21,7 @@
     color: rgb(176, 36, 36);
 }
 
-.fav button {
+.fav {
     border: none;
     background-color: transparent;
     font-size: 1.3em;
@@ -37,7 +37,7 @@
     display: inline-block;
     width: 100%;
     height: 4em;
-    margin: 0 1em;
+    margin: 1em;
     text-align: center;
     text-transform: capitalize;
     margin-bottom: 0;
@@ -58,8 +58,8 @@
 }
 
 .bottom p {
-    display: block;
-    width: 50%;
+    display: inline-block;
+    width: 100%;
     height: 2em;
     text-align: center;
 }
@@ -67,13 +67,20 @@
 .bottom {
     display: flex;
     justify-content: center;
+    width: 100%;
+    align-items: center;
 }
 
-.bottom button {
-    margin: 0 2em 1em 2em;
+.fav button {
+    margin: 0 4em 1em 4em;
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.fav button i {
+    padding-bottom: 0.5em;
+    font-size: 2em;
 }
 
 .hide {
