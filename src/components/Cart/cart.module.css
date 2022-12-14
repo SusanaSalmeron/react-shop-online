@@ -1,0 +1,74 @@
+.container {
+    height: 62.5vh;
+    width: 100%;
+    margin: 10em 0 0 2em;
+}
+
+.container h3 {
+    margin: 0 0 3em 9em;
+}
+
+.shopping,
+.tags {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 16fr 3fr 1fr;
+    width: 82%;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
+}
+
+.container:nth-child(1) {
+    border-bottom: 1px solid red;
+}
+
+.shopping button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    margin-right: 1em;
+
+}
+
+.tags {
+    background-color: rgb(249, 249, 250);
+    padding: 1em 0;
+}
+
+.tag {
+    margin-left: 1em;
+
+}
+
+.content {
+    margin-left: 1em;
+    padding: 2em 0;
+}
+
+
+.total {
+    margin-top: 3em;
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    grid-template-areas:
+        "0 0 a b b b"
+        "0 0 c d d d"
+
+}
+
+.totalcontent {
+    grid-area: a;
+}
+
+.price {
+    grid-area: b;
+}
+
+.notation {
+    display: inline-block;
+    grid-area: c;
+    font-size: small
+}
