@@ -1,74 +1,92 @@
 .container {
-    height: 62.5vh;
+    min-height: 62.6vh;
     width: 100%;
     margin: 10em 0 0 2em;
 }
 
 .container h3 {
-    margin: 0 0 3em 9em;
+    margin: 0 0 3em 8em;
+    padding-top: 1em;
 }
 
-.shopping,
-.tags {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 16fr 3fr 1fr;
+.data {
+    width: 100%;
+}
+
+.empty {
+    text-align: center;
     width: 82%;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-
+    font-size: 1.5em;
 }
 
-.container:nth-child(1) {
-    border-bottom: 1px solid red;
-}
-
-.shopping button {
-    background-color: transparent;
-    border: none;
-    color: red;
-    cursor: pointer;
-    margin-right: 1em;
-
-}
-
-.tags {
-    background-color: rgb(249, 249, 250);
-    padding: 1em 0;
-}
-
-.tag {
-    margin-left: 1em;
-
-}
-
-.content {
+.empty h4 {
     margin-left: 1em;
     padding: 2em 0;
 }
 
-
 .total {
+    width: 93%;
     margin-top: 3em;
     display: grid;
-    grid-template-columns: 3fr 2fr 2fr 1fr;
-    grid-template-areas:
-        "0 0 a b b b"
-        "0 0 c d d d"
-
+    grid-template-columns: 13fr 3fr 3fr 1fr;
 }
 
 .totalcontent {
-    grid-area: a;
+    grid-column: 2/5;
 }
 
 .price {
-    grid-area: b;
+    grid-column: 3/5;
+    font-size: 2em;
+    text-align: right;
 }
 
 .notation {
+    grid-column: 2/5;
     display: inline-block;
-    grid-area: c;
-    font-size: small
+    font-size: small;
+    margin-bottom: 2em;
+}
+
+.buttons {
+    display: flex;
+    margin: 0 auto;
+    width: 82%;
+}
+
+.buttons button {
+    margin: 3em auto;
+    background: #A46BF5;
+    border: 0;
+    border-radius: 15px;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    color: #000;
+    cursor: pointer;
+    width: 20%;
+    height: 3em;
+    padding: 0 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: box-shadow .15s, transform .15s;
+    font-size: 1.2em;
+}
+
+.buttons button:focus {
+    box-shadow: #a188b3 0 0 0 1.5px inset, rgba(148, 123, 236, 0.4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+}
+
+.buttons button:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #a188b3 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.buttons button:active {
+    box-shadow: #6086af 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+hr {
+    width: 77%;
+    float: right;
+    margin-right: 5%;
 }

@@ -90,7 +90,6 @@ export default function MakeupProductsList() {
                         activeClassName={style.active}
                         pageClassName={style.page}
                         breakClassName={style.break}
-
                     />}
             </div>}
         </>

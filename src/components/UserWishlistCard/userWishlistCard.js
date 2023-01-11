@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import ModalSelectProductColorColor from '../ModalSelectColor/modalSelectProductColor';
 import style from './userWishlistCard.module.css';
 
 
@@ -8,7 +9,6 @@ export default function UserWishlistCard({ data, deleteHandleClick }) {
     const handleClick = () => {
         navigate(`/product/${data.id}`)
     }
-
 
     return (
         <div className={style.container}>
@@ -30,14 +30,8 @@ export default function UserWishlistCard({ data, deleteHandleClick }) {
                         className="fa-solid fa-eye"
                     />
                 </button>
-                <button
-                    className={style.cart}
-                    name="cart"
-                >
-                    <i
-                        className="fa-solid fa-cart-shopping"
-                    />
-                </button>
+                <ModalSelectProductColorColor
+                    item={data} />
                 <button
                     id={data.id}
                     name="delete"

@@ -30,6 +30,8 @@ import UpdateMyReview from './components/UpdateMyReview/updateMyReview';
 import NewMakeupProductsList from './components/NewMakeupProductList/newMakeupProductList';
 import Error403 from './components/Error403/error403';
 import Cart from './components/Cart/cart';
+import CheckoutAddress from './components/CheckoutAddress/checkoutAddress';
+
 
 function App() {
   /* const isDesktop = useMedia('(min-width: 993px)') */
@@ -74,6 +76,7 @@ function App() {
                 <Route path="/error403" element={<Error403 />} />
                 <Route path="cart" element={<Cart />} />
                 <Route path=":id/cart" element={<Cart />} />
+                <Route path=":id/cart/address" element={<CheckoutAddress />} />
               </Routes>
             </UpdateAddressContextProvider>
           </SpinnerContextProvider>

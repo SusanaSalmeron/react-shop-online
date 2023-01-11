@@ -17,6 +17,16 @@ export default function LoginAndSigninButtons() {
     const loginState = useSelector((state) => state.loginState.value)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const cart = useSelector((state) => state.cartManagement.value)
+    const id = localStorage.getItem('id')
+
+    const getTotalQuantity = () => {
+        let total = 0
+        cart.forEach(item => {
+            total += item.quantity
+        })
+        return total
+    }
 
 
     useEffect(() => {
@@ -48,10 +58,11 @@ export default function LoginAndSigninButtons() {
                     /><Signup /></> : <><LogoutButton /><AccountButton /></>}
                     <NavigateButton
                         className={style.cart}
-                        route={'/cart'}
+                        route={loginState ? `/${id}/cart` : '/cart'}
                         name={'cart'}
                         label={<i className="fa-solid fa-cart-shopping" />}
                     />
+                    <div className={style.quantity}>{getTotalQuantity() || 0}</div>
                 </div>
             </div >
         </>

@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SubmitButton from "../SubmitButton/submitButton";
 import style from './newAddressForm.module.css';
 import { newShippingAddress } from "../../services/userAccountService";
@@ -7,9 +7,8 @@ import { popUpAlert } from "../../utils/popUpAlert";
 import ValidationFormForUserNewAddress from "../../middleware/validationForUserNewAddress";
 
 
-export default function NewAddressForm() {
+export default function NewAddressForm({ setUpdateAddress }) {
     const { id } = useParams()
-    const navigate = useNavigate()
     const initialValues = {
         userName: "",
         surname: "",
@@ -21,12 +20,13 @@ export default function NewAddressForm() {
     }
 
 
-    const handleSubmit = async (values) => {
+    const handleSubmit = async (values, { resetForm }) => {
         const { userName, surname, address, postalZip, city, country, defaultAddress } = values
         const newAddress = await newShippingAddress(id, userName, surname, address, postalZip, city, country, defaultAddress)
         if (newAddress) {
             await popUpAlert("center", "success", "Address created successfully", false, 2000)
-            navigate(`/account/${id}/address`)
+            resetForm({ values: "" })
+            setUpdateAddress(true)
         } else {
             popUpAlert("center", "error", "Address not created", false, 2000)
         }

@@ -1,0 +1,29 @@
+.shopping {
+    display: flex;
+
+}
+
+.content {
+    margin-top: 1em;
+    width: 70%;
+    margin-bottom: 2em;
+}
+
+.content span {
+    display: block;
+    width: 10em;
+    margin-left: 5em;
+    font-style: italic;
+}
+
+.quantity {
+    width: 12%;
+    text-align: center;
+}
+
+.price {
+    width: 12%;
+    padding: 1em 1em 0 0;
+    margin-left: 1em;
+    text-align: right;
+}

@@ -1,0 +1,46 @@
+.container {
+    margin-top: 7em;
+    min-height: 85vh;
+}
+
+.addresses {
+    padding-top: 4em;
+    display: flex;
+    justify-content: center;
+    width: 80%
+}
+
+.billing {
+    width: 30%;
+    padding-left: 2em;
+}
+
+.shipping {
+    width: 30%;
+    padding-left: 2em;
+}
+
+.billing p,
+.shipping p {
+    font-size: 1.2em;
+}
+
+.cost {
+    margin-left: 10em;
+}
+
+.payment button,
+.back button {
+    width: 15%;
+    float: left;
+    margin: 0 0 1em 2em
+}
+
+.payment {
+    margin-bottom: 7em
+}
+
+.cart {
+    width: 30%;
+    margin-top: -10em;
+}

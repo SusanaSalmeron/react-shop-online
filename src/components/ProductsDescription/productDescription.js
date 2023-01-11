@@ -10,6 +10,7 @@ import ReviewsFromProduct from "../ReviewsFromProduct/reviewsFromProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { checkTokenExpiration } from "../../services/tokenService";
 import { logout } from "../../features/loginState";
+import { addToCart } from "../../features/cartManagement"
 
 
 export default function ProductDescription() {
@@ -25,7 +26,6 @@ export default function ProductDescription() {
     useEffect(() => {
         setShowProduct([])
         setProductColors([])
-
         getProductById(id)
             .then(response => {
                 setShowProduct(response)
@@ -37,11 +37,23 @@ export default function ProductDescription() {
     }, [id, setSpinnerDisplay, loginState])
 
     const handleCart = async (e) => {
-        //TODO -- call service to add producto to cart
-        alert('miau')
+        const id = e.target.id
+        const brand = showProduct.brand
+        const name = showProduct.name
+        const color = colorSelected
+        const price = showProduct.price
+        const image = showProduct.api_featured_image
+        if (color === null) {
+            await popUpAlert('center', 'error', 'You must choose one color', false, 2000)
+        } else if (price === "0.0" || price === null) {
+            await popUpAlert('center', 'error', 'The item is out of stock', false, 2000)
+        } else {
+            dispatch(addToCart({ id, brand, name, color, price, image }))
+            await popUpAlert('center', 'success', 'Item has been added to your cart', false, 2000)
+        }
     }
 
-    const handleWishlist = async (e) => {
+    const handleWishlist = async () => {
         const userId = localStorage.getItem('id')
         const productAdded = await addProductToWishlist(userId, id)
         const isTokenExpired = checkTokenExpiration()
@@ -58,8 +70,6 @@ export default function ProductDescription() {
     const handleClick = (e) => {
         setColorSelected(e.target.textContent)
     }
-
-
 
     return (
         <div className={style.container}>

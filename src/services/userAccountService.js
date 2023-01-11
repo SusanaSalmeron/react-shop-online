@@ -172,7 +172,7 @@ export async function newShippingAddress(id, userName, surname, address, postalZ
 export async function deleteAddress(addressId, userId) {
     try {
         const requestParams = { ...getHeaders(), ...{ params: { params: { id: userId, addressId: addressId } } } }
-        await axios.delete(`${baseUrl}/users/${userId}/addresses/${addressId}`, requestParams, { headers })
+        await axios.delete(`${baseUrl}/users/${userId}/addresses/${addressId}`, requestParams)
         return true
     } catch (err) {
         console.log('Error', err)
